@@ -24,7 +24,10 @@
             -#%li= link_to 'Repository Fsck Defences', repository_fsck_defences_path
             -#%li= link_to 'Sidekiq', "/sidekiq", data: { 'no-turbolink' => true }
           %ul.nav.navbar-nav.navbar-right
-            %li= current_user
-
+            - if signed_in?
+              %li.navbar-text= current_user
+              %li= link_to t(:sign_out), session_path, method: :delete
+            - if signed_out?
+              %li= link_to t(:sign_in), new_session_path
     .container
       = yield

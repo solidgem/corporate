@@ -11,6 +11,7 @@ class Web::SessionsController < Web::ApplicationController
       sign_in @user
       redirect_to root_path
     else
+      @user = User.new user_params
       render :new
     end
   end
