@@ -23,7 +23,8 @@
             -#%li= link_to 'Restorations', restorations_path
             -#%li= link_to 'Repository Fsck Defences', repository_fsck_defences_path
             -#%li= link_to 'Sidekiq', "/sidekiq", data: { 'no-turbolink' => true }
-    -#  %ul.nav.navbar-nav.navbar-right
+          %ul.nav.navbar-nav.navbar-right
+            %li= current_user
 
     .container
       = yield
