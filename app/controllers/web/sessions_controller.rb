@@ -2,16 +2,16 @@ class Web::SessionsController < Web::ApplicationController
   skip_authentication except: :destroy
 
   def new
-    @user = User.new
+    @session_form = SessionForm.new
   end
 
   def create
-    @user = User.find_by email: user_params[:email]
-    if @user.try(:authenticate, user_params[:password])
-      sign_in @user
+    @session_form = SessionForm.new session_form_params
+
+    if @session_form.valid?
+      sign_in @session_form.user
       redirect_to root_path
     else
-      @user = User.new user_params
       render :new
     end
   end
@@ -23,7 +23,7 @@ class Web::SessionsController < Web::ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit(:email, :password)
+  def session_form_params
+    params.require(:session_form).permit(:email, :password)
   end
 end
