@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   scope module: :web do
     root to: 'welcome#index'
     resource :session
+
+    namespace :account do
+      resources :invites
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

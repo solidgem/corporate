@@ -20,6 +20,7 @@ gem 'bootstrap-sass'
 gem 'validates'
 
 gem 'simple_form'
+gem 'virtus'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -6,4 +6,8 @@ module AuthenticationTestHelper
   def sign_in(email, password)
     post "/session", user: { email: email, password: password }
   end
+
+  def sign_in_user(user)
+    sign_in user.email, user.password
+  end
 end

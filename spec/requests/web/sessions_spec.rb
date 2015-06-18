@@ -9,11 +9,10 @@ RSpec.describe 'session', type: :request do
   end
 
   context 'create' do
-    let(:password) { generate :password }
-    let(:user) { create :user, password: password }
+    let(:user) { create :user }
 
     it 'sign in user' do
-      post "/session", user: { email: user.email, password: password }
+      post "/session", user: { email: user.email, password: user.password }
       expect(current_user).to eq(user)
       expect(response).to be_redirect
     end
@@ -26,9 +25,8 @@ RSpec.describe 'session', type: :request do
   end
 
   context 'destroy' do
-    let(:password) { generate :password }
-    let(:user) { create :user, password: password }
-    before(:each) { sign_in user.email, password }
+    let(:user) { create :user }
+    before(:each) { sign_in_user user }
 
     it 'not sign in user' do
       delete "/session"
