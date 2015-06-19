@@ -18,7 +18,8 @@
           = link_to 'Corporate', root_path, class: 'navbar-brand'
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
-            -#%li= link_to 'Targets', targets_path
+            - if signed_in?
+              %li= link_to 'Tasks', tasks_path
             -#%li= link_to 'Backups', backups_path
             -#%li= link_to 'Restorations', restorations_path
             -#%li= link_to 'Repository Fsck Defences', repository_fsck_defences_path

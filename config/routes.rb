@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     root to: 'welcome#index'
     resource :session
 
+    resources :tasks
     namespace :account do
       resources :invites
     end

@@ -1,0 +1,22 @@
+%h1.page-header Tasks
+
+= link_to 'New', new_task_path, class: 'btn btn-default'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link @q, :id
+      %th= sort_link @q, :title
+      %th= sort_link @q, :creator_email
+      %th= sort_link @q, :created_at
+      %th= sort_link @q, :updated_at
+  %tbody
+    - @tasks.each do |task|
+      %tr
+        %td= task.id
+        %td= task.title
+        %td= task.creator
+        %td= task.created_at
+        %td= task.updated_at
+
+= paginate @tasks, theme: 'twitter-bootstrap-3'
