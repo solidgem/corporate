@@ -11,6 +11,7 @@
       %th= han :task, :users
       %th= sort_link @q, :created_at
       %th= sort_link @q, :updated_at
+      %th= t :operations
   %tbody
     - @tasks.each do |task|
       %tr
@@ -20,5 +21,9 @@
         %td= task.users.map(&:to_s).join(', ')
         %td= task.created_at
         %td= task.updated_at
+        %td
+          - if task.creator == current_user
+            = link_to t(:edit), edit_task_path(task)
+            = link_to t(:delete), task_path(task), method: :delete, data: { confirm: t(:are_you_sure?) }
 
 = paginate @tasks, theme: 'twitter-bootstrap-3'
