@@ -8,6 +8,7 @@
       %th= sort_link @q, :id
       %th= sort_link @q, :title
       %th= sort_link @q, :creator_email
+      %th= han :task, :users
       %th= sort_link @q, :created_at
       %th= sort_link @q, :updated_at
   %tbody
@@ -16,6 +17,7 @@
         %td= task.id
         %td= task.title
         %td= task.creator
+        %td= task.users.map(&:to_s).join(', ')
         %td= task.created_at
         %td= task.updated_at
 
