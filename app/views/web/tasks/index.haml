@@ -5,7 +5,6 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= sort_link @q, :id
       %th= sort_link @q, :title
       %th= sort_link @q, :creator_email
       %th= han :task, :users
@@ -15,8 +14,7 @@
   %tbody
     - @tasks.each do |task|
       %tr
-        %td= task.id
-        %td= task.title
+        %td= link_to task.title, task
         %td= task.creator
         %td= task.users.map(&:to_s).join(', ')
         %td= task.created_at

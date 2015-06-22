@@ -1,3 +1,15 @@
 %h1= @task.title
 
 != @task.description
+
+
+%hr
+
+- @task.comments.each do |comment|
+  %div
+    = comment.content
+    = comment.elapsed_time
+    = comment.user
+  %hr
+
+= render 'web/tasks/comments/form', comment: @task.comments.build, url: task_comments_path(@task), method_name: :post

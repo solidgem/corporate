@@ -3,6 +3,7 @@ class Task < ActiveRecord::Base
 
   has_many :task_participations
   has_many :users, through: :task_participations
+  has_many :comments
 
   validates :title, presence: true
   validates :creator, presence: true

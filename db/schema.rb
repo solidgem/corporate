@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622072525) do
+ActiveRecord::Schema.define(version: 20150622102909) do
+
+  create_table "task_comments", force: :cascade do |t|
+    t.integer  "task_id"
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "elapsed_time"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "task_participations", force: :cascade do |t|
     t.integer  "user_id"
