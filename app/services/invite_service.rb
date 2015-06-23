@@ -10,9 +10,6 @@ module InviteService
       u.password = SecureRandom.urlsafe_base64 6
       u.inviter = inviter
     end
-
-    #TODO: send email
-
-    user
+    InvitationMailer.invitation_email(user).deliver_now
   end
 end

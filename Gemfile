@@ -22,6 +22,8 @@ gem 'validates'
 gem 'simple_form'
 gem 'virtus'
 
+gem 'figaro'
+
 gem 'responders'
 gem 'ransack'
 gem 'kaminari'
