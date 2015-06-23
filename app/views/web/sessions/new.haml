@@ -1,6 +1,5 @@
 - @session_form.errors[:base].each do |error|
-  %div
-    %p{class: 'bg-danger error-message'}= error
+  %p.bg-danger.error-message= error
 = simple_form_for @session_form, url: session_path do |f|
   = f.input :email
   = f.input :password
