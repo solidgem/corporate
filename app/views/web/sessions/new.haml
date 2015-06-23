@@ -1,4 +1,6 @@
-= simple_form_for @session_form, url: session_path, html: { class: 'form-horizontal' } do |f|
+- @session_form.errors[:base].each do |error|
+  %p.bg-danger.error-message= error
+= simple_form_for @session_form, url: session_path do |f|
   = f.input :email
   = f.input :password
   = f.submit

@@ -1,0 +1,3 @@
+Вам дан доступ к системе <%= Figaro.env.site_name %>.<br />
+Ваш логин: <%= @user.email %>. Ваш пароль: <%= @user.password %><br />
+<%= link_to 'Войти в систему', Figaro.env.root_url %>

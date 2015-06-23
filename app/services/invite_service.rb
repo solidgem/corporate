@@ -11,8 +11,7 @@ module InviteService
       u.inviter = inviter
     end
 
-    #TODO: send email
-
+    InvitationMailer.invitation_email(user).deliver_now
     user
   end
 end
