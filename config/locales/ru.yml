@@ -4,12 +4,6 @@ ru:
   mail_invite_subject: Приглашение
   sign_in: Войти
   sign_out: Выйти
-
-  title: Название
-  email: Почта
-  users: Пользователи
-  created_at: Создано
-  updated_at: Обновлено
   operations: Действия
   edit: Редактировать
   delete: Удалить
@@ -39,8 +33,10 @@ ru:
       blank: Поле не может быть пустым
       email : Неправильный формат почты
       wrong_email_or_password: Логин или пароль неверный
+      already_invited: Пользователь уже приглашен
   helpers:
     submit:
+      create: Сохранить
       session_form:
         create: Войти
       invite_form:

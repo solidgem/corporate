@@ -10,6 +10,8 @@ module InviteService
       u.password = SecureRandom.urlsafe_base64 6
       u.inviter = inviter
     end
+
     InvitationMailer.invitation_email(user).deliver_now
+    user
   end
 end
