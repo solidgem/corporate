@@ -12,6 +12,6 @@ class Web::Tasks::CommentsController < Web::Tasks::ApplicationController
   private
 
   def comment_params
-    params.require(:task_comment).permit(:content, :elapsed_time)
+    params.require(:task_comment).permit(:content, :elapsed_time, :elapsed_time_hours, :elapsed_time_minutes)
   end
 end
