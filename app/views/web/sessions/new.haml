@@ -2,3 +2,5 @@
   = f.input :email
   = f.input :password
   = f.submit
+  - @session_form.errors[:base].each do |error|
+    = error

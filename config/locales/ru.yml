@@ -1,4 +1,47 @@
 ru:
   are_you_sure?: Вы уверены?
   password: Пароль
-  invite: Приглашение
+  mail_invite_subject: Приглашение
+  sign_in: Войти
+  sign_out: Выйти
+
+  title: Название
+  email: Почта
+  users: Пользователи
+  created_at: Создано
+  updated_at: Обновлено
+  operations: Действия
+  edit: Редактировать
+  delete: Удалить
+
+  activerecord:
+    attributes:
+      task:
+        users: Пользователи
+        title: Название
+        description: Описание
+        created_at: Создано
+        updated_at: Обновленно
+      user:
+        email: Почта
+      task/comment:
+        content: Содержание
+        elapsed_time: Затраченное время
+
+  activemodel:
+    attributes:
+      session_form:
+        email: Почта
+        password: Пароль
+
+  errors:
+    messages:
+      blank: Поле не может быть пустым
+      email : Неправильный формат почты
+      wrong_email_or_password: Логин или пароль неверный
+  helpers:
+    submit:
+      session_form:
+        create: Войти
+      invite_form:
+        create: Пригласить
