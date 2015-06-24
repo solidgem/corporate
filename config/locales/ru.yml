@@ -32,7 +32,7 @@ ru:
   errors:
     messages:
       blank: Поле не может быть пустым
-      email : Неправильный формат почты
+      email: Неправильный формат почты
       wrong_email_or_password: Логин или пароль неверный
       already_invited: Пользователь уже приглашен
   helpers:
