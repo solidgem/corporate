@@ -8,6 +8,12 @@ class Task < ActiveRecord::Base
 
   validates :title, presence: true
   validates :creator, presence: true
+  validates :responsible_user, presence: true
+
+  def creator_id=(v)
+    super
+    self.responsible_user_id ||= v
+  end
 
   def to_s
     title
