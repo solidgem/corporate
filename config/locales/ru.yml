@@ -22,6 +22,9 @@ ru:
       task/comment:
         content: Содержание
         elapsed_time: Затраченное время
+        elapsed_time_hours: Часы
+        elapsed_time_minutes: Минуты
+
 
   activemodel:
     attributes:

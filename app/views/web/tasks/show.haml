@@ -10,9 +10,10 @@
     .panel-heading
       %strong= comment.user
       %span.text-muted= localize(comment.created_at, format: :short)
-      -if comment.elapsed_time
-        = "#{t(:elapsed_time)}  #{Time.at(comment.elapsed_time).strftime("%H:%M:%S")}"
+      - if comment.elapsed_time
+        = "#{t(:elapsed_time)}  #{comment.elapsed_time_hours}:#{comment.elapsed_time_minutes}"
     .panel-body
       = comment.content
 
+%h1= t '.new_comment'
 = render 'web/tasks/comments/form', comment: @task.comments.build, url: task_comments_path(@task), method_name: :post
