@@ -2,7 +2,7 @@ class Web::TasksController < Web::ApplicationController
   def index
     @q = Task.search(params[:q])
     @q.sorts = 'id desc' if @q.sorts.empty?
-    @tasks = @q.result.includes(:creator, :users).page(params[:page])
+    @tasks = @q.result.includes(:responsible_user, :users).page(params[:page])
     respond_with @tasks
   end
 
@@ -41,6 +41,6 @@ class Web::TasksController < Web::ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :description, user_ids: [])
+    params.require(:task).permit(:title, :description, :responsible_user_id, user_ids: [])
   end
 end

@@ -25,6 +25,7 @@ ru:
         description: Описание
         created_at: Создано
         updated_at: Обновленно
+        responsible_user: Ответственный
       user:
         email: Почта
         password: Пароль
