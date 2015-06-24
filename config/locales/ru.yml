@@ -7,6 +7,15 @@ ru:
   operations: Действия
   edit: Редактировать
   delete: Удалить
+  tasks: Задачи
+  invite: Пригласить
+
+  web:
+    tasks:
+      index:
+        new_task: Добавить задачу
+      show:
+        new_comment: Добавить комментарий
 
   activerecord:
     attributes:
@@ -18,9 +27,14 @@ ru:
         updated_at: Обновленно
       user:
         email: Почта
+        password: Пароль
+        password_confirmation: Подтверждение пароля
       task/comment:
         content: Содержание
         elapsed_time: Затраченное время
+        elapsed_time_hours: Часы
+        elapsed_time_minutes: Минуты
+
 
   activemodel:
     attributes:
@@ -41,3 +55,7 @@ ru:
         create: Войти
       invite_form:
         create: Пригласить
+      user:
+        update: Сохранить
+
+

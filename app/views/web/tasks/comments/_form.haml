@@ -1,5 +1,11 @@
 = simple_form_for comment, url: url, method: method_name do |f|
   = f.input :content
-  = f.input :elapsed_time_hours, collection: 0.step(to: 24)
-  = f.input :elapsed_time_minutes, collection:  0.step(by: 5, to: 60)
-  = f.submit
+
+  .form-group
+    = f.label :elapsed_time
+    .row
+      .col-sm-1
+        = f.input :elapsed_time_hours, collection: 0.step(to: 24)
+      .col-sm-1
+        = f.input :elapsed_time_minutes, collection:  0.step(by: 5, to: 60)
+  = f.button :submit

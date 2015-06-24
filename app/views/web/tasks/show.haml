@@ -3,13 +3,9 @@
 != @task.description
 
 
+%h1= t '.new_comment'
+= render 'web/tasks/comments/form', comment: @task.comments.build, url: task_comments_path(@task), method_name: :post
+
 %hr
 
-- @task.comments.each do |comment|
-  %div
-    = comment.content
-    = comment.elapsed_time
-    = comment.user
-  %hr
-
-= render 'web/tasks/comments/form', comment: @task.comments.build, url: task_comments_path(@task), method_name: :post
+= render partial: 'comment', collection: @task.comments.ordered

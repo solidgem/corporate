@@ -1,0 +1,10 @@
+.panel.panel-info
+  .panel-heading
+    %strong= comment.user
+    %span.text-muted= l comment.created_at, format: :short
+
+    - if comment.elapsed_time.nonzero?
+      = han 'task/comment', :elapsed_time
+      = distance_of_time_in_words comment.elapsed_time
+  .panel-body
+    = comment.content

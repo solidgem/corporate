@@ -1,6 +1,6 @@
-%h1.page-header Tasks
+%h1.page-header= t :tasks
 
-= link_to 'New', new_task_path, class: 'btn btn-default'
+= link_to (t '.new_task'), new_task_path, class: 'btn btn-default'
 
 %table.table.table-striped
   %thead

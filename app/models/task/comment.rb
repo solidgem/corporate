@@ -6,6 +6,8 @@ class Task::Comment < ActiveRecord::Base
   validates :user, presence: true
   validates :content, presence: true
 
+  scope :ordered, ->{ order(id: :desc) }
+
   def elapsed_time_hours
     elapsed_time.to_i / 1.hour
   end

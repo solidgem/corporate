@@ -19,8 +19,8 @@
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
             - if signed_in?
-              %li= link_to 'Tasks', tasks_path
-              %li= link_to 'Invite', new_account_invite_path
+              %li= link_to (t :tasks), tasks_path
+              %li= link_to (t :invite), new_account_invite_path
             -#%li= link_to 'Backups', backups_path
             -#%li= link_to 'Restorations', restorations_path
             -#%li= link_to 'Repository Fsck Defences', repository_fsck_defences_path
