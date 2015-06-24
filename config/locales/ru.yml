@@ -7,7 +7,14 @@ ru:
   operations: Действия
   edit: Редактировать
   delete: Удалить
-  elapsed_time: Затрачено времени
+
+  web:
+    tasks:
+      index:
+        tasks: Задачи
+        new_task: Добавить задачу
+      show:
+        new_comment: Добавить комментарий
 
   activerecord:
     attributes:
