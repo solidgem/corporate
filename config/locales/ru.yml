@@ -7,6 +7,7 @@ ru:
   operations: Действия
   edit: Редактировать
   delete: Удалить
+  elapsed_time: Затрачено времени
 
   activerecord:
     attributes:
@@ -41,3 +42,4 @@ ru:
         create: Войти
       invite_form:
         create: Пригласить
+
