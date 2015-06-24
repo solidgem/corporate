@@ -7,11 +7,12 @@ ru:
   operations: Действия
   edit: Редактировать
   delete: Удалить
+  tasks: Задачи
+  invite: Пригласить
 
   web:
     tasks:
       index:
-        tasks: Задачи
         new_task: Добавить задачу
       show:
         new_comment: Добавить комментарий
@@ -26,6 +27,8 @@ ru:
         updated_at: Обновленно
       user:
         email: Почта
+        password: Пароль
+        password_confirmation: Подтверждение пароля
       task/comment:
         content: Содержание
         elapsed_time: Затраченное время
@@ -52,4 +55,7 @@ ru:
         create: Войти
       invite_form:
         create: Пригласить
+      user:
+        update: Сохранить
+
 
