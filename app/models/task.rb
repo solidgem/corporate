@@ -10,12 +10,15 @@ class Task < ActiveRecord::Base
   validates :creator, presence: true
   validates :responsible_user, presence: true
 
-  def creator_id=(v)
-    super
-    self.responsible_user_id ||= v
-  end
 
   def to_s
     title
+  end
+
+  private
+
+  def write_attribute(attr_name, value)
+    self.responsible_user_id ||= value if attr_name == 'creator_id'
+    super
   end
 end
