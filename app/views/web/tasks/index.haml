@@ -6,7 +6,7 @@
   %thead
     %tr
       %th= sort_link @q, :title
-      %th= sort_link @q, :creator_email
+      %th= sort_link @q, han('task', :responsible_user)
       %th= han :task, :users
       %th= sort_link @q, :created_at
       %th= sort_link @q, :updated_at
@@ -15,7 +15,7 @@
     - @tasks.each do |task|
       %tr
         %td= link_to task.title, task
-        %td= task.creator
+        %td= task.responsible_user
         %td= task.users.map(&:to_s).join(', ')
         %td= task.created_at
         %td= task.updated_at
