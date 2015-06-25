@@ -1,14 +1,17 @@
 {
-  "name":"corporate",
-  "scripts":{},
-  "env":{
-    "DEPLOY_TASKS": "db:migrate db:seed cache:clear"
+  "name": "corporate",
+  "scripts": {},
+  "env": {
+    "RACK_ENV": { "required": true },
+    "RAILS_ENV": { "required": true },
+    "RAILS_SERVE_STATIC_FILES": { "required": true },
+    "SECRET_KEY_BASE": { "required": true },
+    "DEPLOY_TASKS":  { "required": true }
   },
-  "addons":[],
   "buildpacks": [
-    {
-      "url": "https://github.com/heroku/heroku-buildpack-ruby",
-      "url": "https://github.com/gunpowderlabs/buildpack-ruby-rake-deploy-tasks"
-    }
+    { "url": "https://github.com/ddollar/heroku-buildpack-multi" }
+  ],
+  "addons": [
+    "heroku-postgresql:hobby-dev"
   ]
 }
