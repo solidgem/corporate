@@ -6,9 +6,7 @@
     "RAILS_ENV": { "required": true },
     "RAILS_SERVE_STATIC_FILES": { "required": true },
     "SECRET_KEY_BASE": { "required": true },
-    "DEPLOY_TASKS":  { "required": true },
-    "SENDGRID_PASSWORD":  { "required": true },
-    "SENDGRID_USERNAME":  { "required": true }
+    "DEPLOY_TASKS":  { "required": true }
   },
   "buildpacks": [
     { "url": "https://github.com/ddollar/heroku-buildpack-multi" }
