@@ -3,6 +3,13 @@
   "scripts":{
     "postdeploy": "bundle exec rake db:migrate"
   },
-  "env":{},
-  "addons":[]
+  "env":{
+    "DEPLOY_TASKS": "db:migrate db:seed cache:clear"
+  },
+  "addons":[],
+  "buildpacks": [
+    {
+      "url": "https://github.com/gunpowderlabs/buildpack-ruby-rake-deploy-tasks"
+    }
+  ]
 }
