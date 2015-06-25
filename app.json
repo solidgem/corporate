@@ -6,7 +6,11 @@
     "RAILS_ENV": { "required": true },
     "RAILS_SERVE_STATIC_FILES": { "required": true },
     "SECRET_KEY_BASE": { "required": true },
-    "DEPLOY_TASKS":  { "required": true }
+    "DEPLOY_TASKS":  { "required": true },
+    "mail_sender_address":  { "required": true },
+    "root_url":  { "required": true },
+    "site_name":  { "required": true }
+
   },
   "buildpacks": [
     { "url": "https://github.com/ddollar/heroku-buildpack-multi" }
