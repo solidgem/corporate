@@ -1,6 +1,8 @@
 {
   "name":"corporate",
-  "scripts":{},
+  "scripts":{
+    "postdeploy": "bundle exec rake db:migrate"
+  },
   "env":{},
   "addons":[]
 }
