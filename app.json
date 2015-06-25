@@ -1,8 +1,6 @@
 {
   "name":"corporate",
-  "scripts":{
-    "postdeploy": "bundle exec rake db:migrate"
-  },
+  "scripts":{},
   "env":{
     "DEPLOY_TASKS": "db:migrate db:seed cache:clear"
   },
