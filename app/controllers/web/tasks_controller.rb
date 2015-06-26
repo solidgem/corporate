@@ -39,13 +39,6 @@ class Web::TasksController < Web::ApplicationController
     respond_with @task
   end
 
-  def destroy
-    @task = current_user.created_tasks.find params[:id]
-    authorize @task
-    @task.destroy
-    respond_with @task
-  end
-
   private
 
   def task_params
