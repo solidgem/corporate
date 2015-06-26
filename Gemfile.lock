@@ -253,7 +253,7 @@ DEPENDENCIES
   bootstrap-kaminari-views
   bootstrap-sass
   coffee-rails (~> 4.1.0)
-  counter_culture (~> 0.1.33)
+  counter_culture
   database_cleaner
   dotiw
   factory_girl_rails
