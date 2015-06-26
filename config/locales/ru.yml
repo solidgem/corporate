@@ -17,8 +17,16 @@ ru:
       search_task_form:
         open_search_form: Показать форму поиска
       show:
-        new_comment: Добавить комментарий
         elapsed_time: Затрачено времени
+        created_date: Дата создания
+        total_elapsed_time: Затраченное время
+      comment:
+        created_date: Добавлено
+        elapsed_time: Затрачено времени
+      comments:
+        form:
+          new_comment: Добавить комментарий
+
 
   activerecord:
     attributes:
