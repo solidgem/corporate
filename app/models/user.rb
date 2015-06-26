@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  ROLES = %i[top_manager manager worker].freeze
+  ROLES = %w[top_manager manager worker].freeze
 
   extend Enumerize
 

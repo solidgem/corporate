@@ -47,10 +47,10 @@ ru:
 
   errors:
     messages:
-      blank: Поле не может быть пустым
-      email: Неправильный формат почты
-      wrong_email_or_password: Логин или пароль неверный
-      already_invited: Пользователь уже приглашен
+      blank: поле не может быть пустым
+      email: неправильный формат почты
+      wrong_email_or_password: логин или пароль неверный
+      already_invited: пользователь уже приглашен
   helpers:
     submit:
       create: Сохранить

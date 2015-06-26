@@ -15,7 +15,7 @@ RSpec.describe 'invites', type: :request do
     let(:email) { generate :email }
 
     it 'create user' do
-      post '/account/invites', invite_form: { email: email }
+      post '/account/invites', invite_form: { email: email, role: User::ROLES.first }
 
       expect(response).to be_redirect
     end
