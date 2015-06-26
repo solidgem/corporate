@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(version: 20150626064459) do
     t.string   "title"
     t.text     "description"
     t.integer  "creator_id"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "responsible_user_id"
-    t.integer  "comment_elapsed_time", default: 0, null: false
+    t.integer  "total_elapsed_time",  default: 0, null: false
   end
 
   create_table "users", force: :cascade do |t|

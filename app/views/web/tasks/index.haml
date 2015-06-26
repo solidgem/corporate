@@ -10,7 +10,7 @@
       %th= han :task, :users
       %th= sort_link @q, :created_at
       %th= sort_link @q, :updated_at
-      %th= sort_link @q, :comment_elapsed_time
+      %th= sort_link @q, :total_elapsed_time
       %th= t :operations
   %tbody
     - @tasks.each do |task|
@@ -20,7 +20,7 @@
         %td= task.users.map(&:to_s).join(', ')
         %td= task.created_at
         %td= task.updated_at
-        %td= distance_of_time_in_words task.comment_elapsed_time unless task.comment_elapsed_time.zero?
+        %td= distance_of_time_in_words task.total_elapsed_time if task.total_elapsed_time > 0
         %td
           - if task.creator_id == current_user.id
             = link_to t(:edit), edit_task_path(task)

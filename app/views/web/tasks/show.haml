@@ -2,7 +2,7 @@
 
 != @task.description
 
-%p= "#{t('.elapsed_time')} #{distance_of_time_in_words @task.comment_elapsed_time}" unless @task.comment_elapsed_time.zero?
+%p= "#{t('.elapsed_time')} #{distance_of_time_in_words @task.total_elapsed_time}" if @task.total_elapsed_time > 0
 
 
 %h1= t '.new_comment'

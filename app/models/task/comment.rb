@@ -1,7 +1,7 @@
 class Task::Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :task
-  counter_culture :task, column_name: 'comment_elapsed_time', delta_column: 'elapsed_time'
+  counter_culture :task, column_name: 'total_elapsed_time', delta_column: 'elapsed_time'
 
   validates :task, presence: true
   validates :user, presence: true
