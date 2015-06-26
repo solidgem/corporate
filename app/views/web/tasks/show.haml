@@ -1,7 +1,6 @@
 .panel.panel-success
   .panel-heading
     %h1.panel-title= @task.title
-    -#%span.text-muted= l @task.created_at, format: :short
   .panel-body
     != @task.description
 
