@@ -1,11 +1,18 @@
-%h1= @task.title
+.panel.panel-success
+  .panel-heading
+    %h1.panel-title= @task.title
+  .panel-body
+    != @task.description
 
-!= @task.description
+  %ul.list-group
+    %li.list-group-item
+      %strong= t('.created_date')
+      = l @task.created_at, format: :short
+    - if @task.total_elapsed_time.nonzero?
+      %li.list-group-item
+        %strong= t('.total_elapsed_time')
+        = distance_of_time_in_words @task.total_elapsed_time
 
-
-%h1= t '.new_comment'
 = render 'web/tasks/comments/form', comment: @task.comments.build, url: task_comments_path(@task), method_name: :post
-
-%hr
 
 = render partial: 'comment', collection: @task.comments.ordered

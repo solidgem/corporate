@@ -31,6 +31,7 @@ gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 
 gem 'dotiw'
+gem 'counter_culture'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
