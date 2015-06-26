@@ -15,8 +15,19 @@ ru:
     tasks:
       index:
         new_task: Добавить задачу
+      search_task_form:
+        open_search_form: Показать форму поиска
       show:
-        new_comment: Добавить комментарий
+        elapsed_time: Затрачено времени
+        created_date: Дата создания
+        total_elapsed_time: Затраченное время
+      comment:
+        created_date: Добавлено
+        elapsed_time: Затрачено времени
+      comments:
+        form:
+          new_comment: Добавить комментарий
+
 
   activerecord:
     attributes:
@@ -27,6 +38,7 @@ ru:
         created_at: Создано
         updated_at: Обновленно
         responsible_user: Ответственный
+        total_elapsed_time: Затрачено времени
       user:
         email: Почта
         password: Пароль
@@ -44,7 +56,12 @@ ru:
       session_form:
         email: Почта
         password: Пароль
-
+  simple_form:
+      labels:
+        q:
+          responsible_user_id_eq: Ответственный
+          task_participations_user_id_in: Участники
+          title_or_description_or_comments_content_cont: Поиск по тексту
   errors:
     messages:
       blank: поле не может быть пустым
@@ -54,6 +71,8 @@ ru:
   helpers:
     submit:
       create: Сохранить
+      q:
+        create: Искать
       session_form:
         create: Войти
       invite_form:

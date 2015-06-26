@@ -1,7 +1,7 @@
 %h1.page-header= t :tasks
 
-= link_to (t '.new_task'), new_task_path, class: 'btn btn-default'
-
+= link_to t('.new_task'), new_task_path, class: 'btn btn-default'
+= render 'search_task_form', q: @q
 %table.table.table-striped
   %thead
     %tr
@@ -9,6 +9,7 @@
       %th= sort_link @q, :responsible_user_email, han('task', :responsible_user)
       %th= han :task, :users
       %th= sort_link @q, :updated_at
+      %th= sort_link @q, :total_elapsed_time
       %th= t :operations
   %tbody
     - @tasks.each do |task|
@@ -17,6 +18,7 @@
         %td= task.responsible_user
         %td= task.users.map(&:to_s).join(', ')
         %td= l task.updated_at, format: :long
+        %td= distance_of_time_in_words task.total_elapsed_time if task.total_elapsed_time.nonzero?
         %td
           - if policy(task).edit?
             = link_to t(:edit), edit_task_path(task)
