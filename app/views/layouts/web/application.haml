@@ -18,19 +18,12 @@
           = link_to 'Corporate', root_path, class: 'navbar-brand'
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
-            - if signed_in?
-              %li= link_to (t :tasks), tasks_path
-              - if  policy(:invite).new?
-                %li= link_to (t :invite), new_account_invite_path
-            -#%li= link_to 'Backups', backups_path
-            -#%li= link_to 'Restorations', restorations_path
-            -#%li= link_to 'Repository Fsck Defences', repository_fsck_defences_path
-            -#%li= link_to 'Sidekiq', "/sidekiq", data: { 'no-turbolink' => true }
+            = menu_item :task, :index, t(:tasks), tasks_path
+            = menu_item :user, :index, t(:users), users_path
+            = menu_item :invite, :new, t(:invite), new_account_invite_path
           %ul.nav.navbar-nav.navbar-right
-            - if signed_in?
-              %li= link_to current_user, user_path(current_user)
-              %li= link_to t(:sign_out), session_path, method: :delete
-            - if signed_out?
-              %li= link_to t(:sign_in), new_session_path
+            = menu_item current_user, :show, current_user, user_path(current_user)
+            = menu_item :session, :new, t(:sign_in), new_session_path
+            = menu_item :session, :destroy, t(:sign_out), session_path, method: :delete
     .container
       = yield

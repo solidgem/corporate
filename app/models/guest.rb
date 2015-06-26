@@ -1,4 +1,8 @@
 class Guest
+  def self.policy_class
+    UserPolicy
+  end
+
   User::ROLES.each do |role|
     define_method "#{role}?" do
       false
