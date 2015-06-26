@@ -18,6 +18,7 @@ ru:
         open_search_form: Показать форму поиска
       show:
         new_comment: Добавить комментарий
+        elapsed_time: Затрачено времени
 
   activerecord:
     attributes:

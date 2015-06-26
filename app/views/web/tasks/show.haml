@@ -2,6 +2,8 @@
 
 != @task.description
 
+%p= "#{t('.elapsed_time')} #{distance_of_time_in_words @task.comment_elapsed_time}" unless @task.comment_elapsed_time.zero?
+
 
 %h1= t '.new_comment'
 = render 'web/tasks/comments/form', comment: @task.comments.build, url: task_comments_path(@task), method_name: :post
