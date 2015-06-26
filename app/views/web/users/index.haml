@@ -1,0 +1,18 @@
+%h1.page-header= t :users
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link @q, :email
+      %th= sort_link @q, :role
+      %th= t :operations
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= link_to user.email, user
+        %td= user.role.text
+        %td
+          - if policy(user).edit?
+            = link_to t(:edit), edit_user_path(user)
+
+= paginate @users, theme: 'twitter-bootstrap-3'

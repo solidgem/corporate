@@ -2,14 +2,10 @@ module UserAuthentication
   extend ActiveSupport::Concern
 
   included do
-    helper_method :current_user, :signed_in?, :signed_out?
-    before_action :authenticate!
+    helper_method :current_user
   end
 
   class_methods do
-    def skip_authentication(*args)
-      skip_before_action :authenticate!, *args
-    end
   end
 
   private
@@ -19,23 +15,11 @@ module UserAuthentication
   end
 
   def sign_out
+    @current_user = nil
     session.delete :user_id
   end
 
   def current_user
-    @current_user ||= User.find_by id: session[:user_id]
-  end
-
-  def signed_in?
-    current_user.present?
-  end
-
-  def signed_out?
-    ! signed_in?
-  end
-
-  def authenticate!
-    return if signed_in?
-    redirect_to root_path
+    @current_user ||= User.find_by(id: session[:user_id]) || Guest.new
   end
 end

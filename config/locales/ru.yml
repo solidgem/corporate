@@ -8,6 +8,7 @@ ru:
   edit: Редактировать
   delete: Удалить
   tasks: Задачи
+  users: Пользователи
   invite: Пригласить
 
   web:
@@ -26,34 +27,27 @@ ru:
       comments:
         form:
           new_comment: Добавить комментарий
-
-
+  attributes:
+    created_at: Создано
+    updated_at: Обновлено
+    email: Почта
+    password: Пароль
+    password_confirmation: Подтверждение пароля
+    role: Роль
   activerecord:
     attributes:
       task:
-        users: Пользователи
+        users: Участники
         title: Название
         description: Описание
-        created_at: Создано
-        updated_at: Обновленно
         responsible_user: Ответственный
         total_elapsed_time: Затрачено времени
       user:
-        email: Почта
-        password: Пароль
-        password_confirmation: Подтверждение пароля
       task/comment:
         content: Содержание
         elapsed_time: Затраченное время
         elapsed_time_hours: Часы
         elapsed_time_minutes: Минуты
-
-
-  activemodel:
-    attributes:
-      session_form:
-        email: Почта
-        password: Пароль
   simple_form:
       labels:
         q:
@@ -62,10 +56,10 @@ ru:
           title_or_description_or_comments_content_cont: Поиск по тексту
   errors:
     messages:
-      blank: Поле не может быть пустым
-      email: Неправильный формат почты
-      wrong_email_or_password: Логин или пароль неверный
-      already_invited: Пользователь уже приглашен
+      blank: поле не может быть пустым
+      email: неправильный формат почты
+      wrong_email_or_password: логин или пароль неверный
+      already_invited: пользователь уже приглашен
   helpers:
     submit:
       create: Сохранить
@@ -77,5 +71,11 @@ ru:
         create: Пригласить
       user:
         update: Сохранить
+  enumerize:
+    user:
+      role:
+        top_manager: Топ менеджер
+        manager: Менеджер
+        worker: Исполнитель
 
 

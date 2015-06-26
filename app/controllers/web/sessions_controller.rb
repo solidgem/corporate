@@ -1,11 +1,11 @@
 class Web::SessionsController < Web::ApplicationController
-  skip_authentication except: :destroy
-
   def new
+    authorize :session
     @session_form = SessionForm.new
   end
 
   def create
+    authorize :session
     @session_form = SessionForm.new session_form_params
 
     if @session_form.valid?
@@ -17,6 +17,7 @@ class Web::SessionsController < Web::ApplicationController
   end
 
   def destroy
+    authorize :session
     sign_out
     redirect_to root_path
   end

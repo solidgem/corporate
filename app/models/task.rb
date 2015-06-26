@@ -1,8 +1,10 @@
 class Task < ActiveRecord::Base
+  include TaskRepository
+
   belongs_to :creator, class_name: 'User'
   belongs_to :responsible_user, class_name: 'User'
 
-  has_many :task_participations
+  has_many :task_participations, dependent: :destroy
   has_many :users, through: :task_participations
   has_many :comments
 
@@ -10,6 +12,12 @@ class Task < ActiveRecord::Base
   validates :creator, presence: true
   validates :responsible_user, presence: true
 
+  def member?(user)
+    return true if creator == user
+    return true if responsible_user == user
+    return true if users.include? user
+    false
+  end
 
   def to_s
     title

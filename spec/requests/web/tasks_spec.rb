@@ -50,12 +50,4 @@ RSpec.describe 'session', type: :request do
       expect(response).to be_redirect
     end
   end
-
-  context 'destroy' do
-    it 'success' do
-      delete "/tasks/#{task.id}"
-      expect(Task).not_to be_exists(id: task.id)
-      expect(response).to be_redirect
-    end
-  end
 end

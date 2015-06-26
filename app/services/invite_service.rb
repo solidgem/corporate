@@ -1,16 +1,14 @@
 module InviteService
   extend self
 
-  def perform(form, inviter)
-    email = form.email
+  def perform(attrs, inviter)
+    email = attrs[:email]
     return if User.exists? email: email
 
-    user = User.create! do |u|
-      u.email = email
-      u.password = SecureRandom.urlsafe_base64 6
-      u.inviter = inviter
-    end
+    attrs.merge! password: SecureRandom.urlsafe_base64(6),
+                 inviter: inviter
 
+    user = User.create! attrs
     InvitationMailer.invitation_email(user).deliver_now
     user
   end
