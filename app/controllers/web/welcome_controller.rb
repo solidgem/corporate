@@ -2,6 +2,6 @@ class Web::WelcomeController < Web::ApplicationController
 
   def index
     skip_policy_scope
-    authorize :'web/welcome', :index?
+    authorize :'web/welcome'
   end
 end
