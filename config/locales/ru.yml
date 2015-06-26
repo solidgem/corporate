@@ -29,6 +29,7 @@ ru:
         created_at: Создано
         updated_at: Обновленно
         responsible_user: Ответственный
+        comment_elapsed_time: Затрачено времени
       user:
         email: Почта
         password: Пароль
