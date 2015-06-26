@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  ROLES = %i[top_manager manager worker].freeze
+
+  extend Enumerize
+
   has_secure_password
 
   belongs_to :inviter, class_name: 'User'
@@ -8,6 +12,12 @@ class User < ActiveRecord::Base
   has_many :tasks, through: :task_participations
 
   validates :email, email: true, uniqueness: true
+
+  enumerize :role, in: ROLES, default: :worker
+
+  def guest?
+    false
+  end
 
   def to_s
     email
