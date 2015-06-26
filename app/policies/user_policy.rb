@@ -12,4 +12,9 @@ class UserPolicy < ApplicationPolicy
     record == user
   end
 
+  def permitted_attributes
+    common = [:email, :password, :password_confirmation]
+    common << :role if user.top_manager?
+    common
+  end
 end

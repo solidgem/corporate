@@ -1,5 +1,6 @@
-= simple_form_for @user do |f|
+= simple_form_for @user, builder: PunditFormBuilder do |f|
   = f.input :email
+  = f.input :role
   = f.input :password
   = f.input :password_confirmation
   = f.button :submit

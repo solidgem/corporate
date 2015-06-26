@@ -28,6 +28,6 @@ class Web::UsersController < Web::ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(policy(:user).permitted_attributes)
   end
 end
