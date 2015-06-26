@@ -5,16 +5,12 @@
     %tr
       %th= sort_link @q, :email
       %th= sort_link @q, :role
-      %th= sort_link @q, :created_at
-      %th= sort_link @q, :updated_at
       %th= t :operations
   %tbody
     - @users.each do |user|
       %tr
         %td= link_to user.email, user
         %td= user.role.text
-        %td= user.created_at
-        %td= user.updated_at
         %td
           = link_to t(:edit), edit_user_path(user)
 

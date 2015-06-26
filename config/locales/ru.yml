@@ -8,6 +8,7 @@ ru:
   edit: Редактировать
   delete: Удалить
   tasks: Задачи
+  users: Пользователи
   invite: Пригласить
 
   web:
@@ -20,7 +21,7 @@ ru:
   activerecord:
     attributes:
       task:
-        users: Пользователи
+        users: Участники
         title: Название
         description: Описание
         created_at: Создано
@@ -30,6 +31,7 @@ ru:
         email: Почта
         password: Пароль
         password_confirmation: Подтверждение пароля
+        role: Роль
       task/comment:
         content: Содержание
         elapsed_time: Затраченное время
