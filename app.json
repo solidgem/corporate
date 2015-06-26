@@ -7,9 +7,9 @@
     "RAILS_SERVE_STATIC_FILES": { "required": true },
     "SECRET_KEY_BASE": { "required": true },
     "DEPLOY_TASKS":  { "required": true },
-    "mail_sender_address":  { "required": true },
-    "root_url":  { "required": true },
-    "site_name":  { "required": true }
+    "MAIL_SENDER_ADDRESS":  { "required": true },
+    "ROOT_URL":  { "required": true },
+    "SITE_NAME":  { "required": true }
 
   },
   "buildpacks": [
