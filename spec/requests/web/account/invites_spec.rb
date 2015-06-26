@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'invites', type: :request do
-  let(:user) { create :user }
+  let(:user) { create :top_manager }
   before(:each){ sign_in_user user }
 
   context 'new' do

@@ -1,11 +1,11 @@
 class Web::SessionsController < Web::ApplicationController
   def new
-    authorize :'web/session'
+    authorize :session
     @session_form = SessionForm.new
   end
 
   def create
-    authorize :'web/session'
+    authorize :session
     @session_form = SessionForm.new session_form_params
 
     if @session_form.valid?
@@ -17,7 +17,7 @@ class Web::SessionsController < Web::ApplicationController
   end
 
   def destroy
-    authorize :'web/session'
+    authorize :session
     sign_out
     redirect_to root_path
   end

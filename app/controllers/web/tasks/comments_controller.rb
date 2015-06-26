@@ -1,11 +1,14 @@
 class Web::Tasks::CommentsController < Web::Tasks::ApplicationController
   def new
     @comment = resource_task.comments.build
+    authorize @comment
   end
 
   def create
     attrs = comment_params.merge(user: current_user)
-    @comment = resource_task.comments.create attrs
+    @comment = resource_task.comments.build attrs
+    authorize @comment
+    @comment.save
     respond_with @comment, location: resource_task
   end
 

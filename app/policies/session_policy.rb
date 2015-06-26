@@ -1,4 +1,4 @@
-class Web::SessionPolicy < ApplicationPolicy
+class SessionPolicy < ApplicationPolicy
   def create?
     user.guest?
   end

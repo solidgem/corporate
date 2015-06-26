@@ -27,7 +27,7 @@
             -#%li= link_to 'Sidekiq', "/sidekiq", data: { 'no-turbolink' => true }
           %ul.nav.navbar-nav.navbar-right
             - if signed_in?
-              %li= link_to current_user, edit_profile_path
+              %li= link_to current_user, user_path(current_user)
               %li= link_to t(:sign_out), session_path, method: :delete
             - if signed_out?
               %li= link_to t(:sign_in), new_session_path

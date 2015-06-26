@@ -14,14 +14,15 @@ class Web::TasksController < Web::ApplicationController
   end
 
   def new
-    authorize :task
     @task = current_user.created_tasks.new
+    authorize @task
     respond_with @task
   end
 
   def create
-    authorize :task
-    @task = current_user.created_tasks.create task_params
+    @task = current_user.created_tasks.build task_params
+    authorize @task
+    @task.save
     respond_with @task
   end
 
