@@ -3,7 +3,7 @@ class Web::TasksController < Web::ApplicationController
     authorize :task
     @q = policy_scope(Task).search(params[:q])
     @q.sorts = 'id desc' if @q.sorts.empty?
-    @tasks = @q.result.includes(:responsible_user, :users).page(params[:page])
+    @tasks = @q.result(distinct: true).includes(:responsible_user, :creator, :users).page(params[:page])
     respond_with @tasks
   end
 

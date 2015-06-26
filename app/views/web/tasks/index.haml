@@ -18,7 +18,7 @@
         %td= task.users.map(&:to_s).join(', ')
         %td= l task.updated_at, format: :long
         %td
-          - if task.creator_id == current_user.id
+          - if policy(task).edit?
             = link_to t(:edit), edit_task_path(task)
 
 = paginate @tasks, theme: 'twitter-bootstrap-3'
