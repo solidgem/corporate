@@ -27,35 +27,27 @@ ru:
       comments:
         form:
           new_comment: Добавить комментарий
-
-
+  attributes:
+    created_at: Создано
+    updated_at: Обновлено
+    email: Почта
+    password: Пароль
+    password_confirmation: Подтверждение пароля
+    role: Роль
   activerecord:
     attributes:
       task:
         users: Участники
         title: Название
         description: Описание
-        created_at: Создано
-        updated_at: Обновленно
         responsible_user: Ответственный
         total_elapsed_time: Затрачено времени
       user:
-        email: Почта
-        password: Пароль
-        password_confirmation: Подтверждение пароля
-        role: Роль
       task/comment:
         content: Содержание
         elapsed_time: Затраченное время
         elapsed_time_hours: Часы
         elapsed_time_minutes: Минуты
-
-
-  activemodel:
-    attributes:
-      session_form:
-        email: Почта
-        password: Пароль
   simple_form:
       labels:
         q:
@@ -79,5 +71,11 @@ ru:
         create: Пригласить
       user:
         update: Сохранить
+  enumerize:
+    user:
+      role:
+        top_manager: Топ менеджер
+        manager: Менеджер
+        worker: Исполнитель
 
 
