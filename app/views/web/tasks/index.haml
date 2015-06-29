@@ -15,8 +15,12 @@
     - @tasks.each do |task|
       %tr
         %td= link_to task.title, task
-        %td= task.responsible_user
-        %td= task.users.map(&:to_s).join(', ')
+        %td
+          = thumb_user_avatar task.responsible_user
+          = task.responsible_user
+        %td
+          - task.users.each do |user|
+            = thumb_user_avatar user
         %td= l task.updated_at, format: :long
         %td= distance_of_time_in_words task.total_elapsed_time if task.total_elapsed_time.nonzero?
         %td
