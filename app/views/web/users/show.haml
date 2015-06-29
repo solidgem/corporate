@@ -1,22 +1,22 @@
 %dl.dl-horizontal
   %dt
-    =t 'attributes.name'
+    = han(User, :name)
   %dd
     = @user.name
   %dt
-    = t 'attributes.email'
+    =  han(User, :email)
   %dd
     = @user.email
   %dt
-    = t 'attributes.contacts'
+    =  han(User, :contacts)
   %dd
     = @user.contacts
   %dt
-    = t 'attributes.requisites'
+    =  han(User, :requisites)
   %dd
     = @user.requisites
   %dt
-    = t 'attributes.position'
+    =  han(User, :position)
   %dd
     = @user.position
 = link_to t(:edit), edit_user_path(@user), class: 'btn btn-default'

@@ -33,8 +33,6 @@ ru:
     email: Почта
     contacts: Контакты
     requisites: Реквизиты
-    name: Имя
-    position: Должность
     password: Пароль
     password_confirmation: Подтверждение пароля
     role: Роль
@@ -47,6 +45,8 @@ ru:
         responsible_user: Ответственный
         total_elapsed_time: Затрачено времени
       user:
+        name: Имя
+        position: Должность
       task/comment:
         content: Содержание
         elapsed_time: Затраченное время

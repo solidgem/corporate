@@ -12,10 +12,10 @@ RSpec.describe 'invites', type: :request do
   end
 
   context 'create' do
-    let(:invite_form) { attributes_for :invite_form }
+    let(:invite_form_attributes) { attributes_for :invite_form }
 
     it 'create user' do
-      post '/account/invites', invite_form: invite_form
+      post '/account/invites', invite_form: invite_form_attributes
 
       expect(response).to be_redirect
     end
