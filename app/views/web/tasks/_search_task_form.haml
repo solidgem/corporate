@@ -3,7 +3,7 @@
           data: { toggle: :collapse },
           aria: { expanded: false, controls: :search_form }
 = search_form_for q, builder:  SimpleForm::FormBuilder, id: :search_form, class: :collapse  do |f|
-  = f.input :responsible_user_id_eq, collection: User.all
+  = f.input :responsible_user_id_in, collection: User.all, input_html: { multiple: true }
   = f.input :task_participations_user_id_in, collection: User.all, input_html: { multiple: true }
   = f.input :title_or_description_or_comments_content_cont
   = f.button :submit
