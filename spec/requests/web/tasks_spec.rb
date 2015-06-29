@@ -5,7 +5,7 @@ RSpec.describe 'session', type: :request do
   let(:task) { create :task, creator: user }
   let(:task_attrs) { attributes_for :task }
 
-  before(:each) { sign_in_user user  }
+  before(:each) { sign_in_user user }
 
   context 'index' do
     it 'render with 200 status' do
