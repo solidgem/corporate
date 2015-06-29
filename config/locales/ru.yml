@@ -57,7 +57,7 @@ ru:
   simple_form:
       labels:
         q:
-          responsible_user_id_eq: Ответственный
+          responsible_user_id_in: Ответственный
           task_participations_user_id_in: Участники
           title_or_description_or_comments_content_cont: Поиск по тексту
   errors:
