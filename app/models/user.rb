@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  enumerize :role, in: ROLES, predicates: true, default: :worker
+  mount_uploader :avatar, AvatarUploader
+
   belongs_to :inviter, class_name: 'User'
 
   has_many :created_tasks, class_name: 'Task', foreign_key: :creator_id
@@ -13,8 +16,6 @@ class User < ActiveRecord::Base
 
   validates :email, email: true, uniqueness: true
   validates :name, presence: true
-
-  enumerize :role, in: ROLES, predicates: true, default: :worker
 
   def guest?
     false

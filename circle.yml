@@ -1,0 +1,4 @@
+---
+test:
+  pre:
+    - cp config/cloudinary.example.yml config/cloudinary.yml

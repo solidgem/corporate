@@ -4,6 +4,7 @@ class InviteForm < BaseForm
   attribute :name
   attribute :email
   attribute :role
+  attribute :avatar
 
   enumerize :role, in: User::ROLES, default: :worker, i18n_scope: 'enumerize.user.role'
 

@@ -47,6 +47,8 @@ ru:
       user:
         name: Имя
         position: Должность
+        avatar: Фото
+        remove_avatar: Удалить фото
       task/comment:
         content: Содержание
         elapsed_time: Затраченное время
