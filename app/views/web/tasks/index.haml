@@ -12,7 +12,7 @@
       %th= sort_link @q, :total_elapsed_time
       %th= t :operations
   %tbody
-    - @tasks.to_a.uniq.each do |task|
+    - @tasks.each do |task|
       %tr
         %td= link_to task.title, task
         %td= task.responsible_user
