@@ -21,6 +21,6 @@ class User < ActiveRecord::Base
   end
 
   def to_s
-    email
+    name
   end
 end

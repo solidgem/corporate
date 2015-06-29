@@ -1,18 +1,23 @@
 %div
   %p
-    %strong Имя
+    %strong
+      =t 'attributes.name'
     = @profile.name
   %p
-    %strong Почта
+    %strong
+      = t 'attributes.email'
     = @profile.email
   %p
-    %strong Контактные данные
+    %strong
+      = t 'attributes.contacts'
     = @profile.contacts
   %p
-    %strong Реквизиты
+    %strong
+      = t 'attributes.requisites'
     = @profile.requisites
   %p
-    %strong Должность
+    %strong
+      = t 'attributes.position'
     = @profile.position
 %div
   = link_to "Редактировать", edit_profile_path

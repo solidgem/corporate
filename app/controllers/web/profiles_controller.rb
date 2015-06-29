@@ -9,11 +9,13 @@ class Web::ProfilesController < Web::ApplicationController
   end
 
   def update
-    user = User.find(current_user)
-    user.update(params)
+    authorize :profile
+    user = User.find(current_user.id)
+    user.update(profile_params)
+    redirect_to profile_path
   end
 
   def profile_params
-    params.require(:profile).permit(policy(:user).permitted_attributes)
+    params.require(:user).permit(policy(:user).permitted_attributes)
   end
 end

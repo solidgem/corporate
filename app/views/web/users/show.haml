@@ -1,1 +1,23 @@
-= @user.inspect
+%div
+  %p
+    %strong
+      =t 'attributes.name'
+    = @user.name
+  %p
+    %strong
+      = t 'attributes.email'
+    = @user.email
+  %p
+    %strong
+      = t 'attributes.contacts'
+    = @user.contacts
+  %p
+    %strong
+      = t 'attributes.requisites'
+    = @user.requisites
+  %p
+    %strong
+      = t 'attributes.position'
+    = @user.position
+%div
+  = link_to "Редактировать", edit_user_path(@user)

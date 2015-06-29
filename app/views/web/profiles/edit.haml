@@ -1,4 +1,4 @@
-= simple_form_for current_user, builder: PunditFormBuilder do |f|
+= simple_form_for current_user,url: profile_path, builder: PunditFormBuilder do |f|
   = f.input :name
   = f.input :email
   = f.input :role
