@@ -31,6 +31,10 @@ ru:
     created_at: Создано
     updated_at: Обновлено
     email: Почта
+    contacts: Контакты
+    requisites: Реквизиты
+    name: Имя
+    position: Должность
     password: Пароль
     password_confirmation: Подтверждение пароля
     role: Роль

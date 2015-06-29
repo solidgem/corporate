@@ -1,0 +1,18 @@
+%div
+  %p
+    %strong Имя
+    = @profile.name
+  %p
+    %strong Почта
+    = @profile.email
+  %p
+    %strong Контактные данные
+    = @profile.contacts
+  %p
+    %strong Реквизиты
+    = @profile.requisites
+  %p
+    %strong Должность
+    = @profile.position
+%div
+  = link_to "Редактировать", edit_profile_path

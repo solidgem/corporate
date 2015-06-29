@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :tasks, through: :task_participations
 
   validates :email, email: true, uniqueness: true
+  validates :name, presence: true
 
   enumerize :role, in: ROLES, predicates: true, default: :worker
 

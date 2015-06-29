@@ -13,7 +13,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def permitted_attributes
-    common = [:email, :password, :password_confirmation]
+    common = [:name, :contacts, :email, :requisites, :position, :password, :password_confirmation]
     common << :role if user.top_manager?
     common
   end
