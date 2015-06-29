@@ -1,22 +1,18 @@
 %dl.dl-horizontal
-  %dt
-    = han(User, :name)
-  %dd
-    = @user.name
-  %dt
-    =  han(User, :email)
-  %dd
-    = @user.email
-  %dt
-    =  han(User, :contacts)
-  %dd
-    = @user.contacts
-  %dt
-    =  han(User, :requisites)
-  %dd
-    = @user.requisites
-  %dt
-    =  han(User, :position)
-  %dd
-    = @user.position
-= link_to t(:edit), edit_user_path(@user), class: 'btn btn-default'
+  %dt= han(:user, :name)
+  %dd= @user.name
+
+  %dt= han(:user, :email)
+  %dd= @user.email
+
+  %dt= han(:user, :contacts)
+  %dd= @user.contacts
+
+  %dt= han(:user, :requisites)
+  %dd= @user.requisites
+
+  %dt= han(:user, :position)
+  %dd= @user.position
+
+- if policy(@user).edit?
+  = link_to t(:edit), edit_user_path(@user), class: 'btn btn-default'
