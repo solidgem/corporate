@@ -3,6 +3,7 @@
 %table.table.table-striped
   %thead
     %tr
+      %th= han :user, :avatar
       %th= sort_link @q, :name
       %th= sort_link @q, :email
       %th= sort_link @q, :role
@@ -10,6 +11,7 @@
   %tbody
     - @users.each do |user|
       %tr
+        %td= thumb_user_avatar user
         %td= link_to user.name, user
         %td= user.email
         %td= user.role.text

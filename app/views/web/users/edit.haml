@@ -7,4 +7,9 @@
   = f.input :position
   = f.input :password
   = f.input :password_confirmation
+  = f.input :avatar, as: :file
+  = f.input :avatar_cache, as: :hidden
+  - if @user.avatar?
+    = f.input :remove_avatar, as: :boolean
+    %p= image_tag(@user.avatar.small.url)
   = f.button :submit

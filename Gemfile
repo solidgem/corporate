@@ -48,6 +48,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'enumerize'
 gem 'pundit'
 
+gem 'carrierwave'
+gem 'cloudinary'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
