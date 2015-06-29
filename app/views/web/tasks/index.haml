@@ -6,7 +6,7 @@
   %thead
     %tr
       %th= sort_link @q, :title
-      %th= sort_link @q, :responsible_user_email, han('task', :responsible_user)
+      %th= han :task, :responsible_user
       %th= han :task, :users
       %th= sort_link @q, :updated_at
       %th= sort_link @q, :total_elapsed_time
