@@ -18,6 +18,6 @@ class Web::Account::InvitesController < Web::Account::ApplicationController
   private
 
   def invite_form_params
-    params.require(:invite_form).permit(:email, :role)
+    params.require(:invite_form).permit(:name, :email, :role)
   end
 end

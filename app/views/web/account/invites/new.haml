@@ -1,4 +1,5 @@
 = simple_form_for @invite_form, url: account_invites_path do |f|
+  = f.input :name
   = f.input :email
   = f.input :role
   = f.button :submit
