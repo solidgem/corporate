@@ -3,7 +3,6 @@ Rails.application.routes.draw do
     root to: 'welcome#index'
     resource :session
     resources :users
-    resource :profile
 
     resources :tasks do
       scope module: :tasks do

@@ -1,23 +1,22 @@
-%div
-  %p
-    %strong
-      =t 'attributes.name'
+%dl.dl-horizontal
+  %dt
+    =t 'attributes.name'
+  %dd
     = @user.name
-  %p
-    %strong
-      = t 'attributes.email'
+  %dt
+    = t 'attributes.email'
+  %dd
     = @user.email
-  %p
-    %strong
-      = t 'attributes.contacts'
+  %dt
+    = t 'attributes.contacts'
+  %dd
     = @user.contacts
-  %p
-    %strong
-      = t 'attributes.requisites'
+  %dt
+    = t 'attributes.requisites'
+  %dd
     = @user.requisites
-  %p
-    %strong
-      = t 'attributes.position'
+  %dt
+    = t 'attributes.position'
+  %dd
     = @user.position
-%div
-  = link_to "Редактировать", edit_user_path(@user)
+= link_to t(:edit), edit_user_path(@user), class: 'btn btn-default'
