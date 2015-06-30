@@ -9,10 +9,10 @@
   %dd= @user.email
 
   %dt= han(:user, :contacts)
-  %dd= markdown_render @user.contacts
+  %dd= markdown @user.contacts
 
   %dt= han(:user, :requisites)
-  %dd= markdown_render @user.requisites
+  %dd= markdown @user.requisites
 
   %dt= han(:user, :position)
   %dd= @user.position

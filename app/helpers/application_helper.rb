@@ -6,7 +6,7 @@ module ApplicationHelper
     end
   end
 
-  def markdown_render(text)
+  def markdown(text)
     find_and_preserve sanitize GitHub::Markdown.render_gfm(text)
   end
 end
