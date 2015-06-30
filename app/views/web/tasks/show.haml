@@ -2,7 +2,7 @@
   .panel-heading
     %h1.panel-title= @task.title
   .panel-body
-    != @task.description
+    != markdown_render @task.description
 
   %ul.list-group
     %li.list-group-item

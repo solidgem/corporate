@@ -109,6 +109,7 @@ GEM
       factory_girl (~> 4.0)
     figaro (1.1.1)
       thor (~> 0.14)
+    github-markdown (0.6.8)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     haml (4.0.6)
@@ -287,6 +288,7 @@ DEPENDENCIES
   factory_girl_rails
   factory_girl_sequences
   figaro
+  github-markdown
   haml
   jbuilder (~> 2.0)
   jquery-rails

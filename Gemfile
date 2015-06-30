@@ -51,6 +51,8 @@ gem 'pundit'
 gem 'carrierwave'
 gem 'cloudinary'
 
+gem 'github-markdown'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
