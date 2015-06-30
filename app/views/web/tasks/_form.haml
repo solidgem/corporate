@@ -1,6 +1,6 @@
 = simple_form_for task do |f|
   = f.input :title
-  = f.input :description
+  = f.input :description, as: :big_textarea
   = f.association :responsible_user
   = f.association :users
   = f.button :submit
