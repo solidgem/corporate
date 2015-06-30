@@ -2,7 +2,7 @@
   .panel-heading
     %strong= comment.user
   .panel-body
-    = comment.content
+    = markdown comment.content
   %ul.list-group
     %li.list-group-item
       %strong= t('.created_date')
