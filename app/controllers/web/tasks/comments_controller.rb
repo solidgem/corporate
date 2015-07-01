@@ -9,7 +9,7 @@ class Web::Tasks::CommentsController < Web::Tasks::ApplicationController
     @comment = resource_task.comments.build attrs
     authorize @comment
     @comment.save
-    NotificationService.notification_on_create_comment(resource_task, @comment, current_user)
+    CommentNotificationService.notification_on_create(@comment)
     respond_with @comment, location: resource_task
   end
 

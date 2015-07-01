@@ -23,7 +23,7 @@ class Web::TasksController < Web::ApplicationController
     @task = current_user.created_tasks.build task_params
     authorize @task
     @task.save
-    NotificationService.notification_on_create_task(@task, current_user)
+    TaskNotificationService.notification_on_create(@task)
     respond_with @task
   end
 
