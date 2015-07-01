@@ -5,6 +5,7 @@
 %table.table.table-striped
   %thead
     %tr
+      %th= sort_link @q, :id
       %th= sort_link @q, :title
       %th= han :task, :responsible_user
       %th= han :task, :users
@@ -14,6 +15,7 @@
   %tbody
     - @tasks.each do |task|
       %tr
+        %td= task.id
         %td= link_to task.title, task
         %td
           = thumb_user_avatar task.responsible_user
