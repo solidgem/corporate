@@ -1,7 +1,11 @@
 ru:
   are_you_sure?: Вы уверены?
   password: Пароль
+
   mail_invite_subject: Приглашение
+  mail_task_create_subject: Добавлена задача
+  mail_comment_create_subject: Добавлен комментарий
+
   sign_in: Войти
   sign_out: Выйти
   operations: Действия
