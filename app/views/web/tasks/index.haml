@@ -21,8 +21,7 @@
           = thumb_user_avatar task.responsible_user
           = "->"
           - task.users.each do |user|
-            - unless task.responsible_user == user
-              = thumb_user_avatar user
+            = thumb_user_avatar user
         %td= formatted_date task.updated_at
         %td= formatted_date task.deadline
         %td= distance_of_time_in_words task.total_elapsed_time if task.total_elapsed_time.nonzero?
