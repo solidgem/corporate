@@ -11,6 +11,7 @@ module ApplicationHelper
   end
 
   def formatted_date(date)
+    return unless date
     if date.year == Date.today.year
       l date, format: :short
     else

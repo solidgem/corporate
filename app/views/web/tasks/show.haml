@@ -8,6 +8,9 @@
     %li.list-group-item
       %strong= t('.created_date')
       = l @task.created_at, format: :short
+    %li.list-group-item
+      %strong= t('.deadline')
+      = l @task.deadline, format: :short
     - if @task.total_elapsed_time.nonzero?
       %li.list-group-item
         %strong= t('.total_elapsed_time')
