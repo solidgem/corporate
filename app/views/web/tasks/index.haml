@@ -7,7 +7,6 @@
     %tr
       %th= sort_link @q, :id
       %th= sort_link @q, :title
-      %th= han :task, :responsible_user
       %th= han :task, :users
       %th= sort_link @q, :updated_at
       %th= sort_link @q, :deadline
@@ -20,10 +19,10 @@
         %td= link_to task.title, task
         %td
           = thumb_user_avatar task.responsible_user
-          = task.responsible_user
-        %td
+          = "->"
           - task.users.each do |user|
-            = thumb_user_avatar user
+            - unless task.responsible_user == user
+              = thumb_user_avatar user
         %td= formatted_date task.updated_at
         %td= formatted_date task.deadline
         %td= distance_of_time_in_words task.total_elapsed_time if task.total_elapsed_time.nonzero?
