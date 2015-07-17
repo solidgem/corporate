@@ -1,0 +1,3 @@
+mail_sender_address: "noreply@mysupermail.ru"
+root_url: "mysite.com"
+site_name: "Mega system"
