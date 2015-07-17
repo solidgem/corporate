@@ -8,7 +8,7 @@
     %li.list-group-item
       %strong= t('.created_date')
       = l @task.created_at, format: :short
-    - unless @task.deadline.nil?
+    - if @task.deadline
       %li.list-group-item
         %strong= t('.deadline')
         = l @task.deadline, format: :short
