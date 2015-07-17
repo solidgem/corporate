@@ -49,7 +49,7 @@ ru:
         description: Описание
         responsible_user: Ответственный
         total_elapsed_time: Затрачено времени
-        deadline: Дедлайнf
+        deadline: Дедлайн
       user:
         name: Имя
         position: Должность
