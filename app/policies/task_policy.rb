@@ -23,6 +23,9 @@ class TaskPolicy < ApplicationPolicy
   end
 
   def update?
-    show?
+    return true if user.top_manager?
+    return true if record.creator == user
+    return true if record.responsible_user == user
+    false
   end
 end

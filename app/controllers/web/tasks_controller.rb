@@ -28,13 +28,13 @@ class Web::TasksController < Web::ApplicationController
   end
 
   def edit
-    @task = current_user.created_tasks.find params[:id]
+    @task = Task.find params[:id]
     authorize @task
     respond_with @task
   end
 
   def update
-    @task = current_user.created_tasks.find params[:id]
+    @task = Task.find params[:id]
     authorize @task
     @task.update task_params
     respond_with @task
