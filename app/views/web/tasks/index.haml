@@ -24,7 +24,7 @@
           - task.users.each do |user|
             = thumb_user_avatar user
         %td= formatted_date task.deadline
-        %td= task.status_text
+        %td= task.human_status_name
         %td= formatted_date task.updated_at
         %td= distance_of_time_in_words task.total_elapsed_time if task.total_elapsed_time.nonzero?
         %td

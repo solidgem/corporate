@@ -10,7 +10,10 @@
       = l @task.created_at, format: :short
     %li.list-group-item
       %strong= han :task, :status
-      = @task.status_text
+      = @task.human_status_name
+      .pull-right
+        - @task.status_transitions.each do |transition|
+          = link_to transition.human_event, task_path(@task, task: {status_event: transition.event}), method: :patch
     - if @task.deadline
       %li.list-group-item
         %strong= han :task, :deadline

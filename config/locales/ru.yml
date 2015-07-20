@@ -37,6 +37,16 @@ ru:
     password_confirmation: Подтверждение пароля
     role: Роль
   activerecord:
+    state_machines:
+      task:
+        states:
+          active: Активная
+          finished: Завершенная
+          archived: Архивная
+        events:
+          activate: Активировать
+          finish: Завершить
+          archive: Архивировать
     attributes:
       task:
         users: Участники
@@ -86,8 +96,4 @@ ru:
         top_manager: Топ менеджер
         manager: Менеджер
         worker: Исполнитель
-    task:
-      status:
-        active: Активная
-        finished: Завершенная
-        archived: Архивная
+

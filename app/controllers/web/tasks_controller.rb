@@ -43,6 +43,6 @@ class Web::TasksController < Web::ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :description, :status, :deadline, :responsible_user_id, user_ids: [])
+    params.require(:task).permit(:title, :description, :status_event, :deadline, :responsible_user_id, user_ids: [])
   end
 end
