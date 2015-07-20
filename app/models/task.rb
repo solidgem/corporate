@@ -1,4 +1,5 @@
 class Task < ActiveRecord::Base
+  extend Enumerize
   include TaskRepository
 
   belongs_to :creator, class_name: 'User'
@@ -8,9 +9,12 @@ class Task < ActiveRecord::Base
   has_many :users, through: :task_participations
   has_many :comments
 
+  enumerize :status, in: %w[active finished archived], default: :active
+
   validates :title, presence: true
   validates :creator, presence: true
   validates :responsible_user, presence: true
+  validates :status, presence: true
 
   def member?(user)
     return true if creator == user

@@ -5,9 +5,9 @@
     = markdown comment.content
   %ul.list-group
     %li.list-group-item
-      %strong= t('.created_date')
+      %strong= han 'task/comment', :created_at
       = l comment.created_at, format: :short
-      - if comment.elapsed_time.nonzero?
-        %li.list-group-item
-          %strong= t('.elapsed_time')
-          = distance_of_time_in_words comment.elapsed_time
+    - if comment.elapsed_time.nonzero?
+      %li.list-group-item
+        %strong= han 'task/comment', :elapsed_time
+        = distance_of_time_in_words comment.elapsed_time
