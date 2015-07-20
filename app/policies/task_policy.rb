@@ -24,8 +24,24 @@ class TaskPolicy < ApplicationPolicy
 
   def update?
     return true if user.top_manager?
-    return true if record.creator == user
-    return true if record.responsible_user == user
+    return true if record.member? user
     false
+  end
+
+  def permitted_attributes
+    common = [:status_event]
+    common << major_fields if update_major_fields?
+    common
+  end
+
+  private
+
+  def update_major_fields?
+    return true if record == :task
+    record.creator == user || record.responsible_user == user || user.top_manager?
+  end
+
+  def major_fields
+    [:title, :description, :deadline, :responsible_user_id, user_ids: []]
   end
 end
