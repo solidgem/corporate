@@ -43,10 +43,18 @@ RSpec.describe 'session', type: :request do
     end
   end
 
-  context 'create' do
+  context 'update' do
     it 'success' do
       patch "/tasks/#{task.id}", task: task_attrs
       expect(task.reload.title).to eq(task_attrs[:title])
+      expect(response).to be_redirect
+    end
+  end
+
+  context 'update status' do
+    it 'redirect' do
+      patch "/tasks/#{task.id}/status", event: 'archive'
+      expect(task.reload).to be_archived
       expect(response).to be_redirect
     end
   end

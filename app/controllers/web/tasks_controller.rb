@@ -40,6 +40,13 @@ class Web::TasksController < Web::ApplicationController
     respond_with @task
   end
 
+  def status
+    @task = Task.find params[:id]
+    authorize @task
+    @task.update status_event: params[:event]
+    respond_with @task
+  end
+
   private
 
   def task_params

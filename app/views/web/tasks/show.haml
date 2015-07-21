@@ -12,8 +12,9 @@
       %strong= han :task, :status
       = @task.human_status_name
       .pull-right
-        - @task.status_transitions.each do |transition|
-          = link_to transition.human_event, task_path(@task, task: {status_event: transition.event}), method: :patch
+        - if policy(@task).status?
+          - @task.status_transitions.each do |transition|
+            = link_to transition.human_event, status_task_path(@task, event: transition.event), method: :patch
     - if @task.deadline
       %li.list-group-item
         %strong= han :task, :deadline

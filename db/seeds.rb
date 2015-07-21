@@ -6,4 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create_with(password: '123456', name: "Тестовый Пользователь", role: :top_manager).find_or_create_by!(email: 'admin@mail.ru')
+User.create_with(password: '123456', name: "Пользователь Топ менеджер", role: :top_manager)
+    .find_or_create_by!(email: 'top@solidgem.ru')
+User.create_with(password: '123456', name: "Пользователь менеджер", role: :manager)
+    .find_or_create_by!(email: 'manager@solidgem.ru')
+User.create_with(password: '123456', name: "Пользователь исполнитель", role: :worker)
+    .find_or_create_by!(email: 'worker@solidgem.ru')

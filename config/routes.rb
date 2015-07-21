@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     resources :users
 
     resources :tasks do
+      member do
+        patch :status
+      end
       scope module: :tasks do
         resources :comments
       end
