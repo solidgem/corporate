@@ -1,3 +1,7 @@
 .big_textarea textarea{
     resize:vertical;
 }
+
+.form-group.datetime_picker{
+    position: relative;
+}

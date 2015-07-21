@@ -14,8 +14,15 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 
+//= require moment
+//= require moment/ru
+//= require bootstrap-datetimepicker
+
 //= require_tree .
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
+    $('input.datetime_picker').datetimepicker({
+        showClear: true
+    });
 });

@@ -18,6 +18,8 @@ gem 'rails-i18n'
 gem 'haml'
 gem 'bootstrap-sass'
 gem 'bootstrap-select-rails'
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
 
 gem 'validates'
 
