@@ -30,14 +30,13 @@ class TaskPolicy < ApplicationPolicy
 
   def permitted_attributes
     common = [:status_event]
-    common << major_fields if update_major_fields?
+    common << major_fields if fill_major_fields?
     common
   end
 
   private
 
-  def update_major_fields?
-    return true if record == :task
+  def fill_major_fields?
     record.creator == user || record.responsible_user == user || user.top_manager?
   end
 

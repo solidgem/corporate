@@ -20,9 +20,9 @@ class Web::TasksController < Web::ApplicationController
   end
 
   def create
-    @task = current_user.created_tasks.build task_params
+    @task = current_user.created_tasks.build
     authorize @task
-    @task.save
+    @task.update task_params
     TaskNotificationService.notification_on_create(@task)
     respond_with @task
   end
@@ -43,6 +43,7 @@ class Web::TasksController < Web::ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(policy(:task).permitted_attributes)
+    attrs = policy(@task).permitted_attributes
+    params.require(:task).permit(attrs)
   end
 end
