@@ -1,4 +1,5 @@
 ---
 test:
   pre:
+    - cp config/application.example.yml config/application.yml
     - cp config/cloudinary.example.yml config/cloudinary.yml
