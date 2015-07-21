@@ -20,21 +20,21 @@ class Web::TasksController < Web::ApplicationController
   end
 
   def create
-    @task = current_user.created_tasks.build task_params
+    @task = current_user.created_tasks.build
     authorize @task
-    @task.save
+    @task.update task_params
     TaskNotificationService.notification_on_create(@task)
     respond_with @task
   end
 
   def edit
-    @task = current_user.created_tasks.find params[:id]
+    @task = Task.find params[:id]
     authorize @task
     respond_with @task
   end
 
   def update
-    @task = current_user.created_tasks.find params[:id]
+    @task = Task.find params[:id]
     authorize @task
     @task.update task_params
     respond_with @task
@@ -43,6 +43,7 @@ class Web::TasksController < Web::ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :deadline, :description, :responsible_user_id, user_ids: [])
+    attrs = policy(@task).permitted_attributes
+    params.require(:task).permit(attrs)
   end
 end

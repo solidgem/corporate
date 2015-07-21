@@ -6,15 +6,21 @@
 
   %ul.list-group
     %li.list-group-item
-      %strong= t('.created_date')
+      %strong=  han :task, :created_at
       = l @task.created_at, format: :short
+    %li.list-group-item
+      %strong= han :task, :status
+      = @task.human_status_name
+      .pull-right
+        - @task.status_transitions.each do |transition|
+          = link_to transition.human_event, task_path(@task, task: {status_event: transition.event}), method: :patch
     - if @task.deadline
       %li.list-group-item
-        %strong= t('.deadline')
+        %strong= han :task, :deadline
         = l @task.deadline, format: :short
     - if @task.total_elapsed_time.nonzero?
       %li.list-group-item
-        %strong= t('.total_elapsed_time')
+        %strong= han :task, :total_elapsed_time
         = distance_of_time_in_words @task.total_elapsed_time
 
 = render 'web/tasks/comments/form', comment: @task.comments.build, url: task_comments_path(@task), method_name: :post

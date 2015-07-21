@@ -1,7 +1,9 @@
 = simple_form_for task do |f|
   = f.input :title
-  = f.input :deadline, as: :datetime
   = f.input :description, as: :big_textarea
+  = f.input :deadline, as: :datetime
+  = f.input :status_event, collection: f.object.status_transitions,
+                           label_method: :human_event, value_method: :event
   = f.association :responsible_user
   = f.association :users
   = f.button :submit

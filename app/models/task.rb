@@ -8,6 +8,20 @@ class Task < ActiveRecord::Base
   has_many :users, through: :task_participations
   has_many :comments
 
+  state_machine :status, initial: :active do
+    event :activate do
+      transition [:finished, :archived] => :active
+    end
+
+    event :finish do
+      transition :active => :finished
+    end
+
+    event :archive do
+      transition [:active, :finished] => :archived
+    end
+  end
+
   validates :title, presence: true
   validates :creator, presence: true
   validates :responsible_user, presence: true

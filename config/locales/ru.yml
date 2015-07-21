@@ -23,12 +23,7 @@ ru:
         open_search_form: Показать форму поиска
       show:
         elapsed_time: Затрачено времени
-        created_date: Дата создания
         total_elapsed_time: Затраченное время
-        deadline: Дедлайн
-      comment:
-        created_date: Добавлено
-        elapsed_time: Затрачено времени
       comments:
         form:
           new_comment: Добавить комментарий
@@ -42,6 +37,16 @@ ru:
     password_confirmation: Подтверждение пароля
     role: Роль
   activerecord:
+    state_machines:
+      task:
+        states:
+          active: Активная
+          finished: Завершенная
+          archived: Архивная
+        events:
+          activate: Активировать
+          finish: Завершить
+          archive: Архивировать
     attributes:
       task:
         users: Участники
@@ -50,6 +55,8 @@ ru:
         responsible_user: Ответственный
         total_elapsed_time: Затрачено времени
         deadline: Дедлайн
+        status: Статус
+        status_event: Изменить статус
       user:
         name: Имя
         position: Должность
@@ -66,6 +73,7 @@ ru:
           responsible_user_id_in: Ответственный
           task_participations_user_id_in: Участники
           title_or_description_or_comments_content_cont: Поиск по тексту
+          status_in: Статус
   errors:
     messages:
       blank: поле не может быть пустым
@@ -89,5 +97,4 @@ ru:
         top_manager: Топ менеджер
         manager: Менеджер
         worker: Исполнитель
-
 
