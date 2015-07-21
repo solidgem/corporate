@@ -1,5 +1,4 @@
 class Task < ActiveRecord::Base
-  extend Enumerize
   include TaskRepository
 
   belongs_to :creator, class_name: 'User'
