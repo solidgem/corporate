@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   scope module: :web do
     root to: 'welcome#index'
     resource :session
-    resources :users
+    resources :users do
+      scope module: :users do
+        resource :statistics
+      end
+    end
 
     resources :tasks do
       member do
