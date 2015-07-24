@@ -18,4 +18,11 @@ module ApplicationHelper
       l date, format: :long
     end
   end
+
+  def last_months(n)
+    current_month = DateTime.current.beginning_of_month
+    n.times.reverse_each.map do |i|
+      current_month.months_ago(i)
+    end
+  end
 end

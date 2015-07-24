@@ -1,6 +1,8 @@
-= simple_form_for @filter_form, method: :get, url: {} do |f|
-  = f.input :start_date, as: :datetime_picker
-  = f.input :end_date, as: :datetime_picker
+= simple_form_for @filter_form, method: :get, url: {}, html: {class: 'form-inline'} do |f|
+  .form-group
+    = user_statistics_draw_months @filter_form
+  = f.input :start_date, as: :datetime_picker, label: false
+  = f.input :end_date, as: :datetime_picker, label: false
   = f.button :submit
 
 %table.table.table-striped
