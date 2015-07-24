@@ -1,4 +1,4 @@
 class BaseForm
-  include Virtus.model
+  include Virtus.model(strict: true)
   include ActiveModel::Model
 end

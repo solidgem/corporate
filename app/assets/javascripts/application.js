@@ -23,6 +23,7 @@
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
     $('input.datetime_picker').datetimepicker({
-        showClear: true
+        showClear: true,
+        extraFormats: [ 'YYYY-MM-DD hh:mm:ss ZZ' ]
     });
 });

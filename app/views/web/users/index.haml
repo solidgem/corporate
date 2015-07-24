@@ -16,7 +16,9 @@
         %td= user.email
         %td= user.role.text
         %td
+          - if policy(user).statistics_show?
+            = link_to t(:statistics), user_statistics_path(user)
           - if policy(user).edit?
             = link_to t(:edit), edit_user_path(user)
 
-= paginate @users, theme: 'twitter-bootstrap-3'
+        = paginate @users, theme: 'twitter-bootstrap-3'

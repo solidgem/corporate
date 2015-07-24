@@ -1,4 +1,6 @@
 class Task::Comment < ActiveRecord::Base
+  include CommentRepository
+
   belongs_to :user
   belongs_to :task
   counter_culture :task, column_name: 'total_elapsed_time', delta_column: 'elapsed_time'
@@ -6,8 +8,6 @@ class Task::Comment < ActiveRecord::Base
   validates :task, presence: true
   validates :user, presence: true
   validates :content, presence: true
-
-  scope :ordered, ->{ order(id: :desc) }
 
   def elapsed_time_hours
     elapsed_time.to_i / 1.hour

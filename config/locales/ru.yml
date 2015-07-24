@@ -14,6 +14,7 @@ ru:
   tasks: Задачи
   users: Пользователи
   invite: Пригласить
+  statistics: Статистика
 
   web:
     tasks:
@@ -27,6 +28,11 @@ ru:
       comments:
         form:
           new_comment: Добавить комментарий
+    users:
+      statistics:
+        show:
+          user_elapsed_time: Затраченное время сотрудником
+          task_name: Название задачи
   attributes:
     created_at: Создано
     updated_at: Обновлено
@@ -67,6 +73,11 @@ ru:
         elapsed_time: Затраченное время
         elapsed_time_hours: Часы
         elapsed_time_minutes: Минуты
+  activemodel:
+    attributes:
+      user/statistics_filter_form:
+        start_date: Начало периода
+        end_date: Окончане периода
   simple_form:
       labels:
         q:
@@ -91,6 +102,8 @@ ru:
         create: Пригласить
       user:
         update: Сохранить
+      user_statistics_filter_form:
+        create: Применить
   enumerize:
     user:
       role:
@@ -98,3 +111,5 @@ ru:
         manager: Менеджер
         worker: Исполнитель
 
+
+  standalone_month_names: [~, Январь, Февраль, Март, Апрель, Май, Июнь, Июль, Август, Сентябрь, Октябрь, Ноябрь, Декабрь]

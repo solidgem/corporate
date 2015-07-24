@@ -12,6 +12,11 @@ class UserPolicy < ApplicationPolicy
     record == user
   end
 
+  def statistics_show?
+    return true if user.top_manager?
+    record == user
+  end
+
   def permitted_attributes
     common = [:name, :email, :password, :password_confirmation,
               :avatar, :avatar_cache, :remove_avatar,
