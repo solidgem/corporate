@@ -1,3 +1,8 @@
+= simple_form_for @filter_form, method: :get, url: {} do |f|
+  = f.input :start_date, as: :datetime_picker
+  = f.input :end_date, as: :datetime_picker
+  = f.button :submit
+
 %table.table.table-striped
   %thead
     %tr
