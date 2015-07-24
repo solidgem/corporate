@@ -30,6 +30,7 @@ gem 'figaro'
 
 gem 'responders'
 gem 'ransack'
+gem 'usefull_scopes'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 

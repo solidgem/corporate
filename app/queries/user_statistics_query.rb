@@ -2,7 +2,11 @@ module UserStatisticsQuery
   module_function
 
   def perform(user, start_date, end_date)
-    elapsed_time_by_task_id = Task::Comment.where(user: user).where.not(elapsed_time: 0).group(:task_id).sum(:elapsed_time)
+    comment_relation = Task::Comment.where(user: user).where.not(elapsed_time: 0)
+    comment_relation = comment_relation.more_or_equal(created_at: start_date.to_datetime) if start_date.present?
+    comment_relation = comment_relation.less_than(created_at: end_date.to_datetime) if start_date.present?
+
+    elapsed_time_by_task_id = comment_relation.group(:task_id).sum(:elapsed_time)
     tasks = Task.where(id: elapsed_time_by_task_id.keys)
     tasks.map do |task|
       {
