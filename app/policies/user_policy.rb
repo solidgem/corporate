@@ -8,11 +8,13 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
+    return false if user.guest?
     return true if user.top_manager?
     record == user
   end
 
   def statistics_show?
+    return false if user.guest?
     return true if user.top_manager?
     record == user
   end
