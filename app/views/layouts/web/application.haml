@@ -23,6 +23,7 @@
             = menu_item :invite, :new, t(:invite), new_account_invite_path
           %ul.nav.navbar-nav.navbar-right
             = menu_item current_user, :show, current_user, user_path(current_user)
+            = menu_item current_user, :statistics_show, t(:statistics), user_statistics_path(current_user)
             = menu_item :session, :new, t(:sign_in), new_session_path
             = menu_item :session, :destroy, t(:sign_out), session_path, method: :delete
     .container
