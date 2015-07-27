@@ -113,3 +113,29 @@ ru:
 
 
   standalone_month_names: [~, Январь, Февраль, Март, Апрель, Май, Июнь, Июль, Август, Сентябрь, Октябрь, Ноябрь, Декабрь]
+
+  breadcrumbs:
+    defaults:
+      show: "%{model}"
+      new: Создание новой записи
+      edit: "Редактирование: %{model}"
+    web:
+      application:
+        scope: Главная
+      users:
+        scope: Пользователи
+        application:
+          scope: Пользователи
+        statistics:
+          show: Статистика
+      tasks:
+        scope: Задачи
+        application:
+          scope: Задачи
+        comments:
+          scope: Комментарии
+      account:
+        application:
+          scope: Аккаунт
+        invites:
+          scope: Инвайты

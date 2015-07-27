@@ -27,4 +27,5 @@
             = menu_item :session, :new, t(:sign_in), new_session_path
             = menu_item :session, :destroy, t(:sign_out), session_path, method: :delete
     .container
+      = render_breadcrumbs
       = yield
