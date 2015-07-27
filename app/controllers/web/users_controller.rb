@@ -1,4 +1,6 @@
 class Web::UsersController < Web::ApplicationController
+  add_breadcrumb {{ url: users_path }}
+
   def index
     authorize :user
     @q = policy_scope(User).search(params[:q])
@@ -8,18 +10,21 @@ class Web::UsersController < Web::ApplicationController
 
   def show
     @user = User.find params[:id]
+    add_breadcrumb model: @user
     authorize @user
     respond_with @user
   end
 
   def edit
     @user = User.find params[:id]
+    add_breadcrumb model: @user
     authorize @user
     respond_with @user
   end
 
   def update
     @user = User.find params[:id]
+    add_breadcrumb model: @user
     @user.update user_params
     authorize @user
     respond_with @user

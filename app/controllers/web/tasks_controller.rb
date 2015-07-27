@@ -1,4 +1,6 @@
 class Web::TasksController < Web::ApplicationController
+  add_breadcrumb {{ url: tasks_path }}
+
   def index
     authorize :task
     @q = policy_scope(Task).search(params[:q])
@@ -10,18 +12,21 @@ class Web::TasksController < Web::ApplicationController
   def show
     @task = Task.find params[:id]
     authorize @task
+    add_breadcrumb model: @task
     respond_with @task
   end
 
   def new
     @task = current_user.created_tasks.new
     authorize @task
+    add_breadcrumb
     respond_with @task
   end
 
   def create
     @task = current_user.created_tasks.build
     authorize @task
+    add_breadcrumb
     @task.update task_params
     TaskNotificationService.notification_on_create(@task)
     respond_with @task
@@ -30,12 +35,14 @@ class Web::TasksController < Web::ApplicationController
   def edit
     @task = Task.find params[:id]
     authorize @task
+    add_breadcrumb model: @task
     respond_with @task
   end
 
   def update
     @task = Task.find params[:id]
     authorize @task
+    add_breadcrumb model: @task
     @task.update task_params
     respond_with @task
   end
@@ -53,4 +60,5 @@ class Web::TasksController < Web::ApplicationController
     attrs = policy(@task).permitted_attributes
     params.require(:task).permit(attrs)
   end
+
 end
