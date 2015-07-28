@@ -32,7 +32,7 @@ class UserPolicy < ApplicationPolicy
              :avatar, :avatar_cache, :remove_avatar,
              :contacts, :requisites, :position]
     attrs.push :role if user.top_manager?
-    attrs.push :external_hour_rate if user.manager? || user.top_manager?
+    attrs.push :hour_rate, :external_hour_rate if user.manager? || user.top_manager?
     attrs
   end
 end
