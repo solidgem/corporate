@@ -1,4 +1,5 @@
 class Task < ActiveRecord::Base
+  extend Enumerize
   include TaskRepository
 
   belongs_to :creator, class_name: 'User'
@@ -7,6 +8,8 @@ class Task < ActiveRecord::Base
   has_many :task_participations, dependent: :destroy
   has_many :users, through: :task_participations
   has_many :comments
+
+  enumerize :competence, in: %w[html_coding programming contextual_advertising design]
 
   state_machine :status, initial: :active do
     event :activate do
@@ -25,6 +28,7 @@ class Task < ActiveRecord::Base
   validates :title, presence: true
   validates :creator, presence: true
   validates :responsible_user, presence: true
+  validates :competence, presence: true
 
   def member?(user)
     return true if creator == user
