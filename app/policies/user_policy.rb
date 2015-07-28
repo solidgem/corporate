@@ -17,6 +17,7 @@ class UserPolicy < ApplicationPolicy
   def statistics_show?
     return false if user.guest?
     return true if user.top_manager?
+    return true if user.manager?
     record == user
   end
 
