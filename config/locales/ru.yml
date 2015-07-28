@@ -82,10 +82,11 @@ ru:
   simple_form:
       labels:
         q:
-          responsible_user_id_in: Ответственный
+          responsible_user_id_in: Ответственные
           task_participations_user_id_in: Участники
           title_or_description_or_comments_content_cont: Поиск по тексту
-          status_in: Статус
+          status_in: Статусы
+          competence_in: Компетенции
   errors:
     messages:
       blank: поле не может быть пустым

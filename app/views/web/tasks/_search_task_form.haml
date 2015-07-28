@@ -8,5 +8,7 @@
   = f.input :status_in, collection: Task.state_machines[:status].states,
                         label_method: :human_name, value_method: :value,
                         input_html: { multiple: true }
+
+  = f.input :competence_in, collection: Task.competence.options, input_html: { multiple: true }
   = f.input :title_or_description_or_comments_content_cont
   = f.button :submit
