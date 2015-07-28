@@ -69,6 +69,8 @@ ru:
         position: Должность
         avatar: Фото
         remove_avatar: Удалить фото
+        role: Роль
+        role_text: Роль
       task/comment:
         content: Содержание
         elapsed_time: Затраченное время

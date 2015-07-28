@@ -47,4 +47,13 @@ module ApplicationHelper
       items.join.html_safe
     end
   end
+
+  def show_attribute(model, attribute)
+    return if policy(model).readable_attributes.exclude? attribute
+    value = block_given? ? yield : model.send(attribute)
+    return if value.blank?
+    concat content_tag :dt, han(model.class, attribute)
+    concat content_tag :dd, value
+    nil
+  end
 end
