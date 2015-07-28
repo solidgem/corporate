@@ -1,11 +1,9 @@
 class User < ActiveRecord::Base
-  ROLES = %w[top_manager manager worker].freeze
-
   extend Enumerize
 
   has_secure_password
 
-  enumerize :role, in: ROLES, predicates: true, default: :worker
+  enumerize :role, in: %w[top_manager manager worker], predicates: true, default: :worker
   mount_uploader :avatar, AvatarUploader
 
   belongs_to :inviter, class_name: 'User'
@@ -16,6 +14,11 @@ class User < ActiveRecord::Base
 
   validates :email, email: true, uniqueness: true
   validates :name, presence: true
+
+  with_options if: :worker? do |worker|
+    worker.validates :hour_rate, numericality: { greater_than: 0 }
+    worker.validates :external_hour_rate, numericality: { greater_than: 0 }
+  end
 
   def guest?
     false

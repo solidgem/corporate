@@ -3,7 +3,7 @@ class Guest
     UserPolicy
   end
 
-  User::ROLES.each do |role|
+  User.role.values.each do |role|
     define_method "#{role}?" do
       false
     end

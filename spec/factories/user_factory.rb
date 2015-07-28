@@ -4,6 +4,8 @@ FactoryGirl.define do
     email
     avatar
     password
+    hour_rate 250
+    external_hour_rate 500
   end
 
   factory :top_manager, parent: :user do
