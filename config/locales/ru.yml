@@ -71,6 +71,8 @@ ru:
         remove_avatar: Удалить фото
         role: Роль
         role_text: Роль
+        hour_rate: Ставка часа
+        external_hour_rate: Внешняя ставка часа
       task/comment:
         content: Содержание
         elapsed_time: Затраченное время
