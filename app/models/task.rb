@@ -9,7 +9,7 @@ class Task < ActiveRecord::Base
   has_many :users, through: :task_participations
   has_many :comments
 
-  enumerize :competence, in: %w[html_coding programming contextual_advertising design]
+  enumerize :competence, in: %w[html_coding programming content design]
 
   state_machine :status, initial: :active do
     event :activate do

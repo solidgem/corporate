@@ -116,7 +116,7 @@ ru:
       competence:
         html_coding: Верстка
         programming: Программирование
-        contextual_advertising: Контекст
+        content: Контент
         design: Дизайн
 
   standalone_month_names: [~, Январь, Февраль, Март, Апрель, Май, Июнь, Июль, Август, Сентябрь, Октябрь, Ноябрь, Декабрь]
