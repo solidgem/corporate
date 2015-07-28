@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150720102450) do
+ActiveRecord::Schema.define(version: 20150728104610) do
 
   create_table "task_comments", force: :cascade do |t|
     t.integer  "task_id"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150720102450) do
     t.integer  "total_elapsed_time",  default: 0, null: false
     t.datetime "deadline"
     t.string   "status"
+    t.string   "competence"
   end
 
   create_table "users", force: :cascade do |t|

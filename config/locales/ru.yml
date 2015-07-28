@@ -63,6 +63,7 @@ ru:
         deadline: Дедлайн
         status: Статус
         status_event: Изменить статус
+        competence: Компетенция
       user:
         name: Имя
         position: Должность
@@ -110,7 +111,12 @@ ru:
         top_manager: Топ менеджер
         manager: Менеджер
         worker: Исполнитель
-
+    task:
+      competence:
+        html_coding: Верстка
+        programming: Программирование
+        contextual_advertising: Контекст
+        design: Дизайн
 
   standalone_month_names: [~, Январь, Февраль, Март, Апрель, Май, Июнь, Июль, Август, Сентябрь, Октябрь, Ноябрь, Декабрь]
 

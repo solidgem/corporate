@@ -3,5 +3,6 @@ FactoryGirl.define do
     title
     description
     association :creator, factory: :user
+    competence { Task.competence.values.sample }
   end
 end
