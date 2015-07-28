@@ -1,5 +1,8 @@
-= simple_form_for @invite_form, url: account_invites_path do |f|
+= simple_form_for @user, url: account_invites_path do |f|
   = f.input :name
   = f.input :email
   = f.input :role
+  = f.input :hour_rate
+  = f.input :external_hour_rate
+
   = f.button :submit

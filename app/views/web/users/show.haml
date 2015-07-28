@@ -1,21 +1,13 @@
 %dl.dl-horizontal
-  %dt= han(:user, :name)
-  %dd= @user.name
-
-  %dt= han(:user, :avatar)
-  %dd= small_user_avatar @user
-
-  %dt= han(:user, :email)
-  %dd= @user.email
-
-  %dt= han(:user, :contacts)
-  %dd= markdown @user.contacts
-
-  %dt= han(:user, :requisites)
-  %dd= markdown @user.requisites
-
-  %dt= han(:user, :position)
-  %dd= @user.position
+  = show_attribute(@user, :name)
+  = show_attribute(@user, :role_text)
+  = show_attribute(@user, :avatar) { small_user_avatar @user }
+  = show_attribute(@user, :email)
+  = show_attribute(@user, :contacts) { markdown @user.contacts }
+  = show_attribute(@user, :requisites) { markdown @user.requisites }
+  = show_attribute(@user, :position) { markdown @user.position }
+  = show_attribute(@user, :hour_rate)
+  = show_attribute(@user, :external_hour_rate)
 
 - if policy(@user).edit?
   = link_to t(:edit), edit_user_path(@user), class: 'btn btn-default'

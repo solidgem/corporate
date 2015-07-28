@@ -10,5 +10,9 @@ User.create_with(password: '123456', name: "Пользователь Топ ме
     .find_or_create_by!(email: 'top@solidgem.ru')
 User.create_with(password: '123456', name: "Пользователь менеджер", role: :manager)
     .find_or_create_by!(email: 'manager@solidgem.ru')
-User.create_with(password: '123456', name: "Пользователь исполнитель", role: :worker)
+User.create_with(password: '123456',
+                 name: "Пользователь исполнитель",
+                 role: :worker,
+                 hour_rate: 100,
+                 external_hour_rate: 200)
     .find_or_create_by!(email: 'worker@solidgem.ru')
