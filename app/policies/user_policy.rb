@@ -10,6 +10,7 @@ class UserPolicy < ApplicationPolicy
   def update?
     return false if user.guest?
     return true if user.top_manager?
+    return true if record.worker? && user.manager?
     record == user
   end
 
