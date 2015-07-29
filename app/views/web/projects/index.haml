@@ -1,0 +1,22 @@
+%h1.page-header= t :projects
+
+- if policy(:project).new?
+  = link_to t('.new_project'), new_project_path, class: 'btn btn-default'
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link @q, :id
+      %th= sort_link @q, :title
+      %th= sort_link @q, :updated_at
+      %th= t :operations
+  %tbody
+    - @projects.each do |project|
+      %tr
+        %td= project.id
+        %td= link_to project.title, project
+        %td= formatted_date project.updated_at
+        %td
+          - if policy(project).edit?
+            = link_to t(:edit), edit_project_path(project)
+
+= paginate @projects, theme: 'twitter-bootstrap-3'
