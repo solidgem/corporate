@@ -10,5 +10,6 @@
                         input_html: { multiple: true }
 
   = f.input :competence_in, collection: Task.competence.options, input_html: { multiple: true }
+  = f.input :project_id_in, collection: Project.all, input_html: { multiple: true }
   = f.input :title_or_description_or_comments_content_cont
   = f.button :submit

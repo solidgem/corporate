@@ -101,6 +101,7 @@ ru:
           title_or_description_or_comments_content_cont: Поиск по тексту
           status_in: Статусы
           competence_in: Компетенции
+          project_id_in: Проекты
   errors:
     messages:
       blank: поле не может быть пустым
