@@ -11,6 +11,7 @@
       %th= han :task, :id
       %th= t '.task_name'
       %th= t '.user_elapsed_time'
+      %th= t '.user_reward'
   %tbody
     - @statistics.each do |stat|
       %tr
@@ -18,3 +19,7 @@
           %td= task.id
           %td= link_to task, task
         %td= distance_of_time_in_words stat[:user_elapsed_time]
+        %td= stat[:reward]
+.div
+  = t '.total_reward'
+  = @statistics.inject(0){ |sum, elem| sum + elem[:reward] }
