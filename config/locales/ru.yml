@@ -35,7 +35,7 @@ ru:
           user_elapsed_time: Затраченное время сотрудником
           task_name: Название задачи
           user_reward: Вознаграждение
-          total_reward: Итого:
+          total_reward: 'Итого:'
     projects:
       index:
         new_project: Добавить проект
