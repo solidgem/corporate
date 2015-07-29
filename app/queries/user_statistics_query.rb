@@ -1,6 +1,5 @@
 module UserStatisticsQuery
   module_function
-  SECONDS_IN_HOUR = 3600.0
 
   def perform(user, start_date, end_date)
     comment_relation = Task::Comment.where(user: user).where.not(elapsed_time: 0)
@@ -13,7 +12,7 @@ module UserStatisticsQuery
       {
           task: task,
           user_elapsed_time: elapsed_time_by_task_id[task.id],
-          reward: elapsed_time_by_task_id[task.id]/SECONDS_IN_HOUR*user.hour_rate
+          reward: elapsed_time_by_task_id[task.id] / 1.hour.to_f * user.hour_rate
       }
     end
   end

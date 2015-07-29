@@ -20,6 +20,9 @@
           %td= link_to task, task
         %td= distance_of_time_in_words stat[:user_elapsed_time]
         %td= stat[:reward]
-.div
-  = t '.total_reward'
-  = @statistics.inject(0){ |sum, elem| sum + elem[:reward] }
+.row.text-right
+  .col-xs-12
+    = t '.total_reward'
+    %strong
+      %span.preview-total
+        = @statistics.sum{ |stat| stat[:reward] }
