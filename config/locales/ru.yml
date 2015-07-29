@@ -34,7 +34,7 @@ ru:
           user_elapsed_time: Затраченное время сотрудником
           task_name: Название задачи
           user_reward: Вознаграждение
-          total_reward: Общее вознаграждение
+          total_reward: 'Общее вознаграждение:'
   attributes:
     created_at: Создано
     updated_at: Обновлено

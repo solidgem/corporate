@@ -19,10 +19,10 @@
           %td= task.id
           %td= link_to task, task
         %td= distance_of_time_in_words stat[:user_elapsed_time]
-        %td= stat[:reward]
-.row.text-right
-  .col-xs-12
-    = t '.total_reward'
-    %strong
-      %span.preview-total
-        = @statistics.sum{ |stat| stat[:reward] }
+        %td= sprintf('%.2f',stat[:reward])
+    %tr
+      %td{ colspan: 2 }
+      %td.pull-right
+        %strong= t '.total_reward'
+      %td
+        %strong= sprintf('%.2f', @statistics.sum{ |stat| stat[:reward] })
