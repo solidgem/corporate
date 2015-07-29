@@ -38,7 +38,7 @@ ru:
           total_reward: 'Общее вознаграждение:'
     projects:
       index:
-      new_project: Добавить проект
+        new_project: Добавить проект
   attributes:
     created_at: Создано
     updated_at: Обновлено
