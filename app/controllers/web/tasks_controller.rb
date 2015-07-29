@@ -5,7 +5,7 @@ class Web::TasksController < Web::ApplicationController
     authorize :task
     @q = policy_scope(Task).search(params[:q])
     @q.sorts = 'id desc' if @q.sorts.empty?
-    @tasks = @q.result(distinct: true).preload(:responsible_user, :creator, :users).page(params[:page])
+    @tasks = @q.result(distinct: true).preload(:responsible_user, :creator, :users, :project).page(params[:page])
     respond_with @tasks
   end
 

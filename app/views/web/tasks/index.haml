@@ -7,6 +7,7 @@
     %tr
       %th= sort_link @q, :id
       %th= sort_link @q, :title
+      %th= sort_link @q, :project_id
       %th= han :task, :users
       %th= sort_link @q, :deadline
       %th= sort_link @q, :status
@@ -19,6 +20,7 @@
       %tr
         %td= task.id
         %td= link_to task.title, task
+        %td= task.project
         %td
           = thumb_user_avatar task.responsible_user
           = "->"
