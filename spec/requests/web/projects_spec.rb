@@ -15,6 +15,15 @@ RSpec.describe 'projects', type: :request do
   end
 
   context 'show' do
+    let!(:task_1) { create :task, project: project }
+    let!(:comment_1_1) { create 'task/comment', task: task_1 }
+    let!(:comment_1_2) { create 'task/comment', task: task_1 }
+
+    let!(:task_2) { create :task, project: project }
+    let!(:comment_2_1) { create 'task/comment', task: task_2 }
+    let!(:comment_2_2) { create 'task/comment', task: task_2 }
+
+
     it 'render with 200 status' do
       get "/projects/#{project.id}"
       expect(response).to be_success

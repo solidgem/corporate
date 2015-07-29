@@ -14,6 +14,10 @@ class Web::ProjectsController < Web::ApplicationController
     @project = Project.find params[:id]
     authorize @project
     add_breadcrumb model: @project
+    @tasks_with_cost = TasksCostQuery.perform(@project)
+
+    ap @tasks_with_cost
+
     respond_with @project
   end
 

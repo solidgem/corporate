@@ -50,6 +50,8 @@ ru:
     role: Роль
     role_text: Роль
     title: Название
+    cost: Стоимость
+    expenses: Затраты
   activerecord:
     state_machines:
       task:

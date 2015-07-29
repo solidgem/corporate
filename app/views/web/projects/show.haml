@@ -1,1 +1,19 @@
 %h1= @project.title
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= han :task, :id
+      %th= han :task, :title
+      %th= han :task, :competence
+      %th= han :task, :total_elapsed_time
+      %th= han :task, :expenses
+  %tbody
+    - @tasks_with_cost.each do |task_cost|
+      %tr
+        - task_cost[:task].tap do |task|
+          %td= task.id
+          %td= link_to task.title, task
+          %td= task.competence_text
+          %td= distance_of_time_in_words task.total_elapsed_time if task.total_elapsed_time.nonzero?
+        %td= sprintf '%.2f', task_cost[:cost]
