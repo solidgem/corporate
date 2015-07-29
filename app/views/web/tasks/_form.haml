@@ -1,5 +1,6 @@
 = simple_form_for task do |f|
   = f.input :title
+  = f.association :project
   = f.input :description, as: :big_textarea
   = f.input :deadline, as: :datetime_picker
   = f.input :competence
