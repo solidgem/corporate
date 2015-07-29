@@ -11,7 +11,8 @@ module UserStatisticsQuery
     tasks.map do |task|
       {
           task: task,
-          user_elapsed_time: elapsed_time_by_task_id[task.id]
+          user_elapsed_time: elapsed_time_by_task_id[task.id],
+          reward: elapsed_time_by_task_id[task.id] / 1.hour.to_f * user.hour_rate
       }
     end
   end
