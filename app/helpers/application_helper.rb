@@ -52,6 +52,7 @@ module ApplicationHelper
     return if policy(model).readable_attributes.exclude? attribute
     value = block_given? ? yield : model.send(attribute)
     return if value.blank?
+    return if value.try :zero?
     concat content_tag :dt, han(model.class, attribute)
     concat content_tag :dd, value
     nil

@@ -2,6 +2,7 @@ class Task < ActiveRecord::Base
   extend Enumerize
   include TaskRepository
 
+  belongs_to :project
   belongs_to :creator, class_name: 'User'
   belongs_to :responsible_user, class_name: 'User'
 

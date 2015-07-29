@@ -18,6 +18,7 @@
           = link_to 'Corporate', root_path, class: 'navbar-brand'
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
+            = menu_item :project, :index, t(:projects), projects_path
             = menu_item :task, :index, t(:tasks), tasks_path
             = menu_item :user, :index, t(:users), users_path
             = menu_item :invite, :new, t(:invite), new_account_invite_path

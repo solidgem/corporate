@@ -12,9 +12,10 @@ ru:
   edit: Редактировать
   delete: Удалить
   tasks: Задачи
-  users: Пользователи
+  users: Сотрудники
   invite: Пригласить
   statistics: Статистика
+  projects: Проекты
 
   web:
     tasks:
@@ -35,6 +36,9 @@ ru:
           task_name: Название задачи
           user_reward: Вознаграждение
           total_reward: 'Общее вознаграждение:'
+    projects:
+      index:
+      new_project: Добавить проект
   attributes:
     created_at: Создано
     updated_at: Обновлено
@@ -44,6 +48,8 @@ ru:
     password: Пароль
     password_confirmation: Подтверждение пароля
     role: Роль
+    role_text: Роль
+    title: Название
   activerecord:
     state_machines:
       task:
@@ -55,10 +61,14 @@ ru:
           activate: Активировать
           finish: Завершить
           archive: Архивировать
+    models:
+      project: Проект
+      task: Задача
+      task/comment: Комментарий
+      user: Сотрудник
     attributes:
       task:
         users: Участники
-        title: Название
         description: Описание
         responsible_user: Ответственный
         total_elapsed_time: Затрачено времени
@@ -66,13 +76,13 @@ ru:
         status: Статус
         status_event: Изменить статус
         competence: Компетенция
+        project: Проект
+        project_id: Проект
       user:
         name: Имя
         position: Должность
         avatar: Фото
         remove_avatar: Удалить фото
-        role: Роль
-        role_text: Роль
         hour_rate: Ставка часа
         external_hour_rate: Внешняя ставка часа
       task/comment:
@@ -93,6 +103,7 @@ ru:
           title_or_description_or_comments_content_cont: Поиск по тексту
           status_in: Статусы
           competence_in: Компетенции
+          project_id_in: Проекты
   errors:
     messages:
       blank: поле не может быть пустым
@@ -102,6 +113,7 @@ ru:
   helpers:
     submit:
       create: Сохранить
+      update: Сохранить
       q:
         create: Искать
       session_form:
@@ -152,3 +164,5 @@ ru:
           scope: Аккаунт
         invites:
           scope: Инвайты
+      projects:
+        scope: Проекты

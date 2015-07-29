@@ -22,6 +22,10 @@
       %li.list-group-item
         %strong= han :task, :deadline
         = l @task.deadline, format: :short
+    - if @task.project
+      %li.list-group-item
+        %strong= han :task, :project
+        = @task.project
     - if @task.total_elapsed_time.nonzero?
       %li.list-group-item
         %strong= han :task, :total_elapsed_time
