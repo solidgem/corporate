@@ -4,7 +4,7 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def show?
-    ! user.guest?
+    create?
   end
 
   def create?

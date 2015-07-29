@@ -13,7 +13,7 @@
     - @projects.each do |project|
       %tr
         %td= project.id
-        %td= link_to project.title, project
+        %td= link_to_if policy(project).show?, project.title, project
         %td= formatted_date project.updated_at
         %td
           - if policy(project).edit?
