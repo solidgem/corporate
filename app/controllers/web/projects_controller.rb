@@ -14,6 +14,8 @@ class Web::ProjectsController < Web::ApplicationController
     @project = Project.find params[:id]
     authorize @project
     add_breadcrumb model: @project
+    @tasks_with_cost = TasksCostQuery.perform(@project)
+    @total_expenses = @tasks_with_cost.sum{ |task_cost| task_cost[:cost] }
     respond_with @project
   end
 
@@ -50,6 +52,7 @@ class Web::ProjectsController < Web::ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title)
+    attrs = policy(@project).permitted_attributes
+    params.require(:project).permit(attrs)
   end
 end

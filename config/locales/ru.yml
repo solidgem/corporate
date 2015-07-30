@@ -39,6 +39,10 @@ ru:
     projects:
       index:
         new_project: Добавить проект
+      show:
+        cost: 'Стоимость:'
+        total_expenses: 'Итоговые затраты:'
+        total_balance: 'Остаток:'
   attributes:
     created_at: Создано
     updated_at: Обновлено
@@ -50,6 +54,8 @@ ru:
     role: Роль
     role_text: Роль
     title: Название
+    cost: Стоимость
+    expenses: Затраты
   activerecord:
     state_machines:
       task:

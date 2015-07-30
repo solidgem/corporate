@@ -1,1 +1,29 @@
 %h1= @project.title
+%dl
+  %dt= t '.cost'
+  %dd= @project.cost.to_s(:currency)
+  %dt= t '.total_balance'
+  %dd= (@project.cost - @total_expenses).to_s(:currency)
+%table.table.table-striped
+  %thead
+    %tr
+      %th= han :task, :id
+      %th= han :task, :title
+      %th= han :task, :competence
+      %th= han :task, :total_elapsed_time
+      %th= han :task, :expenses
+  %tbody
+    - @tasks_with_cost.each do |task_cost|
+      %tr
+        - task_cost[:task].tap do |task|
+          %td= task.id
+          %td= link_to task.title, task
+          %td= task.competence_text
+          %td= distance_of_time_in_words task.total_elapsed_time if task.total_elapsed_time.nonzero?
+        %td= task_cost[:cost].to_s(:currency)
+    %tr
+      %td{ colspan: 3 }
+      %td
+        %strong.pull-right= t '.total_expenses'
+      %td
+        %strong= @total_expenses.to_s(:currency)

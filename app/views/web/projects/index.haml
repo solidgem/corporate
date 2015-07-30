@@ -8,6 +8,7 @@
       %th= sort_link @q, :id
       %th= sort_link @q, :title
       %th= sort_link @q, :updated_at
+      %th= sort_link @q, :cost
       %th= t :operations
   %tbody
     - @projects.each do |project|
@@ -15,6 +16,7 @@
         %td= project.id
         %td= link_to_if policy(project).show?, project.title, project
         %td= formatted_date project.updated_at
+        %td= project.cost.to_s(:currency)
         %td
           - if policy(project).edit?
             = link_to t(:edit), edit_project_path(project)
