@@ -15,9 +15,6 @@ class Web::ProjectsController < Web::ApplicationController
     authorize @project
     add_breadcrumb model: @project
     @tasks_with_cost = TasksCostQuery.perform(@project)
-
-    ap @tasks_with_cost
-
     respond_with @project
   end
 
@@ -54,6 +51,6 @@ class Web::ProjectsController < Web::ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title)
+    params.require(:project).permit(:title, :cost)
   end
 end

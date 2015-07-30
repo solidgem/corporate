@@ -3,7 +3,7 @@ module TasksCostQuery
 
   def perform(project)
     response = ActiveRecord::Base.connection.exec_query <<-SQL
-      SELECT tasks.id, SUM(task_comments.elapsed_time / 3600.0 * users.hour_rate) as cost
+      SELECT tasks.id, SUM(task_comments.elapsed_time / 3600.0 * users.external_hour_rate) as cost
       FROM tasks
       JOIN task_comments ON task_comments.task_id = tasks.id
       JOIN users ON users.id = task_comments.user_id

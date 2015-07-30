@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20150729115452) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "cost"
+    t.integer  "cost",       default: 0
   end
 
   create_table "task_comments", force: :cascade do |t|
