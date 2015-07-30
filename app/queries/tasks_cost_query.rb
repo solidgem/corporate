@@ -11,12 +11,12 @@ module TasksCostQuery
       GROUP BY tasks.id
     SQL
 
-    cost_by_task_id = response.rows.to_h
+    cost_by_task_id = response.rows.to_h.transform_keys(&:to_i).transform_values(&:to_f)
 
     project.tasks.map do |task|
       {
           task: task,
-          cost: cost_by_task_id.fetch(task.id, 0)
+          cost: cost_by_task_id.fetch(task.id, 0.0)
       }
     end
   end
