@@ -13,11 +13,10 @@ module TasksCostQuery
 
     cost_by_task_id = response.rows.to_h
 
-    tasks = Task.where(id: cost_by_task_id.keys)
-    tasks.map do |task|
+    project.tasks.map do |task|
       {
           task: task,
-          cost: cost_by_task_id[task.id]
+          cost: cost_by_task_id[task.id] || 0
       }
     end
   end
