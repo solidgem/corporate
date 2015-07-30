@@ -17,15 +17,12 @@
           %td= task.competence_text
           %td= distance_of_time_in_words task.total_elapsed_time if task.total_elapsed_time.nonzero?
         %td= sprintf '%.2f', task_cost[:cost]
-    %tr
-      %td{ colspan: 3 }
-      %td
-        %strong.pull-right= t '.total_expenses'
-      %td
-        %strong= sprintf '%.2f', @tasks_with_cost.sum{ |task_cost| task_cost[:cost] }
-    %tr
-      %td{ colspan: 3 }
-      %td
-        %strong.pull-right= t '.total_balance'
-      %td
-        %strong= sprintf '%.2f', @project.cost - @tasks_with_cost.sum{ |task_cost| task_cost[:cost] }
+%dl.dl-horizontal.pull-right
+  %dt
+    %strong= t '.total_expenses'
+  %dd
+    %strong= sprintf '%.2f', @total_expenses
+  %dt
+    %strong= t '.total_balance'
+  %dd
+    %strong= sprintf '%.2f', @project.cost - @total_expenses

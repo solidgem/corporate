@@ -15,6 +15,7 @@ class Web::ProjectsController < Web::ApplicationController
     authorize @project
     add_breadcrumb model: @project
     @tasks_with_cost = TasksCostQuery.perform(@project)
+    @total_expenses = @tasks_with_cost.sum{ |task_cost| task_cost[:cost] }
     respond_with @project
   end
 
