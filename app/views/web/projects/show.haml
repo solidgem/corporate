@@ -1,5 +1,10 @@
 %h1= @project.title
-
+%p
+  = t '.cost'
+  = @project.cost.to_s(:currency)
+%p
+  = t '.total_balance'
+  = (@project.cost - @total_expenses).to_s(:currency)
 %table.table.table-striped
   %thead
     %tr
@@ -16,13 +21,10 @@
           %td= link_to task.title, task
           %td= task.competence_text
           %td= distance_of_time_in_words task.total_elapsed_time if task.total_elapsed_time.nonzero?
-        %td= sprintf '%.2f', task_cost[:cost]
-%dl.dl-horizontal.pull-right
-  %dt
-    %strong= t '.total_expenses'
-  %dd
-    %strong= sprintf '%.2f', @total_expenses
-  %dt
-    %strong= t '.total_balance'
-  %dd
-    %strong= sprintf '%.2f', @project.cost - @total_expenses
+        %td= task_cost[:cost].to_s(:currency)
+    %tr
+      %td{ colspan: 3 }
+      %td
+        %strong.pull-right= t t '.total_expenses'
+      %td
+        %strong= @total_expenses.to_s(:currency)
