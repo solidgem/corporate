@@ -40,8 +40,8 @@ ru:
       index:
         new_project: Добавить проект
       show:
-        total_expenses: Итоговые затраты
-        total_balance: Остаток
+        total_expenses: 'Итоговые затраты:'
+        total_balance: 'Остаток:'
   attributes:
     created_at: Создано
     updated_at: Обновлено

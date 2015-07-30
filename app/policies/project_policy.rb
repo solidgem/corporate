@@ -16,4 +16,8 @@ class ProjectPolicy < ApplicationPolicy
   def update?
     create?
   end
+
+  def permitted_attributes
+    [:title, :cost]
+  end
 end

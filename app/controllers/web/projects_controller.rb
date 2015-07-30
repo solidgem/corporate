@@ -51,6 +51,7 @@ class Web::ProjectsController < Web::ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :cost)
+    attrs = policy(@project).permitted_attributes
+    params.require(:project).permit(attrs)
   end
 end
