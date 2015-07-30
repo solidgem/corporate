@@ -10,7 +10,7 @@ class Task::Comment < ActiveRecord::Base
   validates :content, presence: true
 
   def elapsed_time_hours
-    elapsed_time.to_i / 1.hour
+    TimeConverter.convert_to_time(elapsed_time.to_i)[:hours]
   end
 
   def elapsed_time_hours=(v)
@@ -18,7 +18,7 @@ class Task::Comment < ActiveRecord::Base
   end
 
   def elapsed_time_minutes
-    elapsed_time.to_i % 1.hour / 1.minute
+    TimeConverter.convert_to_time(elapsed_time.to_i)[:minutes]
   end
 
   def elapsed_time_minutes=(v)
@@ -28,6 +28,6 @@ class Task::Comment < ActiveRecord::Base
   private
 
   def update_elapsed_time(hours, minutes)
-    self.elapsed_time = hours * 1.hour + minutes * 1.minute
+    self.elapsed_time = TimeConverter.convert_to_seconds(hours: hours, minutes: minutes)
   end
 end

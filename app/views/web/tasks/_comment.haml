@@ -10,4 +10,4 @@
     - if comment.elapsed_time.nonzero?
       %li.list-group-item
         %strong= han 'task/comment', :elapsed_time
-        = distance_of_time_in_words comment.elapsed_time
+        = TimeConverter.convert_to_string comment.elapsed_time
