@@ -1,8 +1,7 @@
 %h1= @project.title
-%dl.dl-horizontal
+%dl
   %dt= t '.cost'
   %dd= @project.cost.to_s(:currency)
-%dl.dl-horizontal
   %dt= t '.total_balance'
   %dd= (@project.cost - @total_expenses).to_s(:currency)
 %table.table.table-striped

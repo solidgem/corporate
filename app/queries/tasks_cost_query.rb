@@ -16,7 +16,7 @@ module TasksCostQuery
     project.tasks.map do |task|
       {
           task: task,
-          cost: cost_by_task_id[task.id] || 0
+          cost: cost_by_task_id.fetch(task.id, 0)
       }
     end
   end
