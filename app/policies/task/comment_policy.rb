@@ -1,6 +1,13 @@
 class Task::CommentPolicy < ApplicationPolicy
-  delegate :index?, :show?, :new?, :create?, :update?, :edit?, :destroy?, to: :task_policy
+  delegate :index?, :show?, :update?, :edit?, :destroy?, to: :task_policy
 
+  def create?
+    return false if user.guest?
+    return true if user.top_manager?
+    return true if record.task.member? user
+    false
+  end
+  
   private
 
   def task_policy
