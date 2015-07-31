@@ -14,12 +14,13 @@ class User < ActiveRecord::Base
 
   validates :email, email: true, uniqueness: true
   validates :name, presence: true
-  validate :hour_rate_is_less_external_hour_rate
 
   with_options if: :worker? do |worker|
     worker.validates :hour_rate, numericality: { greater_than: 0 }
     worker.validates :external_hour_rate, numericality: { greater_than: 0 }
   end
+
+  validates :hour_rate, numericality: { less_than: :external_hour_rate }
 
   def guest?
     false
@@ -27,11 +28,5 @@ class User < ActiveRecord::Base
 
   def to_s
     name
-  end
-
-  private
-
-  def hour_rate_is_less_external_hour_rate
-    errors.add(:hour_rate, :hour_rate_is_less_external_hour_rate) unless hour_rate < external_hour_rate
   end
 end
