@@ -1,25 +1,16 @@
 class UserPresenter < BasePresenter
   def avatar
-    if @model.avatar?
-      h.small_user_avatar @model
-    else
-      nil
-    end
+    return nil unless @model.avatar?
+    h.small_user_avatar @model
   end
 
   def requisites
-    if @model.requisites?
-      h.markdown @model.requisites
-    else
-      nil
-    end
+    return unless @model.requisites?
+    h.markdown @model.requisites
   end
 
   def position
-    if @model.position?
-      h.markdown @model.position
-    else
-      nil
-    end
+    return unless @model.position?
+    h.markdown @model.position
   end
 end
