@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
     worker.validates :external_hour_rate, numericality: { greater_than: 0 }
   end
 
+  validates :external_hour_rate, numericality: { greater_than_or_equal_to: :hour_rate }
+
   def guest?
     false
   end
