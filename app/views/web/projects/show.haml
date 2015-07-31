@@ -19,7 +19,7 @@
           %td= task.id
           %td= link_to task.title, task
           %td= task.competence_text
-          %td= TimeConverter.convert_to_string task.total_elapsed_time
+          %td= convert_seconds_to_string task.total_elapsed_time
         %td= task_cost[:cost].to_s(:currency)
     %tr
       %td{ colspan: 3 }
