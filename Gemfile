@@ -34,7 +34,6 @@ gem 'usefull_scopes'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 
-gem 'dotiw'
 gem 'counter_culture'
 
 # Use jquery as the JavaScript library
