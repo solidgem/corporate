@@ -1,10 +1,9 @@
-class BasePresenter < SimpleDelegator
-  def initialize(model, view)
-    @model, @view = model, view
-    super(@model)
-  end
+class BasePresenter < Delegator
+  attr_reader :model, :h
+  alias_method :__getobj__, :model
 
-  def h
-    @view
+  def initialize(model, view_context)
+    @model = model
+    @h = view_context
   end
 end
