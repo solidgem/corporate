@@ -62,4 +62,14 @@ module ApplicationHelper
     presenter = klass.new(model, self)
     yield(presenter) if block_given?
   end
+
+  def convert_seconds_to_string(seconds)
+    time = TimeConverter.convert_to_time seconds
+    I18n.with_options scope: 'datetime.distance_in_words' do |i18n|
+      arr = []
+      arr << i18n.t(:x_hours, count: time[:hours]) if time[:hours] != 0
+      arr << i18n.t(:x_minutes, count: time[:minutes]) if time[:minutes] != 0
+      arr.join(' ')
+    end
+  end
 end

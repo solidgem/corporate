@@ -30,7 +30,7 @@
         %td= task.human_status_name
         %td= task.competence_text
         %td= formatted_date task.updated_at
-        %td= distance_of_time_in_words task.total_elapsed_time if task.total_elapsed_time.nonzero?
+        %td= convert_seconds_to_string task.total_elapsed_time if task.total_elapsed_time.nonzero?
         %td
           - if policy(task).edit?
             = link_to t(:edit), edit_task_path(task)

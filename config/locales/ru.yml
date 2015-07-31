@@ -172,3 +172,10 @@ ru:
           scope: Инвайты
       projects:
         scope: Проекты
+  datetime:
+    distance_in_words:
+      x_hours:
+        one: "%{count} час"
+        few: "%{count} часа"
+        many: "%{count} часов"
+        other: "%{count} часа"
