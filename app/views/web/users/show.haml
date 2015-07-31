@@ -1,11 +1,11 @@
 %dl.dl-horizontal
   = show_attribute(@user, :name)
   = show_attribute(@user, :role_text)
-  = show_attribute(@user, :avatar) { small_user_avatar @user }
+  = show_attribute(@user, :avatar)
   = show_attribute(@user, :email)
-  = show_attribute(@user, :contacts) { markdown @user.contacts }
-  = show_attribute(@user, :requisites) { markdown @user.requisites }
-  = show_attribute(@user, :position) { markdown @user.position }
+  = show_attribute(@user, :contacts)
+  = show_attribute(@user, :requisites)
+  = show_attribute(@user, :position)
   = show_attribute(@user, :hour_rate)
   = show_attribute(@user, :external_hour_rate)
 

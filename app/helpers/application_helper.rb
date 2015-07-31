@@ -50,11 +50,17 @@ module ApplicationHelper
 
   def show_attribute(model, attribute)
     return if policy(model).readable_attributes.exclude? attribute
-    value = block_given? ? yield : model.send(attribute)
+    value = present(model){ |model| model.send(attribute) }
     return if value.blank?
     return if value.try :zero?
     concat content_tag :dt, han(model.class, attribute)
     concat content_tag :dd, value
     nil
+  end
+
+  def present(model)
+    klass = "#{model.class}Presenter".constantize
+    presenter = klass.new(model, self)
+    yield(presenter) if block_given?
   end
 end
