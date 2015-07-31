@@ -1,6 +1,6 @@
 class UserPresenter < BasePresenter
   def avatar
-    return nil unless model.avatar?
+    return unless model.avatar?
     h.image_tag model.avatar.small.url, AvatarUploader::SMALL_DIMENSIONS
   end
 
