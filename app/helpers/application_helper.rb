@@ -48,11 +48,11 @@ module ApplicationHelper
     end
   end
 
-  def show_attribute(model, presenter_model, attribute)
-    return if policy(presenter_model).readable_attributes.exclude? attribute
-    value = presenter_model.send(attribute)
+  def show_attribute(model, attribute)
+    return if policy(model).readable_attributes.exclude? attribute
+    value = model.send(attribute)
     return if value.blank?
-    concat content_tag :dt, han(model.class, attribute)
+    concat content_tag :dt, han(model.model_name, attribute)
     concat content_tag :dd, value
     nil
   end
