@@ -116,6 +116,7 @@ ru:
       email: неправильный формат почты
       wrong_email_or_password: логин или пароль неверный
       already_invited: пользователь уже приглашен
+      hour_rate_is_less_external_hour_rate: Ставка часа должна быть меньше внешней ставки часа
   helpers:
     submit:
       create: Сохранить
