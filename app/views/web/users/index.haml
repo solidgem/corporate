@@ -3,19 +3,27 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= han :user, :avatar
-      %th= sort_link @q, :name
-      %th= sort_link @q, :email
-      %th= sort_link @q, :role
+      = readable_tag :th, :user, :avatar do
+        = han :user, :avatar
+      = readable_tag :th, :user, :name do
+        = sort_link @q, :name
+      = readable_tag :th, :user, :email do
+        = sort_link @q, :email
+      = readable_tag :th, :user, :role do
+        = sort_link @q, :role
       %th= t :operations
   %tbody
     - @users.each do |user|
       %tr
         - present user do |user_presenter|
-          %td= user_presenter.avatar_thumb
-          %td= user_presenter.name
-          %td= user_presenter.email
-          %td= user_presenter.role_text
+          = readable_tag :td, :user, :avatar do
+            = user_presenter.avatar_thumb
+          = readable_tag :td, :user, :name do
+            = user_presenter.name
+          = readable_tag :td, :user, :email do
+            = user_presenter.email
+          = readable_tag :td, :user, :role do
+            = user_presenter.role_text
         %td
           - if policy(user).statistics_show?
             = link_to t(:statistics), user_statistics_path(user)

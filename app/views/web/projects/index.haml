@@ -5,19 +5,27 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= sort_link @q, :id
-      %th= sort_link @q, :title
-      %th= sort_link @q, :updated_at
-      %th= sort_link @q, :cost
+      = readable_tag :th, :project, :id do
+        = sort_link @q, :id
+      = readable_tag :th, :project, :title do
+        = sort_link @q, :title
+      = readable_tag :th, :project, :updated_at do
+        = sort_link @q, :updated_at
+      = readable_tag :th, :project, :cost do
+        = sort_link @q, :cost
       %th= t :operations
   %tbody
     - @projects.each do |project|
       %tr
         - present project do |project_presenter|
-          %td= project_presenter.id
-          %td= project_presenter.title
-          %td= project_presenter.updated_at
-          %td= project_presenter.cost
+          = readable_tag :td, :project, :id do
+            = project_presenter.id
+          = readable_tag :td, :project, :title do
+            = project_presenter.title
+          = readable_tag :td, :project, :updated_at do
+            = project_presenter.updated_at
+          = readable_tag :td, :project, :cost do
+            = project_presenter.cost
         %td
           - if policy(project).edit?
             = link_to t(:edit), edit_project_path(project)
