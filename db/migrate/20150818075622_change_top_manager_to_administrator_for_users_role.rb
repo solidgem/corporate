@@ -3,14 +3,10 @@ class ChangeTopManagerToAdministratorForUsersRole < ActiveRecord::Migration
   end
 
   def up
-    User.find_each do |user|
-      if user.role == 'top_manager'
-        user.role = 'administrator'
-        user.save!
-      end
-    end
+    User.where(role: 'top_manager').update_all(role: 'administrator')
   end
 
   def down
+    User.where(role: 'administrator').update_all(role: 'top_manager')
   end
 end
