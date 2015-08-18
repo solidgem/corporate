@@ -133,7 +133,7 @@ ru:
   enumerize:
     user:
       role:
-        top_manager: Топ менеджер
+        administrator: Администратор
         manager: Менеджер
         worker: Исполнитель
     task:

@@ -1,5 +1,5 @@
 class InvitePolicy < ApplicationPolicy
   def create?
-    user.top_manager?
+    user.administrator?
   end
 end
