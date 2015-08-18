@@ -30,10 +30,10 @@ class UserPolicy < ApplicationPolicy
   end
 
   def permitted_attributes
-    attrs = [:name, :email, :password, :password_confirmation,
+    attrs = [:email, :password, :password_confirmation,
              :avatar, :avatar_cache, :remove_avatar,
-             :contacts, :requisites, :position]
-    attrs.push :role if user.administrator?
+             :contacts, :requisites]
+    attrs.push :role, :name, :position if user.administrator?
     attrs.push :hour_rate, :external_hour_rate if user.manager? || user.administrator?
     attrs
   end
