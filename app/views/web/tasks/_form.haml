@@ -1,4 +1,4 @@
-= simple_form_for task do |f|
+= simple_form_for task, builder: PunditFormBuilder do |f|
   = f.input :title
   = f.association :project
   = f.input :description, as: :big_textarea
