@@ -84,4 +84,9 @@ module ApplicationHelper
       arr.join(' ')
     end
   end
+
+  def readable_tag(tag, model_name, attribute_name, &block)
+    return if policy(model_name).readable_attributes.exclude? attribute_name
+    content_tag tag, capture(&block)
+  end
 end
