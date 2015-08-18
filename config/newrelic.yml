@@ -5,18 +5,18 @@
 #
 # Generated August 18, 2015
 # 
-# This configuration file is custom generated for app38163965@heroku.com
+# This configuration file is custom generated for app38163965@heroku.com_1
 #
 # For full documentation of agent configuration options, please refer to
 # https://docs.newrelic.com/docs/agents/ruby-agent/installation-configuration/ruby-agent-configuration
 
 common: &default_settings
   # Required license key associated with your New Relic account.
-  license_key: ebc9e6830141995da2228534599d65800855149d
+  license_key: 3043605579cb2e9769a321c81ddd93ea7a361304
 
   # Your application name. Renaming here affects where data displays in New
   # Relic.  For more details, see https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/renaming-applications
-  app_name: Corporate
+  app_name: My Application
 
   # To disable the agent regardless of other settings, uncomment the following:
   # agent_enabled: false
@@ -30,7 +30,7 @@ common: &default_settings
 # If your application has other named environments, configure them here.
 development:
   <<: *default_settings
-  app_name: Corporate (Development)
+  app_name: My Application (Development)
 
   # NOTE: There is substantial overhead when running in developer mode.
   # Do not use for production or load testing.
@@ -43,7 +43,7 @@ test:
 
 staging:
   <<: *default_settings
-  app_name: Corporate (Staging)
+  app_name: My Application (Staging)
 
 production:
   <<: *default_settings
