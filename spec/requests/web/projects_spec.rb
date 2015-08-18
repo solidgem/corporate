@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'projects', type: :request do
-  let(:user) { create :top_manager }
+  let(:user) { create :administrator }
   let!(:project) { create :project }
   let(:project_attrs) { attributes_for :project }
 

@@ -1,7 +1,7 @@
 class TaskPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      return scope.all if user.top_manager?
+      return scope.all if user.administrator?
       return scope.for_manager(user) if user.manager?
       return scope.for_worker(user) if user.worker?
       scope.none
@@ -14,7 +14,7 @@ class TaskPolicy < ApplicationPolicy
 
   def show?
     return false if user.guest?
-    return true if user.top_manager?
+    return true if user.administrator?
     record.member? user
   end
 
@@ -23,14 +23,14 @@ class TaskPolicy < ApplicationPolicy
   end
 
   def update?
-    return true if user.top_manager?
+    return true if user.administrator?
     return true if record.creator == user
     return true if record.responsible_user == user
     false
   end
 
   def status?
-    return true if user.top_manager?
+    return true if user.administrator?
     return true if record.member? user
     false
   end

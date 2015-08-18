@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  enumerize :role, in: %w[top_manager manager worker], predicates: true, default: :worker
+  enumerize :role, in: %w[administrator manager worker], predicates: true, default: :worker
   mount_uploader :avatar, AvatarUploader
 
   belongs_to :inviter, class_name: 'User'
