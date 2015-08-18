@@ -83,6 +83,7 @@ ru:
         status: Статус
         status_event: Изменить статус
         competence: Компетенция
+        competence_text: Компетенция
         project: Проект
         project_id: Проект
       user:

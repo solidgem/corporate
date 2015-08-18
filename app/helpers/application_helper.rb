@@ -56,6 +56,18 @@ module ApplicationHelper
     nil
   end
 
+  def show_attribute_in_list_group(model, attribute)
+    value = model.send(attribute)
+    return if value.blank?
+    res = content_tag :li, class: 'list-group-item' do
+      [
+          content_tag(:strong, han(model.model_name, attribute)),
+          value
+      ].join(' ').html_safe
+    end
+    res.html_safe
+  end
+
   def present(model)
     klass = "#{model.class}Presenter".constantize
     presenter = klass.new(model, self)

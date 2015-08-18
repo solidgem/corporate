@@ -1,40 +1,31 @@
-.panel.panel-success
-  .panel-heading
-    %h1.panel-title= @task.title
-  .panel-body
-    = markdown @task.description
+- present @task do |task_presenter|
+  .panel.panel-success
+    .panel-heading
+      %h1.panel-title= task_presenter.title
+    .panel-body
+      = task_presenter.description
 
-  %ul.list-group
-    - if @task.access_data.present?
+    %ul.list-group
+      - if task_presenter.access_data.present?
+        %li.list-group-item
+          %strong=  han :task, :access_data
+          %br
+          = task_presenter.access_data
+
+      = show_attribute_in_list_group task_presenter, :created_at
+      = show_attribute_in_list_group task_presenter, :competence_text
+
       %li.list-group-item
-        %strong=  han :task, :access_data
-        %br
-        = markdown @task.access_data
-    %li.list-group-item
-      %strong=  han :task, :created_at
-      = l @task.created_at, format: :short
-    %li.list-group-item
-      %strong=  han :task, :competence
-      = @task.competence_text
-    %li.list-group-item
-      %strong= han :task, :status
-      = @task.human_status_name
-      .pull-right
-        - if policy(@task).status?
-          - @task.status_transitions.each do |transition|
-            = link_to transition.human_event, status_task_path(@task, event: transition.event), method: :patch
-    - if @task.deadline
-      %li.list-group-item
-        %strong= han :task, :deadline
-        = l @task.deadline, format: :short
-    - if @task.project
-      %li.list-group-item
-        %strong= han :task, :project
-        = @task.project
-    - if @task.total_elapsed_time.nonzero?
-      %li.list-group-item
-        %strong= han :task, :total_elapsed_time
-        = convert_seconds_to_string @task.total_elapsed_time
+        %strong= han :task, :status
+        = task_presenter.human_status_name
+        .pull-right
+          - if policy(task_presenter).status?
+            - task_presenter.status_transitions.each do |transition|
+              = link_to transition.human_event, status_task_path(task_presenter, event: transition.event), method: :patch
+
+      = show_attribute_in_list_group task_presenter, :deadline
+      = show_attribute_in_list_group task_presenter, :project
+      = show_attribute_in_list_group task_presenter, :total_elapsed_time
 
 = render 'web/tasks/comments/form', comment: @task.comments.build, url: task_comments_path(@task), method_name: :post
 
