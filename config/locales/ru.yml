@@ -56,6 +56,7 @@ ru:
     title: Название
     cost: Стоимость
     expenses: Затраты
+    access_data: Доступы и пароли
   activerecord:
     state_machines:
       task:
