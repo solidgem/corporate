@@ -1,7 +1,25 @@
 class UserPresenter < BasePresenter
+  def initialize(model, view_context)
+    access_presenter = AccessPresenter.new model, view_context
+    super access_presenter, view_context
+  end
+
+  def name
+    h.link_to model.name, model
+  end
+
   def avatar
     return unless model.avatar?
     h.image_tag model.avatar.small.url, AvatarUploader::SMALL_DIMENSIONS
+  end
+
+  def avatar_thumb
+    opts = {}
+    opts.merge! AvatarUploader::THUMB_DIMENSIONS
+    opts.merge! data: {toggle: :tooltip, placement: :top}, title: model.name
+    h.link_to h.user_path model do
+      h.image_tag model.avatar.thumb.url, opts
+    end
   end
 
   def contacts

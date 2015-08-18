@@ -49,7 +49,6 @@ module ApplicationHelper
   end
 
   def show_attribute(model, attribute)
-    return if policy(model).readable_attributes.exclude? attribute
     value = model.send(attribute)
     return if value.blank?
     concat content_tag :dt, han(model.model_name, attribute)
@@ -61,6 +60,7 @@ module ApplicationHelper
     klass = "#{model.class}Presenter".constantize
     presenter = klass.new(model, self)
     yield(presenter) if block_given?
+    presenter
   end
 
   def convert_seconds_to_string(seconds)

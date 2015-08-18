@@ -22,10 +22,10 @@
         %td= link_to task.title, task
         %td= task.project
         %td
-          = thumb_user_avatar task.responsible_user
+          = present(task.responsible_user).avatar_thumb
           = "->"
           - task.users.each do |user|
-            = thumb_user_avatar user
+            = present(user).avatar_thumb
         %td= formatted_date task.deadline
         %td= task.human_status_name
         %td= task.competence_text
