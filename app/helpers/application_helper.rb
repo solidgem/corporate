@@ -49,13 +49,30 @@ module ApplicationHelper
   end
 
   def show_attribute(model, attribute)
-    return if policy(model).readable_attributes.exclude? attribute
-    value = block_given? ? yield : model.send(attribute)
+    value = model.send(attribute)
     return if value.blank?
-    return if value.try :zero?
-    concat content_tag :dt, han(model.class, attribute)
+    concat content_tag :dt, han(model.model_name, attribute)
     concat content_tag :dd, value
     nil
+  end
+
+  def show_attribute_in_list_group(model, attribute)
+    value = model.send(attribute)
+    return if value.blank?
+    res = content_tag :li, class: 'list-group-item' do
+      [
+          content_tag(:strong, han(model.model_name, attribute)),
+          value
+      ].join(' ').html_safe
+    end
+    res.html_safe
+  end
+
+  def present(model)
+    klass = "#{model.class}Presenter".constantize
+    presenter = klass.new(model, self)
+    yield(presenter) if block_given?
+    presenter
   end
 
   def convert_seconds_to_string(seconds)

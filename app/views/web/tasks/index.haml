@@ -18,19 +18,20 @@
   %tbody
     - @tasks.each do |task|
       %tr
-        %td= task.id
-        %td= link_to task.title, task
-        %td= task.project
-        %td
-          = thumb_user_avatar task.responsible_user
-          = "->"
-          - task.users.each do |user|
-            = thumb_user_avatar user
-        %td= formatted_date task.deadline
-        %td= task.human_status_name
-        %td= task.competence_text
-        %td= formatted_date task.updated_at
-        %td= convert_seconds_to_string task.total_elapsed_time if task.total_elapsed_time.nonzero?
+        - present task do |task_presenter|
+          %td= task_presenter.id
+          %td= task_presenter.title
+          %td= task_presenter.project
+          %td
+            = task_presenter.responsible_user.avatar_thumb
+            = "->"
+            - task_presenter.users.each do |user|
+              = user.avatar_thumb
+          %td= task_presenter.deadline
+          %td= task_presenter.human_status_name
+          %td= task_presenter.competence_text
+          %td= task_presenter.updated_at
+          %td= task_presenter.total_elapsed_time
         %td
           - if policy(task).edit?
             = link_to t(:edit), edit_task_path(task)

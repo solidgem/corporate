@@ -13,10 +13,11 @@
   %tbody
     - @projects.each do |project|
       %tr
-        %td= project.id
-        %td= link_to_if policy(project).show?, project.title, project
-        %td= formatted_date project.updated_at
-        %td= project.cost.to_s(:currency)
+        - present project do |project_presenter|
+          %td= project_presenter.id
+          %td= project_presenter.title
+          %td= project_presenter.updated_at
+          %td= project_presenter.cost
         %td
           - if policy(project).edit?
             = link_to t(:edit), edit_project_path(project)

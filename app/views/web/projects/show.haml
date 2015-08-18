@@ -1,9 +1,10 @@
-%h1= @project.title
-%dl
-  %dt= t '.cost'
-  %dd= @project.cost.to_s(:currency)
-  %dt= t '.total_balance'
-  %dd= (@project.cost - @total_expenses).to_s(:currency)
+- present @project do |project_presenter|
+  %h1= project_presenter.title
+  %dl
+    %dt= t '.cost'
+    %dd= project_presenter.cost
+    %dt= t '.total_balance'
+    %dd= (@project.cost - @total_expenses).to_s(:currency)
 %table.table.table-striped
   %thead
     %tr
@@ -16,10 +17,11 @@
     - @tasks_with_cost.each do |task_cost|
       %tr
         - task_cost[:task].tap do |task|
-          %td= task.id
-          %td= link_to task.title, task
-          %td= task.competence_text
-          %td= convert_seconds_to_string task.total_elapsed_time
+          - present task do |task_presenter|
+            %td= task_presenter.id
+            %td= task_presenter.title
+            %td= task_presenter.competence_text
+            %td= task_presenter.total_elapsed_time
         %td= task_cost[:cost].to_s(:currency)
     %tr
       %td{ colspan: 3 }
