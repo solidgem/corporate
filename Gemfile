@@ -52,6 +52,7 @@ gem 'cloudinary'
 gem 'github-markdown'
 
 gem 'newrelic_rpm'
+gem 'rollbar'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
