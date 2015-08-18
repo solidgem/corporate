@@ -36,6 +36,6 @@ class TaskPolicy < ApplicationPolicy
   end
 
   def permitted_attributes
-    [:title, :description, :status_event, :deadline, :competence, :responsible_user_id, :project_id, user_ids: []]
+    [:title, :description, :access_data, :status_event, :deadline, :competence, :responsible_user_id, :project_id, user_ids: []]
   end
 end
