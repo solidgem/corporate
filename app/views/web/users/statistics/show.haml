@@ -18,7 +18,7 @@
         - stat[:task].tap do |task|
           %td= task.id
           %td= link_to task, task
-        %td= distance_of_time_in_words stat[:user_elapsed_time]
+        %td= convert_seconds_to_string stat[:user_elapsed_time]
         %td= stat[:reward].to_s(:currency)
     %tr
       %td{ colspan: 2 }

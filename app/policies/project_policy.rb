@@ -8,7 +8,7 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def create?
-    return true if user.top_manager?
+    return true if user.administrator?
     return true if user.manager?
     false
   end

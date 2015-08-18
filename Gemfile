@@ -51,8 +51,9 @@ gem 'cloudinary'
 
 gem 'github-markdown'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
+gem 'newrelic_rpm'
+gem 'rollbar'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

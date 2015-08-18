@@ -8,7 +8,7 @@ FactoryGirl.define do
     external_hour_rate 500
   end
 
-  factory :top_manager, parent: :user do
-    role :top_manager
+  factory :administrator, parent: :user do
+    role :administrator
   end
 end

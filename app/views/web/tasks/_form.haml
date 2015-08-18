@@ -1,7 +1,8 @@
-= simple_form_for task do |f|
+= simple_form_for task, builder: PunditFormBuilder do |f|
   = f.input :title
   = f.association :project
   = f.input :description, as: :big_textarea
+  = f.input :access_data, as: :big_textarea
   = f.input :deadline, as: :datetime_picker
   = f.input :competence
   = f.input :status_event, collection: f.object.status_transitions,

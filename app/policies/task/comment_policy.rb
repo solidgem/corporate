@@ -3,7 +3,7 @@ class Task::CommentPolicy < ApplicationPolicy
 
   def create?
     return false if user.guest?
-    return true if user.top_manager?
+    return true if user.administrator?
     return true if record.task.member? user
     false
   end

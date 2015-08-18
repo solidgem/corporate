@@ -5,6 +5,11 @@
     = markdown @task.description
 
   %ul.list-group
+    - if @task.access_data.present?
+      %li.list-group-item
+        %strong=  han :task, :access_data
+        %br
+        = markdown @task.access_data
     %li.list-group-item
       %strong=  han :task, :created_at
       = l @task.created_at, format: :short

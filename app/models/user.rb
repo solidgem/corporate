@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  enumerize :role, in: %w[top_manager manager worker], predicates: true, default: :worker
+  enumerize :role, in: %w[administrator manager worker], predicates: true, default: :worker
   mount_uploader :avatar, AvatarUploader
 
   belongs_to :inviter, class_name: 'User'
@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
     worker.validates :hour_rate, numericality: { greater_than: 0 }
     worker.validates :external_hour_rate, numericality: { greater_than: 0 }
   end
+
+  validates :external_hour_rate, numericality: { greater_than_or_equal_to: :hour_rate }
 
   def guest?
     false
