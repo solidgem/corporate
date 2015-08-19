@@ -24,7 +24,7 @@ class Web::SessionsController < Web::ApplicationController
 
   def update
     authorize :session
-    sign_in User.find(params[:id])
+    sign_in User.find(params[:session][:user_id])
     redirect_to root_path
   end
 

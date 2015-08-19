@@ -30,6 +30,6 @@
           - if policy(user).edit?
             = link_to t(:edit), edit_user_path(user)
           - if policy(:session).update?
-            = link_to t(:switch_user), session_path(id: user.id), method: :patch
+            = link_to t(:switch_user), session_path(session: { user_id: user.id }), method: :patch
 
         = paginate @users, theme: 'twitter-bootstrap-3'
