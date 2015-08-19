@@ -6,4 +6,9 @@ class SessionPolicy < ApplicationPolicy
   def destroy?
     ! user.guest?
   end
+
+  def update?
+    return true if user.administrator?
+    false
+  end
 end
