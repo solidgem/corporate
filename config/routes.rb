@@ -3,9 +3,6 @@ Rails.application.routes.draw do
     root to: 'welcome#index'
     resource :session
     resources :users do
-      member do
-        get :switch
-      end
       scope module: :users do
         resource :statistics
       end

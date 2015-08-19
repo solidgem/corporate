@@ -22,6 +22,12 @@ class Web::SessionsController < Web::ApplicationController
     redirect_to root_path
   end
 
+  def update
+    authorize :session
+    sign_in User.find(params[:id])
+    redirect_to root_path
+  end
+
   private
 
   def session_form_params
