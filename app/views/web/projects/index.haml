@@ -9,6 +9,8 @@
         = sort_link @q, :id
       = readable_tag :th, :project, :title do
         = sort_link @q, :title
+      = readable_tag :th, :project, :responsible_user do
+        = sort_link @q, :responsible_user
       = readable_tag :th, :project, :updated_at do
         = sort_link @q, :updated_at
       = readable_tag :th, :project, :cost do
@@ -22,6 +24,8 @@
             = project_presenter.id
           = readable_tag :td, :project, :title do
             = project_presenter.title
+          = readable_tag :td, :project, :responsible_user do
+            = project_presenter.responsible_user.avatar_thumb
           = readable_tag :td, :project, :updated_at do
             = project_presenter.updated_at
           = readable_tag :td, :project, :cost do

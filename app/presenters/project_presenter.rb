@@ -16,4 +16,8 @@ class ProjectPresenter < BasePresenter
     return unless model.cost
     model.cost.to_s(:currency)
   end
+
+  def responsible_user
+    h.present model.responsible_user
+  end
 end

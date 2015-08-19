@@ -58,6 +58,7 @@ ru:
     cost: Стоимость
     expenses: Затраты
     access_data: Доступы и пароли
+    responsible_user: Ответственный
   activerecord:
     state_machines:
       task:
