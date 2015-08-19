@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150818103014) do
+ActiveRecord::Schema.define(version: 20150819103830) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "cost",       default: 0
+    t.integer  "cost",                default: 0
+    t.integer  "responsible_user_id"
   end
 
   create_table "task_comments", force: :cascade do |t|

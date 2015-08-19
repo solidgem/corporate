@@ -1,4 +1,5 @@
 = simple_form_for project do |f|
   = f.input :title
+  = f.association :responsible_user
   = f.input :cost
   = f.button :submit
