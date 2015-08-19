@@ -30,6 +30,12 @@ class Web::UsersController < Web::ApplicationController
     respond_with @user
   end
 
+  def switch
+    authorize :user
+    sign_in User.find(params[:id])
+    redirect_to root_path
+  end
+
   private
 
   def user_params

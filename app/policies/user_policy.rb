@@ -21,6 +21,13 @@ class UserPolicy < ApplicationPolicy
     record == user
   end
 
+  def switch?
+    return false if user.guest?
+    return false if user.worker?
+    return false if user.manager?
+    true
+  end
+
   def readable_attributes
     attrs = [:name, :email, :avatar, :contacts, :position]
     attrs.push :role, :role_text if user.administrator?
