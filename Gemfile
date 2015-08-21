@@ -47,8 +47,8 @@ gem 'enumerize'
 gem 'state_machines-activerecord'
 gem 'pundit'
 
-gem 'carrierwave'
-gem 'cloudinary'
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"
 
 gem 'github-markdown'
 
