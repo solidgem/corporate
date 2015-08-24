@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819103830) do
+ActiveRecord::Schema.define(version: 20150824141542) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150819103830) do
     t.datetime "updated_at"
     t.integer  "cost",                default: 0
     t.integer  "responsible_user_id"
+    t.string   "status"
   end
 
   create_table "task_comments", force: :cascade do |t|
