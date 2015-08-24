@@ -4,7 +4,7 @@
     %dt= t '.cost'
     %dd= project_presenter.cost
     %dt= t '.total_balance'
-    %dd= (@project.cost - @total_expenses).to_s(:currency)
+    %dd= project_presenter.total_balance @total_expenses
 %table.table.table-striped
   %thead
     %tr
