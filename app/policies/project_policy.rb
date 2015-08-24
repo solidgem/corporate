@@ -13,10 +13,7 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def show?
-    return true if user.administrator?
-    return true if user.manager?
-    return true if scope.for_worker(user).include? record
-    false
+    create?
   end
 
   def create?
