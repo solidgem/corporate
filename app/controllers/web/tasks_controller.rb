@@ -3,7 +3,7 @@ class Web::TasksController < Web::ApplicationController
 
   def index
     authorize :task
-    task_params = params.fetch(:q, force: true).reverse_merge(status_in: 'active')
+    task_params = { status_in: 'active' }.merge(params.fetch(:q, {}))
     @q = policy_scope(Task).search(task_params)
     @q.sorts = 'id desc' if @q.sorts.empty?
     @tasks = @q.result(distinct: true).preload(:responsible_user, :creator, :users, :project).page(params[:page])
