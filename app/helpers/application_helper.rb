@@ -92,7 +92,7 @@ module ApplicationHelper
 
 
   # TODO: https://github.com/refile/refile/issues/334
-  def attachment_image_tag(record, name, *args, fallback: nil, format: nil, host: nil, **options)
+  def attachment_image_tag(record, name, *args, fallback: nil, format: nil, host: Refile.host, **options)
     file = record.send(name)
     # classes = ["attachment", record.class.model_name.singular, name, *options[:class]]
     classes = ["attachment", record.model_name.singular, name, *options[:class]]
