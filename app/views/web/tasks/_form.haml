@@ -1,6 +1,6 @@
 = simple_form_for task, builder: PunditFormBuilder do |f|
   = f.input :title
-  = f.association :project
+  = f.association :project, collection: policy_scope(Project)
   = f.input :description, as: :big_textarea
   = f.input :access_data, as: :big_textarea
   = f.input :deadline, as: :datetime_picker

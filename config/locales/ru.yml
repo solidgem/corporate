@@ -120,6 +120,7 @@ ru:
       email: неправильный формат почты
       wrong_email_or_password: логин или пароль неверный
       already_invited: пользователь уже приглашен
+      project_not_accessible: проект не доступен
   helpers:
     submit:
       create: Сохранить

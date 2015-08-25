@@ -30,6 +30,7 @@ class Task < ActiveRecord::Base
   validates :creator, presence: true
   validates :responsible_user, presence: true
   validates :competence, presence: true
+  validate :project_should_be_accessible
 
   def member?(user)
     return true if creator == user
@@ -42,6 +43,13 @@ class Task < ActiveRecord::Base
     title
   end
 
+  def project_should_be_accessible
+    return if creator.administrator?
+    return if creator.manager?
+    if project.present? && Project.for_worker(creator).exclude?(project)
+      errors.add(:project, :project_not_accessible)
+    end
+  end
   private
 
   def write_attribute(attr_name, value)
