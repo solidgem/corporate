@@ -2,9 +2,9 @@
   .panel.panel-success
     .panel-heading
       %h1.panel-title= task_presenter.title
-    .panel-body
-      = task_presenter.description
-
+    - if task_presenter.description.present?
+      .panel-body
+        = task_presenter.description
     %ul.list-group
       - if task_presenter.access_data.present?
         %li.list-group-item
@@ -14,18 +14,18 @@
 
       = show_attribute_in_list_group task_presenter, :created_at
       = show_attribute_in_list_group task_presenter, :competence_text
-
-      %li.list-group-item
-        %strong= han :task, :status
-        = task_presenter.human_status_name
-        .pull-right
-          - if policy(task_presenter).status?
-            - task_presenter.status_transitions.each do |transition|
-              = link_to transition.human_event, status_task_path(task_presenter, event: transition.event), method: :patch
-
+      = show_attribute_in_list_group task_presenter, :status
       = show_attribute_in_list_group task_presenter, :deadline
       = show_attribute_in_list_group task_presenter, :project
       = show_attribute_in_list_group task_presenter, :total_elapsed_time
+
+      %li.list-group-item
+        - if policy(task_presenter).edit?
+          = link_to t(:edit), edit_task_path(task_presenter)
+        - if policy(task_presenter).status?
+          - task_presenter.status_transitions.each do |transition|
+            = link_to transition.human_event, status_task_path(task_presenter, event: transition.event), method: :patch
+
 
 = render 'web/tasks/comments/form', comment: @task.comments.build, url: task_comments_path(@task), method_name: :post
 
