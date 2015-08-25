@@ -9,6 +9,6 @@ if ENV['AWS_S3_BUCKET']
   Refile.store = Refile::S3.new(prefix: "store", **aws)
 end
 
-if ENV['AWS_CLOUDFRONT_DOMAIN']
-  Refile.host = ENV['AWS_CLOUDFRONT_DOMAIN']
+if ENV['AWS_CLOUDFRONT_HOST']
+  Refile.host = ENV['AWS_CLOUDFRONT_HOST']
 end
