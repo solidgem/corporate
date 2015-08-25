@@ -44,12 +44,11 @@ class Task < ActiveRecord::Base
   end
 
   def project_should_be_accessible
-    return if creator.administrator?
-    return if creator.manager?
-    if project.present? && Project.for_worker(creator).exclude?(project)
+    if project.present? && creator.worker? && Project.for_worker(creator).exclude?(project)
       errors.add(:project, :project_not_accessible)
     end
   end
+  
   private
 
   def write_attribute(attr_name, value)
