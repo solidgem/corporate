@@ -44,6 +44,9 @@ ru:
         cost: 'Стоимость:'
         total_expenses: 'Итоговые затраты:'
         total_balance: 'Остаток:'
+  shared:
+    attachments_files_form:
+      destroy_file: 'удалить файл:'
   attributes:
     created_at: Создано
     updated_at: Обновлено

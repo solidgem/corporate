@@ -1,8 +1,10 @@
 class Task::Comment < ActiveRecord::Base
+  include WithAttachments
   include CommentRepository
 
   belongs_to :user
   belongs_to :task
+
   counter_culture :task, column_name: 'total_elapsed_time', delta_column: 'elapsed_time'
 
   validates :task, presence: true
