@@ -9,4 +9,12 @@
                            label_method: :human_event, value_method: :event
   = f.association :responsible_user
   = f.association :users
+  = f.input  :attachments_files, as: :attachment, multiple: true
+  = f.fields_for :attachments do |attachment_form|
+    .row
+      .col-xs-10
+        = attachment_form.object.file_filename
+        = attachment_form.object.file_size.to_s(:human_size)
+      .col-xs-2
+        = attachment_form.input :_destroy, as: :boolean, wrapper_html: {class: 'pull-right'}
   = f.button :submit

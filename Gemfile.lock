@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/refile/refile.git
+  revision: f37b5c55bb1f754cf7c44e0f5e5dc3225ebfe85d
+  ref: f37b5c55
+  specs:
+    refile (0.5.5)
+      mime-types
+      rest-client (~> 1.8)
+      sinatra (~> 1.4.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -147,7 +157,7 @@ GEM
       pry (>= 0.9.10)
     pundit (1.0.1)
       activesupport (>= 3.0.0)
-    rack (1.6.2)
+    rack (1.6.4)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -192,10 +202,6 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.1)
-    refile (0.5.5)
-      mime-types
-      rest-client (~> 1.8)
-      sinatra (~> 1.4.5)
     refile-mini_magick (0.1.0)
       mini_magick (~> 4.0)
       refile (~> 0.5)
@@ -319,7 +325,7 @@ DEPENDENCIES
   rails-i18n
   rails_12factor
   ransack
-  refile
+  refile!
   refile-mini_magick
   responders
   rollbar

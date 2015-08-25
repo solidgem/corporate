@@ -27,6 +27,11 @@
       = show_attribute_in_list_group task_presenter, :project
       = show_attribute_in_list_group task_presenter, :total_elapsed_time
 
+      - task_presenter.attachments.each do |attachment|
+        %li.list-group-item
+          = link_to attachment.file_filename, attachment_url(attachment, :file)
+          = attachment.file_size.to_s(:human_size)
+
 = render 'web/tasks/comments/form', comment: @task.comments.build, url: task_comments_path(@task), method_name: :post
 
 = render partial: 'comment', collection: @task.comments.ordered

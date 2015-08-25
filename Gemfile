@@ -47,7 +47,7 @@ gem 'enumerize'
 gem 'state_machines-activerecord'
 gem 'pundit'
 
-gem "refile", require: "refile/rails"
+gem "refile", require: "refile/rails", github: 'refile/refile', ref: 'f37b5c55' #TODO: update when it released
 gem "refile-mini_magick"
 
 gem 'github-markdown'

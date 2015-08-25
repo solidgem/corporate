@@ -9,6 +9,7 @@ class Task < ActiveRecord::Base
   has_many :task_participations, dependent: :destroy
   has_many :users, through: :task_participations
   has_many :comments
+  has_many :attachments, as: :entity, dependent: :destroy
 
   enumerize :competence, in: %w[html_coding programming content design]
 
@@ -25,6 +26,9 @@ class Task < ActiveRecord::Base
       transition [:active, :finished] => :archived
     end
   end
+
+  accepts_nested_attributes_for :attachments, allow_destroy: true
+  accepts_attachments_for :attachments, append: true
 
   validates :title, presence: true
   validates :creator, presence: true
