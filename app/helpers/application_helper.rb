@@ -91,7 +91,7 @@ module ApplicationHelper
   end
 
 
-  # TODO: made fork
+  # TODO: https://github.com/refile/refile/issues/334
   def attachment_image_tag(record, name, *args, fallback: nil, format: nil, host: nil, **options)
     file = record.send(name)
     # classes = ["attachment", record.class.model_name.singular, name, *options[:class]]
