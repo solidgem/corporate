@@ -13,6 +13,17 @@
 
 ActiveRecord::Schema.define(version: 20150825143239) do
 
+  create_table "attachments", force: :cascade do |t|
+    t.string   "file_id"
+    t.string   "file_filename"
+    t.integer  "file_size"
+    t.string   "file_content_type"
+    t.integer  "entity_id"
+    t.string   "entity_type"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at"
@@ -57,16 +68,19 @@ ActiveRecord::Schema.define(version: 20150825143239) do
     t.string   "email"
     t.integer  "inviter_id"
     t.string   "password_digest"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "role"
     t.string   "name"
     t.text     "contacts"
     t.text     "requisites"
     t.string   "position"
-    t.string   "avatar"
-    t.integer  "hour_rate",          default: 0
-    t.integer  "external_hour_rate", default: 0
+    t.integer  "hour_rate",                  default: 0
+    t.integer  "external_hour_rate",         default: 0
+    t.string   "profile_image_id"
+    t.string   "profile_image_filename"
+    t.integer  "profile_image_size"
+    t.string   "profile_image_content_type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -13,4 +13,6 @@
             = f.input :elapsed_time_hours, collection: 0.step(to: 24), include_blank: false
           .col-sm-1
             = f.input :elapsed_time_minutes, collection:  0.step(by: 5, to: 60), include_blank: false
+
+      = render 'shared/attachments_files_form', f: f
       = f.button :submit

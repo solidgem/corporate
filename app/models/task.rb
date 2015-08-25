@@ -1,5 +1,6 @@
 class Task < ActiveRecord::Base
   extend Enumerize
+  include WithAttachments
   include TaskRepository
 
   belongs_to :project

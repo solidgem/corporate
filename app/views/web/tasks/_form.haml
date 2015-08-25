@@ -9,4 +9,5 @@
                            label_method: :human_event, value_method: :event
   = f.association :responsible_user
   = f.association :users
+  = render 'shared/attachments_files_form', f: f
   = f.button :submit

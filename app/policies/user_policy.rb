@@ -22,7 +22,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def readable_attributes
-    attrs = [:name, :email, :avatar, :contacts, :position]
+    attrs = [:name, :email, :profile_image, :profile_image_thumb, :contacts, :position]
     attrs.push :role, :role_text if user.administrator?
     attrs.push :hour_rate, :requisites, :external_hour_rate if user.manager? || user.administrator?
     attrs.push :hour_rate, :requisites if record == user
@@ -31,7 +31,7 @@ class UserPolicy < ApplicationPolicy
 
   def permitted_attributes
     attrs = [:email, :password, :password_confirmation,
-             :avatar, :avatar_cache, :remove_avatar,
+             :profile_image, :remove_profile_image,
              :contacts, :requisites]
     attrs.push :role, :name, :position if user.administrator?
     attrs.push :hour_rate, :external_hour_rate if user.manager? || user.administrator?

@@ -89,4 +89,19 @@ module ApplicationHelper
     return if policy(model_name).readable_attributes.exclude? attribute_name
     content_tag tag, capture(&block)
   end
+
+
+  # TODO: https://github.com/refile/refile/issues/334
+  def attachment_image_tag(record, name, *args, fallback: nil, format: nil, host: Refile.host, **options)
+    file = record.send(name)
+    # classes = ["attachment", record.class.model_name.singular, name, *options[:class]]
+    classes = ["attachment", record.model_name.singular, name, *options[:class]]
+
+    if file
+      image_tag(attachment_url(record, name, *args, format: format, host: host), options.merge(class: classes))
+    elsif fallback
+      classes << "fallback"
+      image_tag(fallback, options.merge(class: classes))
+    end
+  end
 end
