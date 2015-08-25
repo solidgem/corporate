@@ -20,6 +20,8 @@ class Web::Tasks::CommentsController < Web::Tasks::ApplicationController
   private
 
   def comment_params
-    params.require(:task_comment).permit(:content, :elapsed_time, :elapsed_time_hours, :elapsed_time_minutes)
+    params.require(:task_comment)
+        .permit(:content, :elapsed_time, :elapsed_time_hours, :elapsed_time_minutes,
+                attachments_files: [], attachments_attributes: [:id, :_destroy])
   end
 end

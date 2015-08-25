@@ -47,8 +47,9 @@ gem 'enumerize'
 gem 'state_machines-activerecord'
 gem 'pundit'
 
-gem 'carrierwave'
-gem 'cloudinary'
+gem "refile", require: "refile/rails", github: 'refile/refile', ref: 'f37b5c55' #TODO: update when it released
+gem "refile-mini_magick"
+gem "refile-s3"
 
 gem 'github-markdown'
 

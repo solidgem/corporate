@@ -1,0 +1,10 @@
+= f.input :attachments_files, as: :attachment, multiple: true
+%ul.list-unstyled
+  = f.fields_for :attachments do |attachment_form|
+    - if attachment_form.object.persisted?
+      %li
+        = attachment_form.check_box :_destroy
+        = t '.destroy_file'
+
+        = attachment_form.object.file_filename
+        = attachment_form.object.file_size.to_s(:human_size) if attachment_form.object.file_size

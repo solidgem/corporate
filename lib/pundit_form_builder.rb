@@ -10,5 +10,7 @@ class PunditFormBuilder < SimpleForm::FormBuilder
     return true if permitted_attributes.include? attr_name
     return true if permitted_attributes.last.kind_of?(Hash) && permitted_attributes.last.key?(attr_name)
     false
+  rescue Pundit::NotDefinedError
+    true
   end
 end

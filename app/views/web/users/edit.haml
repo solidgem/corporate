@@ -9,9 +9,9 @@
   = f.input :external_hour_rate
   = f.input :password
   = f.input :password_confirmation
-  = f.input :avatar, as: :file
-  = f.input :avatar_cache, as: :hidden
-  - if @user.avatar?
-    = f.input :remove_avatar, as: :boolean
-    %p= image_tag(@user.avatar.small.url)
+  = f.input :profile_image, as: :attachment
+
+  - if @user.profile_image
+    = image_tag attachment_url(@user, :profile_image, :fill, 200, 200)
+    = f.input :remove_profile_image, as: :boolean
   = f.button :submit
