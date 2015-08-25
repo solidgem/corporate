@@ -17,12 +17,18 @@ class ProjectPolicy < ApplicationPolicy
     create?
   end
 
+  def status?
+    return true if user.administrator?
+    return true if user.manager?
+    false
+  end
+
   def permitted_attributes
     [:title, :cost, :responsible_user_id]
   end
 
   def readable_attributes
-    attrs = [:id, :title, :responsible_user, :updated_at, :created_at]
+    attrs = [:id, :title, :responsible_user, :status, :updated_at, :created_at]
     attrs.push :cost if user.administrator? || user.manager?
     attrs
   end

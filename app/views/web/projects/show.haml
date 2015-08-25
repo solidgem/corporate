@@ -5,6 +5,12 @@
     %dd= project_presenter.cost
     %dt= t '.total_balance'
     %dd= (@project.cost - @total_expenses).to_s(:currency)
+    %dt= t '.status'
+    - if policy(@project).status?
+      - @project.status_transitions.each do |transition|
+        %dd
+          = @project.human_status_name
+          = link_to transition.human_event, status_project_path(@project, event: transition.event), method: :patch
 %table.table.table-striped
   %thead
     %tr

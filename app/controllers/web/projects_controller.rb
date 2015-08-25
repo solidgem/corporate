@@ -49,6 +49,13 @@ class Web::ProjectsController < Web::ApplicationController
     respond_with @project
   end
 
+  def status
+    @project = Project.find params[:id]
+    authorize @project
+    @project.update status_event: params[:event]
+    respond_with @project
+  end
+
   private
 
   def project_params
