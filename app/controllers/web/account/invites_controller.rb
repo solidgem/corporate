@@ -4,13 +4,13 @@ class Web::Account::InvitesController < Web::Account::ApplicationController
   def new
     authorize :invite
     add_breadcrumb
-    @user = User.new
+    @user = InviteType.new(inviter: current_user)
   end
 
   def create
     authorize :invite
     add_breadcrumb
-    @user = InviteService.perform user_params, current_user
+    @user = InviteService.perform(user_params.merge(inviter: current_user))
 
     if @user.valid?
       redirect_to root_path
@@ -22,6 +22,6 @@ class Web::Account::InvitesController < Web::Account::ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :role, :hour_rate, :external_hour_rate)
+    params.require(:user).permit(:name, :inviter_id, :email, :role, :hour_rate, :external_hour_rate)
   end
 end

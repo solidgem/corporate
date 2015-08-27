@@ -3,8 +3,9 @@ class InvitePolicy < ApplicationPolicy
     user.administrator? || user.manager?
   end
 
-  def permitted_roles
-    return [[User.role.worker.text, :worker]] if user.manager?
-    User.role.options if user.administrator?
+  def available_roles
+    return User.role.values if user.administrator?
+    return ['worker'] if user.manager?
+    []
   end
 end
