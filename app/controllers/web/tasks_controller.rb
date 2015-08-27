@@ -18,47 +18,47 @@ class Web::TasksController < Web::ApplicationController
   end
 
   def new
-    @task = TaskAccessProjectType.new(creator: current_user)
-    authorize @task
+    @task_type = TaskType.new(creator: current_user)
+    authorize @task_type
     add_breadcrumb
-    respond_with @task
+    respond_with @task_type
   end
 
   def create
-    @task = TaskAccessProjectType.new(creator: current_user)
-    authorize @task
+    @task_type = TaskType.new(creator: current_user)
+    authorize @task_type
     add_breadcrumb
-    @task.update task_params
-    TaskNotificationService.notification_on_create(@task)
-    respond_with @task
+    @task_type.update task_params
+    TaskNotificationService.notification_on_create(@task_type)
+    respond_with @task_type
   end
 
   def edit
-    @task = TaskAccessProjectType.find params[:id]
-    authorize @task
-    add_breadcrumb model: @task
-    respond_with @task
+    @task_type = TaskType.find params[:id]
+    authorize @task_type
+    add_breadcrumb model: @task_type
+    respond_with @task_type
   end
 
   def update
-    @task = TaskAccessProjectType.find params[:id]
-    authorize @task
-    add_breadcrumb model: @task
-    @task.update task_params
-    respond_with @task
+    @task_type = TaskType.find params[:id]
+    authorize @task_type
+    add_breadcrumb model: @task_type
+    @task_type.update task_params
+    respond_with @task_type
   end
 
   def status
-    @task = TaskAccessProjectType.find params[:id]
-    authorize @task
-    @task.update status_event: params[:event]
-    respond_with @task
+    @task_type = TaskType.find params[:id]
+    authorize @task_type
+    @task_type.update status_event: params[:event]
+    respond_with @task_type
   end
 
   private
 
   def task_params
-    attrs = policy(@task).permitted_attributes
+    attrs = policy(@task_type).permitted_attributes
     params.require(:task).permit(attrs)
   end
 
