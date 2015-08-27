@@ -31,7 +31,6 @@ class Task < ActiveRecord::Base
   validates :creator, presence: true
   validates :responsible_user, presence: true
   validates :competence, presence: true
-  validate :project_should_be_accessible
 
   def member?(user)
     return true if creator == user
@@ -42,12 +41,6 @@ class Task < ActiveRecord::Base
 
   def to_s
     title
-  end
-
-  def project_should_be_accessible
-    if project.present? && creator.worker? && Project.for_worker(creator).exclude?(project)
-      errors.add(:project, :project_not_accessible)
-    end
   end
   
   private

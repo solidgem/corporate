@@ -18,14 +18,14 @@ class Web::TasksController < Web::ApplicationController
   end
 
   def new
-    @task = current_user.created_tasks.new
+    @task = TaskAccessProjectType.new(creator: current_user)
     authorize @task
     add_breadcrumb
     respond_with @task
   end
 
   def create
-    @task = current_user.created_tasks.build
+    @task = TaskAccessProjectType.new(creator: current_user)
     authorize @task
     add_breadcrumb
     @task.update task_params
@@ -34,14 +34,14 @@ class Web::TasksController < Web::ApplicationController
   end
 
   def edit
-    @task = Task.find params[:id]
+    @task = TaskAccessProjectType.find params[:id]
     authorize @task
     add_breadcrumb model: @task
     respond_with @task
   end
 
   def update
-    @task = Task.find params[:id]
+    @task = TaskAccessProjectType.find params[:id]
     authorize @task
     add_breadcrumb model: @task
     @task.update task_params
@@ -49,7 +49,7 @@ class Web::TasksController < Web::ApplicationController
   end
 
   def status
-    @task = Task.find params[:id]
+    @task = TaskAccessProjectType.find params[:id]
     authorize @task
     @task.update status_event: params[:event]
     respond_with @task
