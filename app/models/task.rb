@@ -42,7 +42,7 @@ class Task < ActiveRecord::Base
   def to_s
     title
   end
-  
+
   private
 
   def write_attribute(attr_name, value)
