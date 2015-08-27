@@ -34,13 +34,7 @@ class TaskPolicy < ApplicationPolicy
     return true if record.member? user
     false
   end
-
-  def available_projects
-    return Project.all if user.administrator? || user.manager?
-    return Project.for_worker(user) if user.worker?
-    []
-  end
-
+  
   def permitted_attributes
     [:title, :description, :access_data, :status_event,
      :deadline, :competence, :responsible_user_id, :project_id,
