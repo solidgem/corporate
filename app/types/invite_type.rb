@@ -1,13 +1,10 @@
 class InviteType < User
   include BaseType
 
+  after_initialize :generate_password, if: :new_record?
+
   validates :role, inclusion: { in: :available_roles }
   validates :inviter, presence: true
-
-  def initialize(attrs)
-    super(attrs)
-    self.password = SecureRandom.urlsafe_base64(6)
-  end
 
   def policy
     InvitePolicy.new(inviter, self)
@@ -19,5 +16,11 @@ class InviteType < User
 
   def available_role_options
     User.role.options.select{ |option| option.last.in? available_roles }
+  end
+
+  private
+
+  def generate_password
+    self.password = SecureRandom.urlsafe_base64(6)
   end
 end
