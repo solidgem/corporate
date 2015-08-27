@@ -3,8 +3,8 @@
 %table.table.table-striped
   %thead
     %tr
-      = readable_tag :th, :user, :avatar do
-        = han :user, :avatar
+      = readable_tag :th, :user, :profile_image do
+        = han :user, :profile_image
       = readable_tag :th, :user, :name do
         = sort_link @q, :name
       = readable_tag :th, :user, :email do
@@ -16,8 +16,8 @@
     - @users.each do |user|
       %tr
         - present user do |user_presenter|
-          = readable_tag :td, :user, :avatar do
-            = user_presenter.avatar_thumb
+          = readable_tag :td, :user, :profile_image do
+            = user_presenter.profile_image_thumb
           = readable_tag :td, :user, :name do
             = user_presenter.name
           = readable_tag :td, :user, :email do

@@ -11,3 +11,8 @@
       %li.list-group-item
         %strong= han 'task/comment', :elapsed_time
         = convert_seconds_to_string comment.elapsed_time
+
+    - comment.attachments.each do |attachment|
+      %li.list-group-item
+        = link_to attachment.file_filename, attachment_url(attachment, :file)
+        = attachment.file_size.to_s(:human_size)

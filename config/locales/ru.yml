@@ -44,6 +44,9 @@ ru:
         cost: 'Стоимость:'
         total_expenses: 'Итоговые затраты:'
         total_balance: 'Остаток:'
+  shared:
+    attachments_files_form:
+      destroy_file: 'удалить файл:'
   attributes:
     created_at: Создано
     updated_at: Обновлено
@@ -59,6 +62,7 @@ ru:
     expenses: Затраты
     access_data: Доступы и пароли
     responsible_user: Ответственный
+    attachments_files: Файлы
   activerecord:
     state_machines:
       task:
@@ -91,8 +95,8 @@ ru:
       user:
         name: Имя
         position: Должность
-        avatar: Фото
-        remove_avatar: Удалить фото
+        profile_image: Фото
+        remove_profile_image: Удалить фото
         hour_rate: Ставка часа
         external_hour_rate: Внешняя ставка часа
       task/comment:

@@ -23,10 +23,10 @@
           %td= task_presenter.title
           %td= task_presenter.project
           %td
-            = task_presenter.responsible_user.avatar_thumb
+            = task_presenter.responsible_user.profile_image_thumb
             = "->"
             - task_presenter.users.each do |user|
-              = user.avatar_thumb
+              = user.profile_image_thumb
           %td= task_presenter.deadline
           %td= task_presenter.human_status_name
           %td= task_presenter.competence_text

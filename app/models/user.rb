@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   enumerize :role, in: %w[administrator manager worker], predicates: true, default: :worker
-  mount_uploader :avatar, AvatarUploader
+  attachment :profile_image, type: :image
 
   belongs_to :inviter, class_name: 'User'
 

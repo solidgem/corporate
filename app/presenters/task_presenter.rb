@@ -35,4 +35,8 @@ class TaskPresenter < BasePresenter
   def updated_at
     h.formatted_date model.updated_at
   end
+
+  def status
+    model.human_status_name
+  end
 end

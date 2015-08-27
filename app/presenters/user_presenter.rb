@@ -8,17 +8,18 @@ class UserPresenter < BasePresenter
     h.link_to model.name, model
   end
 
-  def avatar
-    return unless model.avatar?
-    h.image_tag model.avatar.small.url, AvatarUploader::SMALL_DIMENSIONS
+  def profile_image
+    return unless model.profile_image
+    h.attachment_image_tag(model, :profile_image, :fill, 200, 200)
   end
 
-  def avatar_thumb
-    opts = {}
-    opts.merge! AvatarUploader::THUMB_DIMENSIONS
-    opts.merge! data: {toggle: :tooltip, placement: :top}, title: model.name
+  def profile_image_thumb
+    image_opts = {width: 25, height: 25}
+    image_opts.merge! fallback: '/fallbacks/avatar.svg'
+    image_opts.merge! data: {toggle: :tooltip, placement: :top}, title: model.name
+
     h.link_to h.user_path model do
-      h.image_tag model.avatar.thumb.url, opts
+      h.attachment_image_tag(model.model, :profile_image, :fill, 25, 25, **image_opts)
     end
   end
 
