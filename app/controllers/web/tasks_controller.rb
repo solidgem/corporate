@@ -18,7 +18,8 @@ class Web::TasksController < Web::ApplicationController
   end
 
   def new
-    @task_type = TaskType.new(creator: current_user)
+    @task_type = TaskType.new
+    @task_type.creator = current_user
     @task_type.actor = current_user
     authorize @task_type
     add_breadcrumb
@@ -26,7 +27,8 @@ class Web::TasksController < Web::ApplicationController
   end
 
   def create
-    @task_type = TaskType.new(creator: current_user)
+    @task_type = TaskType.new
+    @task_type.creator = current_user
     @task_type.actor = current_user
     authorize @task_type
     add_breadcrumb
