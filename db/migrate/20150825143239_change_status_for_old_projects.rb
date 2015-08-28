@@ -3,7 +3,7 @@ class ChangeStatusForOldProjects < ActiveRecord::Migration
   end
 
   def up
-    Project.where(status: nil).update_all(status: 'active')
+    Project.update_all(status: 'active')
   end
 
   def down
