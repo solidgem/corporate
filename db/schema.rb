@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825073015) do
+ActiveRecord::Schema.define(version: 20150825143239) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "file_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150825073015) do
     t.datetime "updated_at"
     t.integer  "cost",                default: 0
     t.integer  "responsible_user_id"
+    t.string   "status"
   end
 
   create_table "task_comments", force: :cascade do |t|

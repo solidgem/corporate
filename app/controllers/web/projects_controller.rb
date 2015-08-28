@@ -4,7 +4,8 @@ class Web::ProjectsController < Web::ApplicationController
   def index
     skip_policy_scope
     authorize :project
-    @q = policy_scope(Project).search(params[:q])
+    filter = { status_in: 'active' }.merge(params.fetch(:q, {}))
+    @q = policy_scope(Project).search(filter)
     @q.sorts = 'id desc' if @q.sorts.empty?
     @projects = @q.result.page(params[:page])
     respond_with @projects
@@ -46,6 +47,13 @@ class Web::ProjectsController < Web::ApplicationController
     authorize @project
     add_breadcrumb model: @project
     @project.update project_params
+    respond_with @project
+  end
+
+  def status
+    @project = Project.find params[:id]
+    authorize @project
+    @project.update status_event: params[:event]
     respond_with @project
   end
 

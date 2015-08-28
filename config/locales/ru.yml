@@ -44,10 +44,11 @@ ru:
     projects:
       index:
         new_project: Добавить проект
+      search_project_form:
+        open_search_form: Показать форму поиска
       show:
-        cost: 'Стоимость:'
-        total_expenses: 'Итоговые затраты:'
-        total_balance: 'Остаток:'
+        total_expenses: 'Итоговые затраты'
+        total_balance: 'Остаток'
   shared:
     attachments_files_form:
       destroy_file: 'удалить файл:'
@@ -78,6 +79,13 @@ ru:
           activate: Активировать
           finish: Завершить
           archive: Архивировать
+      project:
+        states:
+          active: Активный
+          finished: Завершенный
+        events:
+          activate: Активировать
+          finish: Завершить
     models:
       project: Проект
       task: Задача
@@ -96,6 +104,9 @@ ru:
         competence_text: Компетенция
         project: Проект
         project_id: Проект
+      project:
+        status: Статус
+        cost: Стоимость
       user:
         name: Имя
         position: Должность

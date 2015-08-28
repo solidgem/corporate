@@ -7,7 +7,11 @@ Rails.application.routes.draw do
         resource :statistics
       end
     end
-    resources :projects
+    resources :projects do
+      member do
+        patch :status
+      end
+    end
     resources :tasks do
       member do
         patch :status

@@ -2,6 +2,7 @@
 
 - if policy(:project).new?
   = link_to t('.new_project'), new_project_path, class: 'btn btn-default'
+= render 'search_project_form', q: @q
 %table.table.table-striped
   %thead
     %tr
@@ -11,6 +12,8 @@
         = sort_link @q, :title
       = readable_tag :th, :project, :responsible_user do
         = sort_link @q, :responsible_user
+      = readable_tag :th, :project, :status do
+        = sort_link @q, :status
       = readable_tag :th, :project, :updated_at do
         = sort_link @q, :updated_at
       = readable_tag :th, :project, :cost do
@@ -26,6 +29,8 @@
             = project_presenter.title
           = readable_tag :td, :project, :responsible_user do
             = project_presenter.responsible_user.profile_image_thumb
+          = readable_tag :td, :project, :status do
+            = project_presenter.human_status_name
           = readable_tag :td, :project, :updated_at do
             = project_presenter.updated_at
           = readable_tag :td, :project, :cost do
