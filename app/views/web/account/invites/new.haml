@@ -1,7 +1,7 @@
-= simple_form_for @user, url: account_invites_path do |f|
+= simple_form_for @invite_type, url: account_invites_path do |f|
   = f.input :name
   = f.input :email
-  = f.input :role
+  = f.input :role, collection: @invite_type.available_role_options
   = f.input :hour_rate
   = f.input :external_hour_rate
 
