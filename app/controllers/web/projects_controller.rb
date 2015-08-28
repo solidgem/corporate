@@ -4,7 +4,7 @@ class Web::ProjectsController < Web::ApplicationController
   def index
     skip_policy_scope
     authorize :project
-    @q = Project.search(params[:q])
+    @q = policy_scope(Project).search(params[:q])
     @q.sorts = 'id desc' if @q.sorts.empty?
     @projects = @q.result.page(params[:page])
     respond_with @projects

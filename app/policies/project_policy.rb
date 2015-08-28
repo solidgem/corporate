@@ -1,4 +1,13 @@
 class ProjectPolicy < ApplicationPolicy
+  class Scope < Scope
+    def resolve
+      return scope.all if user.administrator?
+      return scope.all if user.manager?
+      return scope.for_worker(user) if user.worker?
+      scope.none
+    end
+  end
+
   def index?
     ! user.guest?
   end

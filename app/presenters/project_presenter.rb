@@ -12,6 +12,11 @@ class ProjectPresenter < BasePresenter
     h.formatted_date model.updated_at
   end
 
+  def total_balance(total_expenses)
+    return unless model.cost
+    (model.cost - total_expenses).to_s(:currency)
+  end
+
   def cost
     return unless model.cost
     model.cost.to_s(:currency)

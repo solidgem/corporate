@@ -1,4 +1,6 @@
 class Project < ActiveRecord::Base
+  include ProjectRepository
+
   has_many :tasks
   belongs_to :responsible_user, class_name: 'User'
 
