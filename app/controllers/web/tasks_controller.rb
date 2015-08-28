@@ -19,7 +19,7 @@ class Web::TasksController < Web::ApplicationController
 
   def new
     @task_type = TaskType.new(creator: current_user)
-    @task_type.current_user = current_user
+    @task_type.actor = current_user
     authorize @task_type
     add_breadcrumb
     respond_with @task_type
@@ -27,7 +27,7 @@ class Web::TasksController < Web::ApplicationController
 
   def create
     @task_type = TaskType.new(creator: current_user)
-    @task_type.current_user = current_user
+    @task_type.actor = current_user
     authorize @task_type
     add_breadcrumb
     @task_type.update task_params
@@ -37,7 +37,7 @@ class Web::TasksController < Web::ApplicationController
 
   def edit
     @task_type = TaskType.find params[:id]
-    @task_type.current_user = current_user
+    @task_type.actor = current_user
     authorize @task_type
     add_breadcrumb model: @task_type
     respond_with @task_type
@@ -45,7 +45,7 @@ class Web::TasksController < Web::ApplicationController
 
   def update
     @task_type = TaskType.find params[:id]
-    @task_type.current_user = current_user
+    @task_type.actor = current_user
     authorize @task_type
     add_breadcrumb model: @task_type
     @task_type.update task_params
@@ -54,7 +54,7 @@ class Web::TasksController < Web::ApplicationController
 
   def status
     @task_type = TaskType.find params[:id]
-    @task_type.current_user = current_user
+    @task_type.actor = current_user
     authorize @task_type
     @task_type.update status_event: params[:event]
     respond_with @task_type
