@@ -104,18 +104,4 @@ module ApplicationHelper
       image_tag(fallback, options.merge(class: classes))
     end
   end
-
-  def dropdown_for_user(title, &block)
-    return if current_user.guest?
-    link = link_to '#', { 'data-toggle': 'dropdown' } do
-      [
-          title,
-          content_tag(:span, '', { class: 'caret' })
-      ].join(' ').html_safe
-    end
-    content_tag :li, { class: 'dropdown' } do
-      concat link
-      concat content_tag :ul, capture(&block), { class: 'dropdown-menu' }
-    end
-  end
 end
