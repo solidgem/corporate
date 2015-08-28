@@ -43,8 +43,6 @@ ru:
       search_project_form:
         open_search_form: Показать форму поиска
       show:
-        cost: 'Стоимость:'
-        status: 'Статус:'
         total_expenses: 'Итоговые затраты:'
         total_balance: 'Остаток:'
   shared:
@@ -104,6 +102,7 @@ ru:
         project_id: Проект
       project:
         status: Статус
+        cost: Стоимость
       user:
         name: Имя
         position: Должность

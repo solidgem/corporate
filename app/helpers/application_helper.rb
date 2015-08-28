@@ -51,9 +51,10 @@ module ApplicationHelper
   def show_attribute(model, attribute)
     value = model.send(attribute)
     return if value.blank?
-    concat content_tag :dt, han(model.model_name, attribute)
-    concat content_tag :dd, value
-    nil
+    [
+        content_tag(:dt, han(model.model_name, attribute)),
+        content_tag(:dd, value)
+    ].join.html_safe
   end
 
   def show_attribute_in_list_group(model, attribute)

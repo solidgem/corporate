@@ -1,15 +1,18 @@
 - present @project do |project_presenter|
-  %h1= project_presenter.title
-  %dl
-    %dt= t '.cost'
-    %dd= project_presenter.cost
+  %h1= @project.title
+  %dl.dl-horizontal
+    = show_attribute project_presenter, :status
+    = show_attribute project_presenter, :cost
+
     %dt= t '.total_balance'
     %dd= (@project.cost - @total_expenses).to_s(:currency)
-    %dt= t '.status'
-    - if policy(@project).status?
-      - @project.status_transitions.each do |transition|
-        %dd
-          = @project.human_status_name
+
+    %dt= t :operations
+    %dd
+      - if policy(@project).edit?
+        = link_to t(:edit), edit_project_path(@project)
+      - if policy(@project).status?
+        - @project.status_transitions.each do |transition|
           = link_to transition.human_event, status_project_path(@project, event: transition.event), method: :patch
 %table.table.table-striped
   %thead

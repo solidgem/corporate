@@ -17,6 +17,10 @@ class ProjectPresenter < BasePresenter
     model.cost.to_s(:currency)
   end
 
+  def status
+    model.human_status_name
+  end
+
   def responsible_user
     h.present model.responsible_user
   end
