@@ -4,8 +4,8 @@ class Web::ProjectsController < Web::ApplicationController
   def index
     skip_policy_scope
     authorize :project
-    project_params = { status_in: 'active' }.merge(params.fetch(:q, {}))
-    @q = policy_scope(Project).search(project_params)
+    filter = { status_in: 'active' }.merge(params.fetch(:q, {}))
+    @q = policy_scope(Project).search(filter)
     @q.sorts = 'id desc' if @q.sorts.empty?
     @projects = @q.result.page(params[:page])
     respond_with @projects
