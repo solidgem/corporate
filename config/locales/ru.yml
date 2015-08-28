@@ -14,9 +14,13 @@ ru:
   switch_user: Войти
   tasks: Задачи
   users: Сотрудники
+  list_users: Список сотрудников
   invite: Пригласить
   statistics: Статистика
+  my_statistics: Моя статистика
   projects: Проекты
+  show_profile: Просмотр профиля
+  edit_profile: Редактирование профиля
 
   web:
     tasks:
