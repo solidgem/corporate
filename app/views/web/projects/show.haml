@@ -1,5 +1,5 @@
 - present @project do |project_presenter|
-  %h1= @project.title
+  %h1= project_presenter
   %dl.dl-horizontal
     = show_attribute project_presenter, :status
     = show_attribute project_presenter, :cost

@@ -1,7 +1,7 @@
 - present @task do |task_presenter|
   .panel.panel-success
     .panel-heading
-      %h1.panel-title= task_presenter.title
+      %h1.panel-title= task_presenter
     - if task_presenter.description.present?
       .panel-body
         = task_presenter.description

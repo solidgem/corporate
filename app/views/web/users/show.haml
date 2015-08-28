@@ -1,6 +1,6 @@
 %dl.dl-horizontal
   - present @user do |user_presenter|
-    = show_attribute user_presenter, :name
+    = show_attribute user_presenter.model, :name
     = show_attribute user_presenter, :role_text
     = show_attribute user_presenter, :profile_image
     = show_attribute user_presenter, :email
