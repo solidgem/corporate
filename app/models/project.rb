@@ -15,6 +15,7 @@ class Project < ActiveRecord::Base
       transition :active => :finished
     end
   end
+
   def to_s
     title
   end
