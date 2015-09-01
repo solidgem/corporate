@@ -33,7 +33,7 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def permitted_attributes
-    [:title, :cost, :responsible_user_id]
+    [:title, :cost, :responsible_user_id, :contractor_id]
   end
 
   def readable_attributes

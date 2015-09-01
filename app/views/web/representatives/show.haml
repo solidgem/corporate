@@ -1,0 +1,10 @@
+- present @representative do |representative_presenter|
+  %h1= representative_presenter.name
+  %dl.dl-horizontal
+    = show_attribute representative_presenter, :position
+    = show_attribute representative_presenter, :contacts
+
+    %dt= t :operations
+    %dd
+      - if policy(@representative).edit?
+        = link_to t(:edit), edit_representative_path(@representative)

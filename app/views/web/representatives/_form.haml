@@ -1,0 +1,6 @@
+= simple_form_for representative do |f|
+  = f.input :name
+  = f.input :position
+  = f.input :contacts, as: :big_textarea
+  = f.association :contractor
+  = f.button :submit

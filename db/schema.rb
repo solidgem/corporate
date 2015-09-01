@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825143239) do
+ActiveRecord::Schema.define(version: 20150901124314) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "file_id"
@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(version: 20150825143239) do
     t.datetime "updated_at",        null: false
   end
 
+  create_table "contractors", force: :cascade do |t|
+    t.string   "title"
+    t.string   "requisites"
+    t.string   "contacts"
+    t.string   "agreements"
+    t.string   "site"
+    t.string   "comment"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "responsible_user_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at"
@@ -31,6 +43,16 @@ ActiveRecord::Schema.define(version: 20150825143239) do
     t.integer  "cost",                default: 0
     t.integer  "responsible_user_id"
     t.string   "status"
+    t.integer  "contractor_id"
+  end
+
+  create_table "representatives", force: :cascade do |t|
+    t.string   "name"
+    t.string   "position"
+    t.string   "contacts"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "contractor_id"
   end
 
   create_table "task_comments", force: :cascade do |t|

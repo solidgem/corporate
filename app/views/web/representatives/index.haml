@@ -1,0 +1,29 @@
+%h1.page-header= t :representatives
+
+- if policy(:representative).new?
+  = link_to t('.new_representative'), new_representative_path, class: 'btn btn-default'
+%table.table.table-striped
+  %thead
+    %tr
+      = readable_tag :th, :representative, :id do
+        = sort_link @q, :id
+      = readable_tag :th, :representative, :name do
+        = sort_link @q, :name
+      = readable_tag :th, :representative, :contractor do
+        = sort_link @q, :contractor_id
+      %th= t :operations
+  %tbody
+    - @representatives.each do |representative|
+      %tr
+        - present representative do |representative_presenter|
+          = readable_tag :td, :representative, :id do
+            = representative_presenter.id
+          = readable_tag :td, :representative, :name do
+            = representative_presenter.name
+          = readable_tag :td, :representative, :contractor do
+            = representative_presenter.contractor
+        %td
+          - if policy(representative).edit?
+            = link_to t(:edit), edit_representative_path(representative)
+
+= paginate @representatives, theme: 'twitter-bootstrap-3'

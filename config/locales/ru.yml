@@ -19,6 +19,8 @@ ru:
   statistics: Статистика
   my_statistics: Моя статистика
   projects: Проекты
+  representatives: Должностные лица
+  contractors: Контрагенты
   show_profile: Просмотр профиля
   edit_profile: Редактирование профиля
 
@@ -49,6 +51,12 @@ ru:
       show:
         total_expenses: 'Итоговые затраты'
         total_balance: 'Остаток'
+    contractors:
+      index:
+        new_contractor: Добавить контрагента
+    representatives:
+      index:
+        new_representative: Добавить должностное лицо
   shared:
     attachments_files_form:
       destroy_file: 'удалить файл:'
@@ -91,6 +99,7 @@ ru:
       task: Задача
       task/comment: Комментарий
       user: Сотрудник
+      representative: Должностное лицо
     attributes:
       task:
         users: Участники
@@ -119,6 +128,15 @@ ru:
         elapsed_time: Затраченное время
         elapsed_time_hours: Часы
         elapsed_time_minutes: Минуты
+      contractor:
+        agreements: Договоры
+        site: Сайт
+        comment: Комментарий
+      representative:
+        contractor: Контрагент
+        contractor_id: Контрагент
+        position: Должность
+        name: ФИО
   activemodel:
     attributes:
       user/statistics_filter_form:
@@ -195,6 +213,10 @@ ru:
           scope: Инвайты
       projects:
         scope: Проекты
+      contractors:
+        scope: Контрагенты
+      representatives:
+        scope: Должностные лица
   datetime:
     distance_in_words:
       x_hours:

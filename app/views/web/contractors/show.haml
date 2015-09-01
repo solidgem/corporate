@@ -1,0 +1,74 @@
+- present @contractor do |contractor_presenter|
+  %h1= contractor_presenter.title
+  %dl.dl-horizontal
+    = show_attribute contractor_presenter, :responsible_user
+    = show_attribute contractor_presenter, :requisites
+    = show_attribute contractor_presenter, :contacts
+    = show_attribute contractor_presenter, :agreements
+    = show_attribute contractor_presenter, :site
+    = show_attribute contractor_presenter, :comment
+
+    %dt= t :operations
+    %dd
+      - if policy(@contractor).edit?
+        = link_to t(:edit), edit_contractor_path(@contractor)
+%h2= t(:projects)
+%table.table.table-striped
+  %thead
+    %tr
+      = readable_tag :th, :project, :id do
+        = han :project, :id
+      = readable_tag :th, :project, :title do
+        = han :project, :title
+      = readable_tag :th, :project, :responsible_user do
+        = han :project, :responsible_user
+      = readable_tag :th, :project, :status do
+        = han :project, :status
+      = readable_tag :th, :project, :updated_at do
+        = han :project, :updated_at
+      = readable_tag :th, :project, :cost do
+        = han :project, :cost
+      %th= t :operations
+  %tbody
+    - @projects.each do |project|
+      %tr
+        - present project do |project_presenter|
+          = readable_tag :td, :project, :id do
+            = project_presenter.id
+          = readable_tag :td, :project, :title do
+            = project_presenter.title
+          = readable_tag :td, :project, :responsible_user do
+            = project_presenter.responsible_user.profile_image_thumb
+          = readable_tag :td, :project, :status do
+            = project_presenter.human_status_name
+          = readable_tag :td, :project, :updated_at do
+            = project_presenter.updated_at
+          = readable_tag :td, :project, :cost do
+            = project_presenter.cost
+        %td
+          - if policy(project).edit?
+            = link_to t(:edit), edit_project_path(project)
+%h2= t(:representatives)
+%table.table.table-striped
+  %thead
+    %tr
+      = readable_tag :th, :representative, :id do
+        = han :representative, :id
+      = readable_tag :th, :representative, :name do
+        = han :representative, :title
+      = readable_tag :th, :representative, :position do
+        = han :representative, :position
+      %th= t :operations
+  %tbody
+    - @representatives.each do |representative|
+      %tr
+        - present representative do |representative_presenter|
+          = readable_tag :td, :representative, :id do
+            = representative_presenter.id
+          = readable_tag :td, :representative, :name do
+            = representative_presenter.name
+          = readable_tag :td, :representative, :position do
+            = representative_presenter.position
+        %td
+          - if policy(representative).edit?
+            = link_to t(:edit), edit_representative_path(representative)

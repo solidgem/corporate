@@ -1,0 +1,9 @@
+= simple_form_for contractor do |f|
+  = f.input :title
+  = f.association :responsible_user
+  = f.input :requisites, as: :big_textarea
+  = f.input :contacts, as: :big_textarea
+  = f.input :agreements, as: :big_textarea
+  = f.input :site
+  = f.input :comment, as: :big_textarea
+  = f.button :submit
