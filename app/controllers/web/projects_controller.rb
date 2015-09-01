@@ -32,6 +32,7 @@ class Web::ProjectsController < Web::ApplicationController
     authorize @project
     add_breadcrumb
     @project.update project_params
+    ProjectNotificationService.on_create(@project)
     respond_with @project
   end
 

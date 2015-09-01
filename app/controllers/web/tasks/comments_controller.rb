@@ -13,7 +13,7 @@ class Web::Tasks::CommentsController < Web::Tasks::ApplicationController
     authorize @comment
     add_breadcrumb
     @comment.save
-    CommentNotificationService.notification_on_create(@comment)
+    CommentNotificationService.on_create(@comment)
     respond_with @comment, location: resource_task
   end
 

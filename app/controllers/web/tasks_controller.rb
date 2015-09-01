@@ -33,7 +33,7 @@ class Web::TasksController < Web::ApplicationController
     authorize @task_type
     add_breadcrumb
     @task_type.update task_params
-    TaskNotificationService.notification_on_create(@task_type)
+    TaskNotificationService.on_create(@task_type)
     respond_with @task_type
   end
 
