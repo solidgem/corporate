@@ -11,24 +11,16 @@ class CounterpartyPolicy < ApplicationPolicy
     false
   end
 
-  def new?
-    return true if user.administrator?
-    return true if user.manager?
-    false
-  end
-
-  def edit?
-    return true if user.administrator?
-    return true if user.manager?
-    false
-  end
-
   def update?
-    edit?
+    return true if user.administrator?
+    return true if user.manager?
+    false
   end
 
   def create?
-    new?
+    return true if user.administrator?
+    return true if user.manager?
+    false
   end
 
   def readable_attributes
