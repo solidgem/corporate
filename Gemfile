@@ -78,4 +78,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'factory_girl_sequences'
   gem 'database_cleaner'
+  gem 'simplecov', require: false
 end

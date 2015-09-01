@@ -2,3 +2,6 @@
 test:
   pre:
     - cp config/application.example.yml config/application.yml
+general:
+  artifacts:
+    - coverage
