@@ -5,6 +5,8 @@ class Project < ActiveRecord::Base
   belongs_to :responsible_user, class_name: 'User'
   belongs_to :counterparty
 
+  scope :ordered_by_title, -> { order :title }
+
   validates :responsible_user, presence: true
 
   state_machine :status, initial: :active do

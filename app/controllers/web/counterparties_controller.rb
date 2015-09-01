@@ -14,8 +14,6 @@ class Web::CounterpartiesController < Web::ApplicationController
     @counterparty = Counterparty.find(params[:id])
     authorize @counterparty
     add_breadcrumb model: @counterparty
-    @projects = @counterparty.projects.order(:title)
-    @officials = @counterparty.officials.order(:name)
   end
 
   def new

@@ -30,7 +30,7 @@
         = han :project, :cost
       %th= t :operations
   %tbody
-    - @projects.each do |project|
+    - @counterparty.projects.ordered_by_title.each do |project|
       %tr
         - present project do |project_presenter|
           = readable_tag :td, :project, :id do
@@ -60,7 +60,7 @@
         = han :official, :position
       %th= t :operations
   %tbody
-    - @officials.each do |official|
+    - @counterparty.officials.ordered_by_name.each do |official|
       %tr
         - present official do |official_presenter|
           = readable_tag :td, :official, :id do
