@@ -19,7 +19,7 @@ ru:
   statistics: Статистика
   my_statistics: Моя статистика
   projects: Проекты
-  representatives: Должностные лица
+  officials: Должностные лица
   contractors: Контрагенты
   show_profile: Просмотр профиля
   edit_profile: Редактирование профиля
@@ -54,9 +54,9 @@ ru:
     contractors:
       index:
         new_contractor: Добавить контрагента
-    representatives:
+    officials:
       index:
-        new_representative: Добавить должностное лицо
+        new_official: Добавить должностное лицо
   shared:
     attachments_files_form:
       destroy_file: 'удалить файл:'
@@ -99,7 +99,7 @@ ru:
       task: Задача
       task/comment: Комментарий
       user: Сотрудник
-      representative: Должностное лицо
+      official: Должностное лицо
     attributes:
       task:
         users: Участники
@@ -132,7 +132,7 @@ ru:
         agreements: Договоры
         site: Сайт
         comment: Комментарий
-      representative:
+      official:
         contractor: Контрагент
         contractor_id: Контрагент
         position: Должность
@@ -215,7 +215,7 @@ ru:
         scope: Проекты
       contractors:
         scope: Контрагенты
-      representatives:
+      officials:
         scope: Должностные лица
   datetime:
     distance_in_words:

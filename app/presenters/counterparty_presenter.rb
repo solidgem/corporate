@@ -1,4 +1,4 @@
-class ContractorPresenter < BasePresenter
+class CounterpartyPresenter < BasePresenter
   def initialize(model, view_context)
     access_presenter = AccessPresenter.new model, view_context
     super access_presenter, view_context

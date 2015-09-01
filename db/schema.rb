@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150901124314) do
     t.datetime "updated_at",        null: false
   end
 
-  create_table "contractors", force: :cascade do |t|
+  create_table "counterparties", force: :cascade do |t|
     t.string   "title"
     t.string   "requisites"
     t.string   "contacts"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 20150901124314) do
     t.integer  "responsible_user_id"
   end
 
+  create_table "officials", force: :cascade do |t|
+    t.string   "name"
+    t.string   "position"
+    t.string   "contacts"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "counterparty_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at"
@@ -43,16 +52,7 @@ ActiveRecord::Schema.define(version: 20150901124314) do
     t.integer  "cost",                default: 0
     t.integer  "responsible_user_id"
     t.string   "status"
-    t.integer  "contractor_id"
-  end
-
-  create_table "representatives", force: :cascade do |t|
-    t.string   "name"
-    t.string   "position"
-    t.string   "contacts"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "contractor_id"
+    t.integer  "counterparty_id"
   end
 
   create_table "task_comments", force: :cascade do |t|

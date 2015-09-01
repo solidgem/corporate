@@ -20,8 +20,8 @@ Rails.application.routes.draw do
         resources :comments
       end
     end
-    resources :contractors
-    resources :representatives
+    resources :counterparties
+    resources :officials
     namespace :account do
       resources :invites
     end

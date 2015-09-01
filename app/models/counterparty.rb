@@ -1,5 +1,5 @@
-class Contractor < ActiveRecord::Base
-  has_many :representatives
+class Counterparty < ActiveRecord::Base
+  has_many :officials
   has_many :projects
   belongs_to :responsible_user, class_name: 'User'
 

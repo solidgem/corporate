@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :contractor do
+  factory :counterparty do
     title
   end
 end

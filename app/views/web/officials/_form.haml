@@ -1,6 +1,6 @@
-= simple_form_for representative do |f|
+= simple_form_for official do |f|
   = f.input :name
   = f.input :position
   = f.input :contacts, as: :big_textarea
-  = f.association :contractor
+  = f.association :counterparty
   = f.button :submit

@@ -1,6 +1,6 @@
-class CreateContractors < ActiveRecord::Migration
+class CreateCounterparties < ActiveRecord::Migration
   def change
-    create_table :contractors do |t|
+    create_table :counterparties do |t|
       t.string :title
       t.string :requisites
       t.string :contacts

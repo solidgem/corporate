@@ -1,4 +1,4 @@
-class RepresentativePolicy < ApplicationPolicy
+class OfficialPolicy < ApplicationPolicy
   def index?
     return true if user.administrator?
     return true if user.manager?

@@ -1,53 +1,54 @@
 require 'rails_helper'
 
-RSpec.describe 'contractors', type: :request do
+RSpec.describe 'officials', type: :request do
   let(:user) { create :administrator }
-  let!(:contractor) { create :contractor }
-  let(:contractor_attrs) { attributes_for :contractor }
+  let!(:counterparty) { create :counterparty }
+  let!(:official) { create :official, counterparty: counterparty }
+  let(:official_attrs) { attributes_for :official }
 
   before(:each) { sign_in_user user }
 
   context 'index' do
     it 'render with 200 status' do
-      get "/contractors"
+      get "/officials"
       expect(response).to be_success
     end
   end
   context 'show' do
-    let!(:contractor) { create :contractor }
+    let!(:official) { create :official }
 
     it 'render with 200 status' do
-      get "/contractors/#{contractor.id}"
+      get "/officials/#{official.id}"
       expect(response).to be_success
     end
   end
 
   context 'new' do
     it 'render with 200 status' do
-      get "/contractors/new"
+      get "/officials/new"
       expect(response).to be_success
     end
   end
 
   context 'create' do
     it 'success' do
-      post "/contractors", contractor: contractor_attrs
-      expect(Contractor).to be_exists(title: contractor_attrs[:title])
+      post "/officials", official: official_attrs
+      expect(Official).to be_exists(name: official_attrs[:name])
       expect(response).to be_redirect
     end
   end
 
   context 'edit' do
     it 'render with 200 status' do
-      get "/contractors/#{contractor.id}/edit"
+      get "/officials/#{official.id}/edit"
       expect(response).to be_success
     end
   end
 
   context 'update' do
     it 'success' do
-      patch "/contractors/#{contractor.id}", contractor: contractor_attrs
-      expect(contractor.reload.title).to eq(contractor[:title])
+      patch "/officials/#{official.id}", official: official_attrs
+      expect(official.reload.name).to eq(official[:name])
       expect(response).to be_redirect
     end
   end

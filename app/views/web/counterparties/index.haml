@@ -1,0 +1,27 @@
+%h1.page-header= t :counterparties
+
+- if policy(:counterparty).new?
+  = link_to t('.new_counterparty'), new_counterparty_path, class: 'btn btn-default'
+- if policy(:official).index?
+  = link_to t(:officials), officials_path, class: 'btn btn-default'
+%table.table.table-striped
+  %thead
+    %tr
+      = readable_tag :th, :counterparty, :id do
+        = sort_link @q, :id
+      = readable_tag :th, :counterparty, :title do
+        = sort_link @q, :title
+      %th= t :operations
+  %tbody
+    - @counterparties.each do |counterparty|
+      %tr
+        - present counterparty do |counterparty_presenter|
+          = readable_tag :td, :counterparty, :id do
+            = counterparty_presenter.id
+          = readable_tag :td, :counterparty, :title do
+            = counterparty_presenter.title
+        %td
+          - if policy(counterparty).edit?
+            = link_to t(:edit), edit_counterparty_path(counterparty)
+
+= paginate @counterparties, theme: 'twitter-bootstrap-3'
