@@ -20,7 +20,7 @@ ru:
   my_statistics: Моя статистика
   projects: Проекты
   officials: Должностные лица
-  contractors: Контрагенты
+  counterparties: Контрагенты
   show_profile: Просмотр профиля
   edit_profile: Редактирование профиля
 
@@ -51,9 +51,9 @@ ru:
       show:
         total_expenses: 'Итоговые затраты'
         total_balance: 'Остаток'
-    contractors:
+    counterparties:
       index:
-        new_contractor: Добавить контрагента
+        new_counterparty: Добавить контрагента
     officials:
       index:
         new_official: Добавить должностное лицо
@@ -128,13 +128,13 @@ ru:
         elapsed_time: Затраченное время
         elapsed_time_hours: Часы
         elapsed_time_minutes: Минуты
-      contractor:
+      counterparty:
         agreements: Договоры
         site: Сайт
         comment: Комментарий
       official:
-        contractor: Контрагент
-        contractor_id: Контрагент
+        counterparty: Контрагент
+        counterparty_id: Контрагент
         position: Должность
         name: ФИО
   activemodel:
@@ -213,7 +213,7 @@ ru:
           scope: Инвайты
       projects:
         scope: Проекты
-      contractors:
+      counterparties:
         scope: Контрагенты
       officials:
         scope: Должностные лица
