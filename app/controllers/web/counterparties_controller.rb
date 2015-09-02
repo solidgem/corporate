@@ -46,6 +46,8 @@ class Web::CounterpartiesController < Web::ApplicationController
   end
 
   def counterparty_params
-    params.require(:counterparty).permit(:title, :requisites, :contacts, :agreements, :site, :comment, :responsible_user_id)
+    params.require(:counterparty).permit(:title, :requisites, :contacts,
+                                         :agreements, :site, :comment,
+                                         :responsible_user_id)
   end
 end
