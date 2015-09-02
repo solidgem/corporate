@@ -22,8 +22,4 @@ class CounterpartyPolicy < ApplicationPolicy
     return true if user.manager?
     false
   end
-
-  def readable_attributes
-    [:id, :title, :requisites, :contacts, :agreements, :site, :comment]
-  end
 end

@@ -5,19 +5,15 @@
 %table.table.table-striped
   %thead
     %tr
-      = readable_tag :th, :counterparty, :id do
-        = sort_link @q, :id
-      = readable_tag :th, :counterparty, :title do
-        = sort_link @q, :title
+      %td= sort_link @q, :id
+      %td= sort_link @q, :title
       %th= t :operations
   %tbody
     - @counterparties.each do |counterparty|
       %tr
         - present counterparty do |counterparty_presenter|
-          = readable_tag :td, :counterparty, :id do
-            = counterparty_presenter.id
-          = readable_tag :td, :counterparty, :title do
-            = counterparty_presenter.title
+          %td= counterparty_presenter.id
+          %td= counterparty_presenter.title
         %td
           - if policy(counterparty).edit?
             = link_to t(:edit), edit_counterparty_path(counterparty)

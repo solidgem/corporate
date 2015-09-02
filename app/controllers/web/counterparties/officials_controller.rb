@@ -2,7 +2,7 @@ class Web::Counterparties::OfficialsController < Web::Counterparties::Applicatio
   add_breadcrumb
 
   def show
-    @official = Counterparty::Official.find(params[:id])
+    @official = Counterparty.find(params[:counterparty_id]).officials.find(params[:id])
     authorize @official
     add_breadcrumb model: @official
   end
@@ -21,14 +21,14 @@ class Web::Counterparties::OfficialsController < Web::Counterparties::Applicatio
   end
 
   def edit
-    @official = Counterparty::Official.find params[:id]
+    @official = Counterparty.find(params[:counterparty_id]).officials.find(params[:id])
     authorize @official
     add_breadcrumb model: @official
     respond_with @official
   end
 
   def update
-    @official = Counterparty::Official.find params[:id]
+    @official = Counterparty.find(params[:counterparty_id]).officials.find(params[:id])
     authorize @official
     add_breadcrumb model: @official
     @official.update official_params

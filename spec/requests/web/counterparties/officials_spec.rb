@@ -9,8 +9,6 @@ RSpec.describe 'officials', type: :request do
   before(:each) { sign_in_user user }
 
   context 'show' do
-    let!(:official) { create 'counterparty/official' }
-
     it 'render with 200 status' do
       get "/counterparties/#{counterparty.id}/officials/#{official.id}"
       expect(response).to be_success
