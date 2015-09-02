@@ -1,5 +1,7 @@
 %h1= @official.name
 %dl.dl-horizontal
+  %dt= t('.counterparty')
+  %dd= link_to @official.counterparty, counterparty_path(@official.counterparty)
   %dt= han 'counterparty/official', :position
   %dd= markdown @official.contacts
 
@@ -7,5 +9,3 @@
   %dd
     - if policy(@official).edit?
       = link_to t(:edit), edit_counterparty_official_path(@official.counterparty, @official)
-  %dt= t('.counterparty')
-  %dd= link_to @official.counterparty, counterparty_path(@official.counterparty)

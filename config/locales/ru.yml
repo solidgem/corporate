@@ -132,6 +132,7 @@ ru:
         agreements: Договоры
         site: Сайт
         comment: Комментарий
+        responsible_user_link: Отвественный
       counterparty/official:
         counterparty: Контрагент
         counterparty_id: Контрагент

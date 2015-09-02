@@ -19,7 +19,7 @@ class CounterpartyPresenter < BasePresenter
     h.markdown model.comment
   end
 
-  def responsible_user
+  def responsible_user_link
     h.link_to_if h.policy(model).show?, model.responsible_user, model.responsible_user
   end
 end
