@@ -1,4 +1,4 @@
-class Web::OfficialsController < Web::ApplicationController
+class Web::RepresentativesController < Web::ApplicationController
   add_breadcrumb {{ url: officials_path }}
 
   def index

@@ -1,7 +1,7 @@
 class Official < ActiveRecord::Base
-  belongs_to :counterparty
+  include OfficialRepository
 
-  scope :ordered_by_name, -> { order :name }
+  belongs_to :counterparty
 
   validates :name, presence: true
 

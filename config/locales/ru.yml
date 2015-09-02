@@ -75,6 +75,7 @@ ru:
     expenses: Затраты
     access_data: Доступы и пароли
     responsible_user: Ответственный
+    counterparty: Контрагент
     attachments_files: Файлы
   activerecord:
     state_machines:
@@ -100,6 +101,7 @@ ru:
       task/comment: Комментарий
       user: Сотрудник
       official: Должностное лицо
+      counterparty: Контрагент
     attributes:
       task:
         users: Участники
