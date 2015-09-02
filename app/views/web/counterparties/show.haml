@@ -12,8 +12,5 @@
     %dd
       - if policy(@counterparty).edit?
         = link_to t(:edit), edit_counterparty_path(@counterparty)
-%h2= t(:projects)
 = render partial: 'projects'
-%h2= t(:officials)
-= link_to t('.new_official'), new_counterparty_official_path(@counterparty), class: 'btn btn-default'
 = render partial: 'officials'

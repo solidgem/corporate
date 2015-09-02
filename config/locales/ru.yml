@@ -19,6 +19,7 @@ ru:
   counterparties: Контрагенты
   show_profile: Просмотр профиля
   edit_profile: Редактирование профиля
+  new_official: Добавить должностное лицо
 
   web:
     tasks:
@@ -50,8 +51,6 @@ ru:
     counterparties:
       index:
         new_counterparty: Добавить контрагента
-      show:
-        new_official: Добавить должностное лицо
       officials:
         show:
           counterparty: Контрагент
