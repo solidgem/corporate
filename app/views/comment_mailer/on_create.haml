@@ -1,0 +1,19 @@
+- present(@comment) do |comment_presenter|
+  К задаче
+  = link_to @comment.task.title, task_url(@comment.task)
+  добавлен комментарий.
+
+  %br
+  %br
+
+  Текст комментария:
+  %br
+  = comment_presenter.content
+
+  - if comment_presenter.elapsed_time
+    %br
+    %br
+
+    Затрачено времени:
+    %br
+    = comment_presenter.elapsed_time

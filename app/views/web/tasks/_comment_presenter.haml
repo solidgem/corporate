@@ -1,18 +1,18 @@
 .panel.panel-info
   .panel-heading
-    %strong= comment.user
+    %strong= comment_presenter.user
   .panel-body
-    = markdown comment.content
+    = comment_presenter.content
   %ul.list-group
     %li.list-group-item
       %strong= han 'task/comment', :created_at
-      = l comment.created_at, format: :short
-    - if comment.elapsed_time.nonzero?
+      = comment_presenter.created_at
+    - if comment_presenter.elapsed_time
       %li.list-group-item
         %strong= han 'task/comment', :elapsed_time
-        = convert_seconds_to_string comment.elapsed_time
+        = comment_presenter.elapsed_time
 
-    - comment.attachments.each do |attachment|
+    - comment_presenter.attachments.each do |attachment|
       %li.list-group-item
         = link_to attachment.file_filename, attachment_url(attachment, :file)
         = attachment.file_size.to_s(:human_size)

@@ -6,4 +6,8 @@ class BasePresenter < Delegator
     @model = model
     @h = view_context
   end
+
+  def inspect
+    "#<#{self.class} model: #{model.inspect}>"
+  end
 end

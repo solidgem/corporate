@@ -2,10 +2,6 @@ ru:
   are_you_sure?: Вы уверены?
   password: Пароль
 
-  mail_invite_subject: Приглашение
-  mail_task_create_subject: Добавлена задача
-  mail_comment_create_subject: Добавлен комментарий
-
   sign_in: Войти
   sign_out: Выйти
   operations: Действия
@@ -165,6 +161,19 @@ ru:
         programming: Программирование
         content: Контент
         design: Дизайн
+
+  invite_mailer:
+    on_create:
+      subject: Приглашение
+  project_mailer:
+    on_create:
+      subject: Добавлен проект
+  task_mailer:
+    on_create:
+      subject: Добавлена задача
+  comment_mailer:
+    on_create:
+      subject: Добавлен комментарий
 
   standalone_month_names: [~, Январь, Февраль, Март, Апрель, Май, Июнь, Июль, Август, Сентябрь, Октябрь, Ноябрь, Декабрь]
 
