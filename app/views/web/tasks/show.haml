@@ -31,6 +31,5 @@
           - task_presenter.status_transitions.each do |transition|
             = link_to transition.human_event, status_task_path(task_presenter, event: transition.event), method: :patch
 
-= render 'web/tasks/comments/form', comment: @task.comments.build, url: task_comments_path(@task), method_name: :post
-
-= render partial: 'comment', collection: @task.comments.ordered
+  = render 'web/tasks/comments/form', comment: @task.comments.build, url: task_comments_path(@task), method_name: :post
+  = render partial: 'comment_presenter', collection: task_presenter.comments

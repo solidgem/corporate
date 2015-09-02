@@ -1,4 +1,1 @@
-# cloudinary
-
-1. зарегистрироваться https://cloudinary.com
-2. положить конфиг в config/cloudinary.yml (см. config/cloudinary.example.yml)
+# Внимание! не выливайте работы до согласования на боевой домен
