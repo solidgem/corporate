@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20150901124314) do
     t.integer  "responsible_user_id"
   end
 
-  create_table "officials", force: :cascade do |t|
+  create_table "counterparty_officials", force: :cascade do |t|
     t.string   "name"
     t.string   "position"
     t.string   "contacts"

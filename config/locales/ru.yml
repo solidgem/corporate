@@ -54,9 +54,11 @@ ru:
     counterparties:
       index:
         new_counterparty: Добавить контрагента
-    officials:
-      index:
+      show:
         new_official: Добавить должностное лицо
+      officials:
+        show:
+          counterparty: Контрагент
   shared:
     attachments_files_form:
       destroy_file: 'удалить файл:'
@@ -134,7 +136,7 @@ ru:
         agreements: Договоры
         site: Сайт
         comment: Комментарий
-      official:
+      counterparty/official:
         counterparty: Контрагент
         counterparty_id: Контрагент
         position: Должность
@@ -217,8 +219,10 @@ ru:
         scope: Проекты
       counterparties:
         scope: Контрагенты
-      officials:
-        scope: Должностные лица
+        application:
+          scope: Контрагенты
+        officials:
+          scope: Должностные лица
   datetime:
     distance_in_words:
       x_hours:

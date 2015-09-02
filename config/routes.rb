@@ -20,8 +20,11 @@ Rails.application.routes.draw do
         resources :comments
       end
     end
-    resources :counterparties
-    resources :officials
+    resources :counterparties do
+      scope module: :counterparties do
+        resources :officials
+      end
+    end
     namespace :account do
       resources :invites
     end

@@ -49,26 +49,20 @@
           - if policy(project).edit?
             = link_to t(:edit), edit_project_path(project)
 %h2= t(:officials)
+= link_to t('.new_official'), new_counterparty_official_path(@counterparty), class: 'btn btn-default'
 %table.table.table-striped
   %thead
     %tr
-      = readable_tag :th, :official, :id do
-        = han :official, :id
-      = readable_tag :th, :official, :name do
-        = han :official, :name
-      = readable_tag :th, :official, :position do
-        = han :official, :position
+      %th= han 'counterparty/official', :id
+      %th= han 'counterparty/official', :name
+      %th= han 'counterparty/official', :position
       %th= t :operations
   %tbody
     - @counterparty.officials.web.each do |official|
       %tr
-        - present official do |official_presenter|
-          = readable_tag :td, :official, :id do
-            = official_presenter.id
-          = readable_tag :td, :official, :name do
-            = official_presenter.name
-          = readable_tag :td, :official, :position do
-            = official_presenter.position
+        %td= official.id
+        %td= link_to official.name, counterparty_official_path(@counterparty, official)
+        %td= official.position
         %td
           - if policy(official).edit?
-            = link_to t(:edit), edit_official_path(official)
+            = link_to t(:edit), edit_counterparty_official_path(@counterparty, official)

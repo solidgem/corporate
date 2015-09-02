@@ -2,8 +2,6 @@
 
 - if policy(:counterparty).new?
   = link_to t('.new_counterparty'), new_counterparty_path, class: 'btn btn-default'
-- if policy(:official).index?
-  = link_to t(:officials), officials_path, class: 'btn btn-default'
 %table.table.table-striped
   %thead
     %tr

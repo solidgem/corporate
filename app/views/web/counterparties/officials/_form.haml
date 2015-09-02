@@ -1,4 +1,4 @@
-= simple_form_for official do |f|
+= simple_form_for official, url: url, method: method do |f|
   = f.input :name
   = f.input :position
   = f.input :contacts, as: :big_textarea

@@ -1,4 +1,4 @@
-class Official < ActiveRecord::Base
+class Counterparty::Official < ActiveRecord::Base
   include OfficialRepository
 
   belongs_to :counterparty
