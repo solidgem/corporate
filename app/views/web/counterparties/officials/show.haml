@@ -1,7 +1,7 @@
 %h1= @official.name
 %dl.dl-horizontal
-  = show_attribute @official, :position
-  = show_attribute @official, :contacts
+  %dt= han 'counterparty/official', :position
+  %dd= markdown @official.contacts
 
   %dt= t :operations
   %dd
