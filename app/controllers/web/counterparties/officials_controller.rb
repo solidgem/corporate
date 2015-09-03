@@ -32,10 +32,10 @@ class Web::Counterparties::OfficialsController < Web::Counterparties::Applicatio
     authorize @official
     add_breadcrumb model: @official
     @official.update official_params
-    respond_with @official, location: counterparty_official_path(@official.counterparty, @official)
+    respond_with @official.counterparty, @official
   end
 
   def official_params
-    params.require(:counterparty_official).permit(:name, :position, :contractor_id, :contacts)
+    params.require(:official).permit(:name, :position, :contractor_id, :contacts)
   end
 end

@@ -24,7 +24,7 @@ RSpec.describe 'officials', type: :request do
 
   context 'create' do
     it 'success' do
-      post "/counterparties/#{counterparty.id}/officials", counterparty_official: official_attrs
+      post "/counterparties/#{counterparty.id}/officials", official: official_attrs
       expect(counterparty.officials).to be_exists(name: official_attrs[:name])
       expect(response).to be_redirect
     end
@@ -39,7 +39,7 @@ RSpec.describe 'officials', type: :request do
 
   context 'update' do
     it 'success' do
-      patch "/counterparties/#{counterparty.id}/officials/#{official.id}", counterparty_official: official_attrs
+      patch "/counterparties/#{counterparty.id}/officials/#{official.id}", official: official_attrs
       expect(official.reload.name).to eq(official[:name])
       expect(response).to be_redirect
     end

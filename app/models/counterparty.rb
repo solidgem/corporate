@@ -8,4 +8,8 @@ class Counterparty < ActiveRecord::Base
   def to_s
     title
   end
+
+  def self.use_relative_model_naming?
+    true
+  end
 end
