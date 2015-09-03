@@ -32,7 +32,7 @@ class Web::Counterparties::OfficialsController < Web::Counterparties::Applicatio
     authorize @official
     add_breadcrumb model: @official
     @official.update official_params
-    respond_with @official.counterparty, @official
+    respond_with resource_counterparty, @official
   end
 
   def official_params
