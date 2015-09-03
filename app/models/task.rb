@@ -32,6 +32,10 @@ class Task < ActiveRecord::Base
   validates :responsible_user, presence: true
   validates :competence, presence: true
 
+  def self.use_relative_model_naming?
+    true
+  end
+
   def member?(user)
     return true if creator == user
     return true if responsible_user == user

@@ -3,7 +3,7 @@
     %strong= t '.new_comment'
 
   .panel-body
-    = simple_form_for comment, url: url, method: method_name do |f|
+    = simple_form_for [comment.task, comment] do |f|
       = f.input :content, as: :big_textarea
 
       .form-group
