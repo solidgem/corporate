@@ -16,7 +16,7 @@ RSpec.describe 'session', type: :request do
 
   context 'create' do
     it 'success' do
-      post "/tasks/#{task.id}/comments", task_comment: comment_attrs
+      post "/tasks/#{task.id}/comments", comment: comment_attrs
       expect(task.comments).to be_exists(content: comment_attrs[:content])
       expect(response).to be_redirect
     end
