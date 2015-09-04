@@ -4,7 +4,7 @@
     = show_attribute project_presenter, :status
     = show_attribute project_presenter, :cost
     %dt= t '.counterparty'
-    %dd= project_presenter.counterparty
+    %dd= project_presenter.counterparty.title
 
     %dt= t '.total_balance'
     %dd= project_presenter.total_balance @total_expenses

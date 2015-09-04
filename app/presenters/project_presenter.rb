@@ -31,6 +31,6 @@ class ProjectPresenter < BasePresenter
   end
 
   def counterparty
-    h.link_to model.counterparty, model.counterparty
+    h.present model.counterparty
   end
 end

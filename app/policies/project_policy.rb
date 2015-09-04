@@ -38,7 +38,7 @@ class ProjectPolicy < ApplicationPolicy
 
   def readable_attributes
     attrs = [:id, :title, :responsible_user, :status, :updated_at, :created_at]
-    attrs.push :cost if user.administrator? || user.manager?
+    attrs.push :cost, :counterparty_id if user.administrator? || user.manager?
     attrs
   end
 end
