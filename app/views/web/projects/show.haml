@@ -3,6 +3,8 @@
   %dl.dl-horizontal
     = show_attribute project_presenter, :status
     = show_attribute project_presenter, :cost
+    %dt= t '.counterparty'
+    %dd= project_presenter.counterparty
 
     %dt= t '.total_balance'
     %dd= project_presenter.total_balance @total_expenses

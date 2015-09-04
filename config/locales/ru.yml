@@ -48,6 +48,7 @@ ru:
       show:
         total_expenses: 'Итоговые затраты'
         total_balance: 'Остаток'
+        counterparty: Контрагент
     counterparties:
       index:
         new_counterparty: Добавить контрагента

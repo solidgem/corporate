@@ -29,4 +29,8 @@ class ProjectPresenter < BasePresenter
   def responsible_user
     h.present model.responsible_user
   end
+
+  def counterparty
+    h.link_to model.counterparty, model.counterparty
+  end
 end

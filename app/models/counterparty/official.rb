@@ -4,6 +4,7 @@ class Counterparty::Official < ActiveRecord::Base
   belongs_to :counterparty
 
   validates :name, presence: true
+  validates :counterparty_id, presence: true
 
   def to_s
     name
