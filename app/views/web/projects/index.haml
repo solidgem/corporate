@@ -14,6 +14,8 @@
         = sort_link @q, :responsible_user
       = readable_tag :th, :project, :status do
         = sort_link @q, :status
+      = readable_tag :th, :project, :deadline do
+        = sort_link @q, :deadline
       = readable_tag :th, :project, :updated_at do
         = sort_link @q, :updated_at
       = readable_tag :th, :project, :cost do
@@ -31,6 +33,8 @@
             = project_presenter.responsible_user.profile_image_thumb
           = readable_tag :td, :project, :status do
             = project_presenter.human_status_name
+          = readable_tag :td, :project, :deadline do
+            = project_presenter.deadline
           = readable_tag :td, :project, :updated_at do
             = project_presenter.updated_at
           = readable_tag :td, :project, :cost do

@@ -2,6 +2,8 @@
   %h1= project_presenter
   %dl.dl-horizontal
     = show_attribute project_presenter, :status
+    = show_attribute project_presenter, :kind
+    = show_attribute project_presenter, :deadline
     = show_attribute project_presenter, :cost
 
     %dt= t '.total_balance'

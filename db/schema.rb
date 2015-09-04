@@ -53,12 +53,12 @@ ActiveRecord::Schema.define(version: 20150904081533) do
     t.integer  "responsible_user_id"
     t.string   "status"
     t.integer  "counterparty_id"
-    t.string   "type"
+    t.string   "kind"
     t.datetime "deadline"
     t.datetime "finish_date"
     t.integer  "complaints"
     t.integer  "critical_complaints"
-    t.integer  "letters_of_thanks"
+    t.boolean  "letters_of_thanks"
     t.string   "overdue_type"
   end
 
