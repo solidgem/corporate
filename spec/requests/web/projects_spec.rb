@@ -58,4 +58,12 @@ RSpec.describe 'projects', type: :request do
       expect(response).to be_redirect
     end
   end
+
+  context 'status' do
+    it 'success' do
+      patch "/projects/#{project.id}/status", event: 'finish'
+      expect(project.reload.status).to eq('finished')
+      expect(response).to be_redirect
+    end
+  end
 end
