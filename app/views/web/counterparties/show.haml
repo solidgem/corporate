@@ -1,0 +1,16 @@
+- present @counterparty do |counterparty_presenter|
+  %h1= counterparty_presenter
+  %ul.nav.nav-tabs.project-tab-group{role: 'tablist'}
+    %li.active{role: 'presentation'}
+      = link_to t('.main'), '#home', { 'aria-controls': 'home', role: 'tab', 'data-toggle': 'tab'}
+    %li{role: 'presentation'}
+      = link_to t('.projects'), '#projects', { 'aria-controls': 'projects', role: 'tab', 'data-toggle': 'tab'}
+    %li{role: 'presentation'}
+      = link_to t('.officials'), '#officials', { 'aria-controls': 'officials', role: 'tab', 'data-toggle': 'tab'}
+  .tab-content
+    .tab-pane.active{role: 'tabpanel', id: 'home'}
+      = render 'main', counterparty_presenter: counterparty_presenter
+    .tab-pane{role: 'tabpanel', id: 'projects'}
+      = render 'projects', counterparty_presenter: counterparty_presenter
+    .tab-pane{role: 'tabpanel', id: 'officials'}
+      = render 'officials', counterparty_presenter: counterparty_presenter

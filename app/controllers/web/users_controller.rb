@@ -25,8 +25,8 @@ class Web::UsersController < Web::ApplicationController
   def update
     @user = User.find params[:id]
     add_breadcrumb model: @user
-    @user.update user_params
     authorize @user
+    @user.update user_params
     respond_with @user
   end
 

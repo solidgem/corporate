@@ -1,0 +1,11 @@
+%dl.dl-horizontal
+  = show_attribute counterparty_presenter, :site
+  = show_attribute counterparty_presenter, :responsible_user
+  = show_attribute counterparty_presenter, :requisites
+  = show_attribute counterparty_presenter, :contacts
+  = show_attribute counterparty_presenter, :comment
+
+  %dt= t :operations
+  %dd
+    - if policy(counterparty_presenter).edit?
+      = link_to t(:edit), [:edit, counterparty_presenter]

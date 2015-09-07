@@ -4,8 +4,8 @@ class UserPresenter < BasePresenter
     super access_presenter, view_context
   end
 
-  def name
-    h.link_to model.name, model
+  def to_link
+    h.link_to model.to_s, model
   end
 
   def profile_image
