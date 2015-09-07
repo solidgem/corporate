@@ -21,7 +21,7 @@ class CounterpartyPresenter < BasePresenter
 
   def site
     return if model.site.blank?
-    h.link model.site, model.site
+    h.link_to model.site, model.site
   end
 
   def responsible_user
