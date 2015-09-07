@@ -8,10 +8,10 @@ class Web::Tasks::CommentsController < Web::Tasks::ApplicationController
   end
 
   def create
-    attrs = comment_params.merge(user: current_user)
     @comment = resource_task.comments.build
     authorize @comment
     add_breadcrumb
+    attrs = comment_params.merge(user: current_user)
     @comment.update attrs
     CommentNotificationService.on_create(@comment)
     respond_with @comment, location: resource_task
