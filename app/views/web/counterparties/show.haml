@@ -1,15 +1,16 @@
 - present @counterparty do |counterparty_presenter|
   %h1= counterparty_presenter
-  %dl.dl-horizontal
-    = show_attribute counterparty_presenter, :site
-    = show_attribute counterparty_presenter, :responsible_user
-    = show_attribute counterparty_presenter, :requisites
-    = show_attribute counterparty_presenter, :contacts
-    = show_attribute counterparty_presenter, :comment
-
-    %dt= t :operations
-    %dd
-      - if policy(counterparty_presenter).edit?
-        = link_to t(:edit), [:edit, counterparty_presenter]
-  = render 'projects', counterparty_presenter: counterparty_presenter
-  = render 'officials', counterparty_presenter: counterparty_presenter
+  %ul.nav.nav-tabs.project-tab-group{role: 'tablist'}
+    %li.active{role: 'presentation'}
+      = link_to t('.main'), '#home', { 'aria-controls': 'home', role: 'tab', 'data-toggle': 'tab'}
+    %li{role: 'presentation'}
+      = link_to t('.projects'), '#projects', { 'aria_controls': 'projects', role: 'tab', 'data-toggle': 'tab'}
+    %li{role: 'presentation'}
+      = link_to t('.officials'), '#officials', { 'aria_controls': 'officials', role: 'tab', 'data-toggle': 'tab'}
+  .tab-content
+    .tab-pane.active{role: 'tabpanel', id: 'home'}
+      = render 'main', counterparty_presenter: counterparty_presenter
+    .tab-pane{role: 'tabpanel', id: 'projects'}
+      = render 'projects', counterparty_presenter: counterparty_presenter
+    .tab-pane{role: 'tabpanel', id: 'officials'}
+      = render 'officials', counterparty_presenter: counterparty_presenter

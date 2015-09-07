@@ -52,6 +52,10 @@ ru:
     counterparties:
       index:
         new_counterparty: Добавить контрагента
+      show:
+        main: Основная информаци
+        projects: Проекты
+        officials: Должностные лица
       officials:
         show:
           counterparty: Контрагент
