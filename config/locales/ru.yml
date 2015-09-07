@@ -136,6 +136,7 @@ ru:
       counterparty/official:
         counterparty: Контрагент
         counterparty_id: Контрагент
+        counterparty_link: Контрагент
         position: Должность
         full_name: ФИО
   activemodel:
