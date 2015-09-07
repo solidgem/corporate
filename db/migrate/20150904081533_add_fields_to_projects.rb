@@ -6,6 +6,6 @@ class AddFieldsToProjects < ActiveRecord::Migration
     add_column :projects, :complaints, :integer
     add_column :projects, :critical_complaints, :integer
     add_column :projects, :letters_of_thanks, :boolean
-    add_column :projects, :overdue_type, :string
+    add_column :projects, :overdue_kind, :string
   end
 end
