@@ -37,4 +37,12 @@ class ProjectPresenter < BasePresenter
   def responsible_user
     h.present model.responsible_user
   end
+
+  def finish_date
+    h.formatted_date model.finish_date
+  end
+
+  def overdue_kind
+    model.overdue_kind_text
+  end
 end

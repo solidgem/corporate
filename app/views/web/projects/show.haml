@@ -5,6 +5,9 @@
     = show_attribute project_presenter, :kind
     = show_attribute project_presenter, :deadline
     = show_attribute project_presenter, :cost
+    = show_attribute project_presenter, :finish_date
+    = show_attribute project_presenter, :overdue_kind
+
 
     %dt= t '.total_balance'
     %dd= project_presenter.total_balance @total_expenses
@@ -15,7 +18,10 @@
         = link_to t(:edit), edit_project_path(@project)
       - if policy(@project).status?
         - @project.status_transitions.each do |transition|
-          = link_to transition.human_event, status_project_path(@project, event: transition.event), method: :patch
+          - if transition.event == :finish
+            = link_to transition.human_event, new_project_finish_path(@project)
+          - else
+            = link_to transition.human_event, status_project_path(@project, event: transition.event), method: :patch
 
 %table.table.table-striped
   %thead
