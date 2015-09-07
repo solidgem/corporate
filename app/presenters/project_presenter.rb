@@ -31,7 +31,6 @@ class ProjectPresenter < BasePresenter
   end
 
   def counterparty
-    return unless model.counterparty
     h.present model.counterparty
   end
 end
