@@ -35,6 +35,7 @@ class ProjectPolicy < ApplicationPolicy
   def permitted_attributes
     attrs = [:title, :cost, :responsible_user_id, :deadline, :kind]
     attrs.push :complaints, :critical_complaints, :letters_of_thanks if user.administrator?
+    attrs
   end
 
   def readable_attributes

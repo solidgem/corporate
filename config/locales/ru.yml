@@ -1,7 +1,8 @@
 ru:
+  "true": Да
+  "false": Нет
   are_you_sure?: Вы уверены?
   password: Пароль
-
   sign_in: Войти
   sign_out: Выйти
   operations: Действия
@@ -17,7 +18,6 @@ ru:
   projects: Проекты
   show_profile: Просмотр профиля
   edit_profile: Редактирование профиля
-  has_letter_of_thanks: Есть благодарственные письма
 
   web:
     tasks:

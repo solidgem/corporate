@@ -39,6 +39,6 @@ class ProjectPresenter < BasePresenter
   end
 
   def letters_of_thanks
-    I18n.translate(:has_letter_of_thanks) if model.letters_of_thanks
+    I18n.translate(model.letters_of_thanks) unless model.letters_of_thanks.nil?
   end
 end
