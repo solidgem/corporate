@@ -1,4 +1,4 @@
-module OfficialRepository
+module Counterparty::OfficialRepository
   extend ActiveSupport::Concern
 
   included do
