@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
 
   has_many :tasks
   belongs_to :responsible_user, class_name: 'User'
+  belongs_to :counterparty
 
   enumerize :kind, in: %w[development support], default: :development
 

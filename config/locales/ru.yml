@@ -16,8 +16,11 @@ ru:
   statistics: Статистика
   my_statistics: Моя статистика
   projects: Проекты
+  officials: Должностные лица
+  counterparties: Контрагенты
   show_profile: Просмотр профиля
   edit_profile: Редактирование профиля
+  new_official: Добавить должностное лицо
 
   web:
     tasks:
@@ -46,6 +49,17 @@ ru:
       show:
         total_expenses: 'Итоговые затраты'
         total_balance: 'Остаток'
+        counterparty: Контрагент
+    counterparties:
+      index:
+        new_counterparty: Добавить контрагента
+      show:
+        main: Основная информация
+        projects: Проекты
+        officials: Должностные лица
+      officials:
+        show:
+          counterparty: Контрагент
   shared:
     attachments_files_form:
       destroy_file: 'удалить файл:'
@@ -64,6 +78,7 @@ ru:
     expenses: Затраты
     access_data: Доступы и пароли
     responsible_user: Ответственный
+    counterparty: Контрагент
     attachments_files: Файлы
   activerecord:
     state_machines:
@@ -88,6 +103,8 @@ ru:
       task: Задача
       task/comment: Комментарий
       user: Сотрудник
+      official: Должностное лицо
+      counterparty: Контрагент
     attributes:
       task:
         users: Участники
@@ -122,6 +139,15 @@ ru:
         elapsed_time: Затраченное время
         elapsed_time_hours: Часы
         elapsed_time_minutes: Минуты
+      counterparty:
+        site: Сайт
+        comment: Комментарий
+        responsible_user_link: Отвественный
+      counterparty/official:
+        counterparty: Контрагент
+        counterparty_id: Контрагент
+        position: Должность
+        full_name: ФИО
   activemodel:
     attributes:
       user/statistics_filter_form:
@@ -214,6 +240,12 @@ ru:
           scope: Инвайты
       projects:
         scope: Проекты
+      counterparties:
+        scope: Контрагенты
+        application:
+          scope: Контрагенты
+        officials:
+          scope: Должностные лица
   datetime:
     distance_in_words:
       x_hours:

@@ -4,8 +4,8 @@ class ProjectPresenter < BasePresenter
     super access_presenter, view_context
   end
 
-  def title
-    h.link_to_if h.policy(model).show?, model.title, model
+  def to_link
+    h.link_to_if h.policy(model).show?, model.to_s, model
   end
 
   def updated_at
@@ -40,5 +40,9 @@ class ProjectPresenter < BasePresenter
 
   def letters_of_thanks
     I18n.translate(model.letters_of_thanks.to_s)
+  end
+
+  def counterparty
+    h.present model.counterparty
   end
 end

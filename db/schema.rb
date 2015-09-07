@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20150907140019) do
 
   create_table "attachments", force: :cascade do |t|
@@ -56,7 +57,11 @@ ActiveRecord::Schema.define(version: 20150907140019) do
     t.datetime "finish_date"
     t.integer  "complaints"
     t.integer  "critical_complaints"
+<<<<<<< HEAD
     t.boolean  "letters_of_thanks",   default: false
+=======
+    t.boolean  "letters_of_thanks"
+>>>>>>> master
     t.string   "overdue_kind"
     t.integer  "counterparty_id"
   end

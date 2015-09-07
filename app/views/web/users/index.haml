@@ -19,7 +19,7 @@
           = readable_tag :td, :user, :profile_image do
             = user_presenter.profile_image_thumb
           = readable_tag :td, :user, :name do
-            = user_presenter.name
+            = user_presenter.to_link
           = readable_tag :td, :user, :email do
             = user_presenter.email
           = readable_tag :td, :user, :role do

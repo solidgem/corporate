@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :created_tasks, class_name: 'Task', foreign_key: :creator_id
   has_many :task_participations, dependent: :destroy
   has_many :tasks, through: :task_participations
+  has_many :counterparties
 
   validates :email, email: true, uniqueness: true
   validates :name, presence: true
