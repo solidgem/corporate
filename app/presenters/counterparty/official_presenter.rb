@@ -1,5 +1,5 @@
 class Counterparty::OfficialPresenter < BasePresenter
-  def counterparty_link
-    h.link_to model.counterparty.to_s, model.counterparty
+  def counterparty
+    h.present model.counterparty
   end
 end
