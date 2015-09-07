@@ -13,10 +13,10 @@ class Web::Counterparties::OfficialsController < Web::Counterparties::Applicatio
   end
 
   def create
-    @official = resource_counterparty.officials.build official_params
+    @official = resource_counterparty.officials.build
     authorize @official
     add_breadcrumb
-    @official.save
+    @official.update official_params
     respond_with @official, location: resource_counterparty
   end
 
