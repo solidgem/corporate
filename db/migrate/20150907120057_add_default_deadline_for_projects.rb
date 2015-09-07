@@ -3,7 +3,7 @@ class AddDefaultDeadlineForProjects < ActiveRecord::Migration
   end
 
   def up
-    Project.update_all(deadline: Date.today+100.years)
+    Project.update_all(deadline: 100.years.since)
   end
 
   def down
