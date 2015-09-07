@@ -2,7 +2,6 @@ class Web::CounterpartiesController < Web::ApplicationController
   add_breadcrumb {{ url: counterparties_path }}
 
   def index
-    skip_policy_scope
     authorize :counterparty
     @q = policy_scope(Counterparty).search(params[:q])
     @q.sorts = 'id desc' if @q.sorts.empty?

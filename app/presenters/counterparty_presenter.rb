@@ -20,11 +20,11 @@ class CounterpartyPresenter < BasePresenter
   end
 
   def site
-    h.link_to_if model.site.present?, model.site, model.site
+    return if model.site.blank?
+    h.link model.site, model.site
   end
 
-  def responsible_user_link
-    return unless model.responsible_user.present?
-    h.link_to_if h.policy(model.responsible_user).show?, model.responsible_user, model.responsible_user
+  def responsible_user
+    h.present model.responsible_user
   end
 end
