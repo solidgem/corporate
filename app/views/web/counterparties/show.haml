@@ -4,9 +4,9 @@
     %li.active{role: 'presentation'}
       = link_to t('.main'), '#home', { 'aria-controls': 'home', role: 'tab', 'data-toggle': 'tab'}
     %li{role: 'presentation'}
-      = link_to t('.projects'), '#projects', { 'aria_controls': 'projects', role: 'tab', 'data-toggle': 'tab'}
+      = link_to t('.projects'), '#projects', { 'aria-controls': 'projects', role: 'tab', 'data-toggle': 'tab'}
     %li{role: 'presentation'}
-      = link_to t('.officials'), '#officials', { 'aria_controls': 'officials', role: 'tab', 'data-toggle': 'tab'}
+      = link_to t('.officials'), '#officials', { 'aria-controls': 'officials', role: 'tab', 'data-toggle': 'tab'}
   .tab-content
     .tab-pane.active{role: 'tabpanel', id: 'home'}
       = render 'main', counterparty_presenter: counterparty_presenter
