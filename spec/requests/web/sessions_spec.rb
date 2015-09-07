@@ -24,11 +24,23 @@ RSpec.describe 'session', type: :request do
     end
   end
 
+  context 'update' do
+    let(:administrator) { create :administrator }
+    let(:other_user) { create :user }
+    before(:each) { sign_in_user administrator }
+
+    it 'current user set to other user' do
+      patch "/session", session: { user_id: other_user.id }
+      expect(current_user).to eq(other_user)
+      expect(response).to be_redirect
+    end
+  end
+
   context 'destroy' do
     let(:user) { create :user }
     before(:each) { sign_in_user user }
 
-    it 'not sign in user' do
+    it 'logout' do
       delete "/session"
       expect(current_user).to be_nil
       expect(response).to be_redirect
