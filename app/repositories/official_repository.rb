@@ -2,6 +2,6 @@ module OfficialRepository
   extend ActiveSupport::Concern
 
   included do
-    scope :web, -> { order(:name) }
+    scope :web, -> { order(:full_name) }
   end
 end

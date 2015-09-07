@@ -1,11 +1,10 @@
-%h1= @official.name
-%dl.dl-horizontal
-  %dt= t('.counterparty')
-  %dd= link_to @official.counterparty, counterparty_path(@official.counterparty)
-  %dt= han 'counterparty/official', :position
-  %dd= markdown @official.contacts
-
-  %dt= t :operations
-  %dd
-    - if policy(@official).edit?
-      = link_to t(:edit), edit_counterparty_official_path(@official.counterparty, @official)
+- present(@official) do |official_presenter|
+  %h1= official_presenter.full_name
+  %dl.dl-horizontal
+    = show_attribute official_presenter, :counterparty
+    = show_attribute official_presenter, :position
+    = show_attribute official_presenter, :contacts
+    %dt= t :operations
+    %dd
+      - if policy(@official).edit?
+        = link_to t(:edit), edit_counterparty_official_path(@official.counterparty, @official)

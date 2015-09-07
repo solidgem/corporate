@@ -53,8 +53,14 @@ module ApplicationHelper
     return if value.blank?
     [
         content_tag(:dt, han(model.model_name, attribute)),
-        content_tag(:dd, value)
+        content_tag(:dd, show_value(value))
     ].join.html_safe
+  end
+
+  def show_value(value)
+    return value.to_link if value.respond_to?(:to_link)
+    return value.to_s if value.respond_to?(:to_s)
+    value
   end
 
   def show_attribute_in_list_group(model, attribute)

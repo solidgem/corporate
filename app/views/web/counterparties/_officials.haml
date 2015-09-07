@@ -4,15 +4,16 @@
   %thead
     %tr
       %th= han 'counterparty/official', :id
-      %th= han 'counterparty/official', :name
+      %th= han 'counterparty/official', :full_name
       %th= han 'counterparty/official', :position
       %th= t :operations
   %tbody
     - @counterparty.officials.web.each do |official|
-      %tr
-        %td= official.id
-        %td= link_to official.name, counterparty_official_path(@counterparty, official)
-        %td= official.position
-        %td
-          - if policy(official).edit?
-            = link_to t(:edit), edit_counterparty_official_path(@counterparty, official)
+      - present official do |official_presenter|
+        %tr
+          %td= official_presenter.id
+          %td= link_to official_presenter, [@counterparty, official]
+          %td= official_presenter.position
+          %td
+            - if policy(official).edit?
+              = link_to t(:edit), edit_counterparty_official_path(@counterparty, official)

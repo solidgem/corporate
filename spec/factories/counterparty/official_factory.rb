@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory 'counterparty/official' do
-    name
+    full_name { generate :string }
     counterparty
   end
 end

@@ -4,8 +4,8 @@ class ProjectPresenter < BasePresenter
     super access_presenter, view_context
   end
 
-  def title
-    h.link_to_if h.policy(model).show?, model.title, model
+  def to_link
+    h.link_to_if h.policy(model).show?, model.to_s, model
   end
 
   def updated_at

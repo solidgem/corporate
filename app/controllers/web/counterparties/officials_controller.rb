@@ -36,6 +36,6 @@ class Web::Counterparties::OfficialsController < Web::Counterparties::Applicatio
   end
 
   def official_params
-    params.require(:official).permit(:name, :position, :counterparty_id, :contacts)
+    params.require(:official).permit(:full_name, :position, :contacts)
   end
 end

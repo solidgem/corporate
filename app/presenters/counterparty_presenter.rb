@@ -1,6 +1,6 @@
 class CounterpartyPresenter < BasePresenter
-  def title
-    h.link_to_if h.policy(model).show?, model.title, model
+  def to_link
+    h.link_to_if h.policy(model).show?, model.to_s, model
   end
 
   def requisites
@@ -24,6 +24,7 @@ class CounterpartyPresenter < BasePresenter
   end
 
   def responsible_user_link
-    h.link_to_if h.policy(model).show?, model.responsible_user, model.responsible_user
+    return unless model.responsible_user.present?
+    h.link_to_if h.policy(model.responsible_user).show?, model.responsible_user, model.responsible_user
   end
 end

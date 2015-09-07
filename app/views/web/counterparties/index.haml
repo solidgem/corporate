@@ -13,7 +13,7 @@
       %tr
         - present counterparty do |counterparty_presenter|
           %td= counterparty_presenter.id
-          %td= counterparty_presenter.title
+          %td= counterparty_presenter.to_link
         %td
           - if policy(counterparty).edit?
             = link_to t(:edit), edit_counterparty_path(counterparty)

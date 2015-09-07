@@ -137,7 +137,7 @@ ru:
         counterparty: Контрагент
         counterparty_id: Контрагент
         position: Должность
-        name: ФИО
+        full_name: ФИО
   activemodel:
     attributes:
       user/statistics_filter_form:

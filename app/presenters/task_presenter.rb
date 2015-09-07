@@ -1,6 +1,6 @@
 class TaskPresenter < BasePresenter
-  def title
-    h.link_to model.title, model
+  def to_link
+    h.link_to model.to_s, model
   end
 
   def description
