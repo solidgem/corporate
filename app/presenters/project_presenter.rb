@@ -37,4 +37,8 @@ class ProjectPresenter < BasePresenter
   def responsible_user
     h.present model.responsible_user
   end
+
+  def letters_of_thanks
+    I18n.translate(:has_letter_of_thanks) if model.letters_of_thanks
+  end
 end

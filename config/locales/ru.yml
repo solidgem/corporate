@@ -17,6 +17,7 @@ ru:
   projects: Проекты
   show_profile: Просмотр профиля
   edit_profile: Редактирование профиля
+  has_letter_of_thanks: Есть благодарственные письма
 
   web:
     tasks:
