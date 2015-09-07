@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904104048) do
+ActiveRecord::Schema.define(version: 20150907095828) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "file_id"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20150904104048) do
     t.string   "title"
     t.string   "requisites"
     t.string   "contacts"
-    t.string   "agreements"
     t.string   "site"
     t.string   "comment"
     t.datetime "created_at",          null: false

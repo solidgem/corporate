@@ -129,7 +129,6 @@ ru:
         elapsed_time_hours: Часы
         elapsed_time_minutes: Минуты
       counterparty:
-        agreements: Договоры
         site: Сайт
         comment: Комментарий
         responsible_user_link: Отвественный

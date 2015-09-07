@@ -1,11 +1,10 @@
 - present @counterparty do |counterparty_presenter|
   %h1= counterparty_presenter
   %dl.dl-horizontal
+    = show_attribute counterparty_presenter, :site
     = show_attribute counterparty_presenter, :responsible_user
     = show_attribute counterparty_presenter, :requisites
     = show_attribute counterparty_presenter, :contacts
-    = show_attribute counterparty_presenter, :agreements
-    = show_attribute counterparty_presenter, :site
     = show_attribute counterparty_presenter, :comment
 
     %dt= t :operations

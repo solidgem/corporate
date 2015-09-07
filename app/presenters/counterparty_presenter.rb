@@ -11,10 +11,6 @@ class CounterpartyPresenter < BasePresenter
     h.markdown model.contacts
   end
 
-  def agreements
-    h.markdown model.agreements
-  end
-
   def comment
     h.markdown model.comment
   end
