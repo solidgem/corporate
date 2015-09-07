@@ -39,6 +39,6 @@ class ProjectPresenter < BasePresenter
   end
 
   def letters_of_thanks
-    I18n.translate(model.letters_of_thanks) unless model.letters_of_thanks.nil?
+    I18n.translate(model.letters_of_thanks.to_s)
   end
 end
