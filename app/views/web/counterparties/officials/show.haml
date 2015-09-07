@@ -6,5 +6,5 @@
     = show_attribute official_presenter, :contacts
     %dt= t :operations
     %dd
-      - if policy(@official).edit?
-        = link_to t(:edit), edit_counterparty_official_path(@official.counterparty, @official)
+      - if policy(official_presenter).edit?
+        = link_to t(:edit), [:edit, official_presenter.counterparty, official_presenter]

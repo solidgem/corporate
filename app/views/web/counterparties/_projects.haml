@@ -16,21 +16,20 @@
         = han :project, :cost
       %th= t :operations
   %tbody
-    - @counterparty.projects.web.each do |project|
+    - counterparty_presenter.projects_web.each do |project_presenter|
       %tr
-        - present project do |project_presenter|
-          = readable_tag :td, :project, :id do
-            = project_presenter.id
-          = readable_tag :td, :project, :title do
-            = project_presenter.title
-          = readable_tag :td, :project, :responsible_user do
-            = project_presenter.responsible_user.profile_image_thumb
-          = readable_tag :td, :project, :status do
-            = project_presenter.human_status_name
-          = readable_tag :td, :project, :updated_at do
-            = project_presenter.updated_at
-          = readable_tag :td, :project, :cost do
-            = project_presenter.cost
+        = readable_tag :td, :project, :id do
+          = project_presenter.id
+        = readable_tag :td, :project, :title do
+          = project_presenter.title
+        = readable_tag :td, :project, :responsible_user do
+          = project_presenter.responsible_user.profile_image_thumb
+        = readable_tag :td, :project, :status do
+          = project_presenter.human_status_name
+        = readable_tag :td, :project, :updated_at do
+          = project_presenter.updated_at
+        = readable_tag :td, :project, :cost do
+          = project_presenter.cost
         %td
-          - if policy(project).edit?
-            = link_to t(:edit), edit_project_path(project)
+          - if policy(project_presenter).edit?
+            = link_to t(:edit), [:edit, project_presenter]

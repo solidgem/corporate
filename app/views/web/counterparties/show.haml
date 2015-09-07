@@ -10,7 +10,7 @@
 
     %dt= t :operations
     %dd
-      - if policy(@counterparty).edit?
-        = link_to t(:edit), edit_counterparty_path(@counterparty)
-= render partial: 'projects'
-= render partial: 'officials'
+      - if policy(counterparty_presenter).edit?
+        = link_to t(:edit), [:edit, counterparty_presenter]
+  = render 'projects', counterparty_presenter: counterparty_presenter
+  = render 'officials', counterparty_presenter: counterparty_presenter

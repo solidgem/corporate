@@ -1,7 +1,7 @@
 %h1.page-header= t :counterparties
 
 - if policy(:counterparty).new?
-  = link_to t('.new_counterparty'), new_counterparty_path, class: 'btn btn-default'
+  = link_to t('.new_counterparty'), [:new, :counterparty], class: 'btn btn-default'
 %table.table.table-striped
   %thead
     %tr
@@ -14,8 +14,8 @@
         - present counterparty do |counterparty_presenter|
           %td= counterparty_presenter.id
           %td= counterparty_presenter.to_link
-        %td
-          - if policy(counterparty).edit?
-            = link_to t(:edit), edit_counterparty_path(counterparty)
+          %td
+            - if policy(counterparty_presenter).edit?
+              = link_to t(:edit), [:edit, counterparty_presenter]
 
 = paginate @counterparties, theme: 'twitter-bootstrap-3'

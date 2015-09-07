@@ -53,13 +53,6 @@ ActiveRecord::Schema.define(version: 20150904104048) do
     t.integer  "responsible_user_id"
     t.string   "status"
     t.integer  "counterparty_id"
-    t.string   "kind"
-    t.datetime "deadline"
-    t.datetime "finish_date"
-    t.integer  "complaints"
-    t.integer  "critical_complaints"
-    t.boolean  "letters_of_thanks"
-    t.string   "overdue_type"
   end
 
   create_table "task_comments", force: :cascade do |t|

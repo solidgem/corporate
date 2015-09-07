@@ -27,4 +27,12 @@ class CounterpartyPresenter < BasePresenter
   def responsible_user
     h.present model.responsible_user
   end
+
+  def officials_web
+    model.officials.web.map{ |model| h.present model }
+  end
+
+  def projects_web
+    model.projects.web.map{ |model| h.present model }
+  end
 end
