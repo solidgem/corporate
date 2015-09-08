@@ -1,4 +1,7 @@
 = simple_form_for project, url: project_finish_path, method: :post do |f|
-  = f.input :finished_at, as: :datetime_picker, input_html: { value: DateTime.current }
+  = f.input :finished_at, as: :datetime_picker
+  %span.help-block
+    = t('.deadline')
+    = l project.deadline, format: :number
   = f.input :overdue_kind
   = f.button :submit

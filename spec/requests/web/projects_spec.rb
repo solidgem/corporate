@@ -66,8 +66,6 @@ RSpec.describe 'projects', type: :request do
       patch "/projects/#{finished_project.id}/status", event: 'activate'
       finished_project.reload
       expect(finished_project.status).to eq('active')
-      expect(finished_project.finished_at).to be_nil
-      expect(finished_project.overdue_kind).to be_nil
       expect(response).to be_redirect
     end
   end

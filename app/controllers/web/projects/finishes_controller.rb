@@ -6,6 +6,7 @@ class Web::Projects::FinishesController < Web::Projects::ApplicationController
   def new
     @project = resource_project
     authorize @project, :status?
+    @project.finished_at = DateTime.current
     respond_with @project
   end
 
