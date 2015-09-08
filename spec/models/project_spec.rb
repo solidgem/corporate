@@ -34,7 +34,7 @@ RSpec.describe Project, type: :model do
   context 'finished' do
     let(:model) { create :project, status: :finished, deadline: 2.days.ago, finished_at: DateTime.current, overdue_kind: :company_fault }
 
-    it 'set finished_at and overdue_kind when activate' do
+    it 'set finished_at and overdue_kind to nil when activate' do
       model.activate
       expect(model.finished_at).to be_nil
       expect(model.overdue_kind).to be_nil

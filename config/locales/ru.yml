@@ -24,7 +24,7 @@ ru:
 
   time:
     formats:
-      number: "%d.%m.%Y %H:%M"
+      numeric: "%d.%m.%Y %H:%M"
   web:
     tasks:
       index:
@@ -53,9 +53,6 @@ ru:
         total_expenses: 'Итоговые затраты'
         total_balance: 'Остаток'
         counterparty: Контрагент
-      finishes:
-        form:
-          deadline: 'Дедлайн:'
     counterparties:
       index:
         new_counterparty: Добавить контрагента
