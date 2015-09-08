@@ -1,4 +1,4 @@
 = simple_form_for project, url: project_finish_path, method: :post do |f|
-  = f.input :finish_date, as: :datetime_picker, input_html: { value: DateTime.current }
+  = f.input :finished_at, as: :datetime_picker, input_html: { value: DateTime.current }
   = f.input :overdue_kind
   = f.button :submit

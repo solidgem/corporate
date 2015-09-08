@@ -16,7 +16,7 @@ class Project < ActiveRecord::Base
 
   state_machine :status, initial: :active do
     before_transition any => :active do |project, _transition|
-      project.finish_date = nil
+      project.finished_at = nil
       project.overdue_kind = nil
     end
 
@@ -29,13 +29,13 @@ class Project < ActiveRecord::Base
     end
 
     state :finished do
-      validates :finish_date, presence: true
+      validates :finished_at, presence: true
       validates :overdue_kind, presence: true, if: :overdue?
     end
   end
 
   def overdue?
-    finish_date && finish_date > deadline
+    finished_at && finished_at > deadline
   end
 
   def to_s

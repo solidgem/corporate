@@ -24,6 +24,6 @@ class Web::Projects::FinishesController < Web::Projects::ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:finish_date, :overdue_kind)
+    params.require(:project).permit(:finished_at, :overdue_kind)
   end
 end

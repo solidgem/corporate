@@ -16,7 +16,7 @@ RSpec.describe 'projects', type: :request do
 
   context 'create' do
     it 'render with 200 status' do
-      post "/projects/#{project.id}/finish", project: { finish_date: Date.today, overdue_kind: 'company_fault' }
+      post "/projects/#{project.id}/finish", project: { finished_at: Date.today, overdue_kind: 'company_fault' }
       expect(project.reload.status).to eq("finished")
       expect(response).to be_redirect
     end
