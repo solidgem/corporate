@@ -22,6 +22,9 @@ ru:
   edit_profile: Редактирование профиля
   new_official: Добавить должностное лицо
 
+  time:
+    formats:
+      numeric: "%d.%m.%Y %H:%M"
   web:
     tasks:
       index:
@@ -123,10 +126,11 @@ ru:
         cost: Стоимость
         kind: Тип
         deadline: Дедлайн
-        finish_date: Дата фактического завершения
+        finished_at: Дата фактического завершения
         complaints: Жалобы
         critical_complaints: Критические жалобы
         letters_of_thanks: Благодарственные письма
+        overdue_kind: Тип просрочки
       user:
         name: Имя
         position: Должность
@@ -168,6 +172,7 @@ ru:
       email: неправильный формат почты
       wrong_email_or_password: логин или пароль неверный
       already_invited: пользователь уже приглашен
+      overdue_type_must_be_set: Тип просрочки должен быть установлен
   helpers:
     submit:
       create: Сохранить
@@ -198,6 +203,9 @@ ru:
       kind:
         support: Сопровождение
         development: Разработка
+      overdue_kind:
+        company_fault: Вина компании
+        customer_fault: Вина заказчика
   invite_mailer:
     on_create:
       subject: Приглашение
@@ -240,6 +248,10 @@ ru:
           scope: Инвайты
       projects:
         scope: Проекты
+        application:
+          scope: Проекты
+        finishes:
+          scope: Завершение проекта
       counterparties:
         scope: Контрагенты
         application:
