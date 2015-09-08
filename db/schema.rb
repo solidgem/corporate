@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20150907120057) do
     t.datetime "finish_date"
     t.integer  "complaints"
     t.integer  "critical_complaints"
-    t.boolean  "letters_of_thanks",   default: false
+    t.boolean  "letters_of_thanks"
     t.string   "overdue_kind"
     t.integer  "counterparty_id"
   end
