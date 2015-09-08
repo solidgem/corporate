@@ -31,6 +31,7 @@ class Project < ActiveRecord::Base
     state :finished do
       validates :finished_at, presence: true
       validates :overdue_kind, presence: true, if: :overdue?
+      validates :overdue_kind, absence: true, unless: :overdue?
     end
   end
 
