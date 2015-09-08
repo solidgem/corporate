@@ -39,7 +39,18 @@ class ProjectPresenter < BasePresenter
   end
 
   def letters_of_thanks
+    return unless model.letters_of_thanks
     I18n.translate(model.letters_of_thanks.to_s)
+  end
+
+  def complaints
+    return if model.complaints.nil? || model.complaints.zero?
+    model.complaints
+  end
+
+  def critical_complaints
+    return if model.critical_complaints.nil? || model.critical_complaints.zero?
+    model.critical_complaints
   end
 
   def counterparty
