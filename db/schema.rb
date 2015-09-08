@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904081533) do
+ActiveRecord::Schema.define(version: 20150907120057) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "file_id"
@@ -22,6 +22,26 @@ ActiveRecord::Schema.define(version: 20150904081533) do
     t.string   "entity_type"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "counterparties", force: :cascade do |t|
+    t.string   "title"
+    t.string   "requisites"
+    t.string   "contacts"
+    t.string   "site"
+    t.string   "comment"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "responsible_user_id"
+  end
+
+  create_table "counterparty_officials", force: :cascade do |t|
+    t.string   "full_name"
+    t.string   "position"
+    t.string   "contacts"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "counterparty_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -38,6 +58,7 @@ ActiveRecord::Schema.define(version: 20150904081533) do
     t.integer  "critical_complaints"
     t.boolean  "letters_of_thanks"
     t.string   "overdue_kind"
+    t.integer  "counterparty_id"
   end
 
   create_table "task_comments", force: :cascade do |t|

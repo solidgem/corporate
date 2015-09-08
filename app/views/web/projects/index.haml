@@ -28,7 +28,7 @@
           = readable_tag :td, :project, :id do
             = project_presenter.id
           = readable_tag :td, :project, :title do
-            = project_presenter.title
+            = project_presenter.to_link
           = readable_tag :td, :project, :responsible_user do
             = project_presenter.responsible_user.profile_image_thumb
           = readable_tag :td, :project, :status do

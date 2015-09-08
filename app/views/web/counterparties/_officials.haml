@@ -1,0 +1,17 @@
+= link_to t(:new_official), [:new, counterparty_presenter, :official], class: 'btn btn-default'
+%table.table.table-striped
+  %thead
+    %tr
+      %th= han 'counterparty/official', :id
+      %th= han 'counterparty/official', :full_name
+      %th= han 'counterparty/official', :position
+      %th= t :operations
+  %tbody
+    - counterparty_presenter.officials_web.each do |official_presenter|
+      %tr
+        %td= official_presenter.id
+        %td= official_presenter.to_link
+        %td= official_presenter.position
+        %td
+          - if policy(official_presenter).edit?
+            = link_to t(:edit), [:edit, counterparty_presenter, official_presenter]
