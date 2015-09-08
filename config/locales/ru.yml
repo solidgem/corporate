@@ -1,7 +1,8 @@
 ru:
+  "true": Да
+  "false": Нет
   are_you_sure?: Вы уверены?
   password: Пароль
-
   sign_in: Войти
   sign_out: Выйти
   operations: Действия
@@ -120,6 +121,12 @@ ru:
       project:
         status: Статус
         cost: Стоимость
+        kind: Тип
+        deadline: Дедлайн
+        finish_date: Дата фактического завершения
+        complaints: Жалобы
+        critical_complaints: Критические жалобы
+        letters_of_thanks: Благодарственные письма
       user:
         name: Имя
         position: Должность
@@ -187,7 +194,10 @@ ru:
         programming: Программирование
         content: Контент
         design: Дизайн
-
+    project:
+      kind:
+        support: Сопровождение
+        development: Разработка
   invite_mailer:
     on_create:
       subject: Приглашение

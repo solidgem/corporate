@@ -9,3 +9,7 @@
 .project-tab-group{
     margin-bottom: 15px;
 }
+
+.dl-horizontal dt {
+    white-space: normal;
+}
