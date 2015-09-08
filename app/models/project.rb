@@ -6,10 +6,8 @@ class Project < ActiveRecord::Base
   belongs_to :responsible_user, class_name: 'User'
   belongs_to :counterparty
 
-
   enumerize :kind, in: %w[development support], default: :development
   enumerize :overdue_kind, in: %w[company_fault customer_fault]
-
 
   validates :title, presence: true
   validates :responsible_user, presence: true

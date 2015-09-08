@@ -246,7 +246,7 @@ ru:
       projects:
         scope: Проекты
         finishes:
-          scope: Завершение задачи
+          scope: Завершение проекта
       counterparties:
         scope: Контрагенты
         application:
