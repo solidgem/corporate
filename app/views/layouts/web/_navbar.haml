@@ -29,7 +29,7 @@
               %span.caret
             %ul.dropdown-menu
               = menu_item current_user, :show, t(:show_profile), user_path(current_user)
-              = menu_item current_user, :show, t(:edit_profile), edit_user_path(current_user)
+              = menu_item current_user, :edit, t(:edit_profile), edit_user_path(current_user)
               = menu_item current_user, :statistics_show, t(:my_statistics), user_statistics_path(current_user)
         = menu_item :session, :new, t(:sign_in), new_session_path
         = menu_item :session, :destroy, t(:sign_out), session_path, method: :delete
