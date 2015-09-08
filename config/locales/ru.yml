@@ -245,6 +245,8 @@ ru:
           scope: Инвайты
       projects:
         scope: Проекты
+        application:
+          scope: Проекты
         finishes:
           scope: Завершение проекта
       counterparties:

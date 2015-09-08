@@ -58,4 +58,17 @@ RSpec.describe 'projects', type: :request do
       expect(response).to be_redirect
     end
   end
+
+  context 'status' do
+    let(:finished_project) { create :project, deadline: 2.day.since, finish_date: Date.today, status: 'finished' }
+
+    it 'success' do
+      patch "/projects/#{finished_project.id}/status", event: 'activate'
+      finished_project.reload
+      expect(finished_project.status).to eq('active')
+      expect(finished_project.finish_date).to be_nil
+      expect(finished_project.overdue_kind).to be_nil
+      expect(response).to be_redirect
+    end
+  end
 end

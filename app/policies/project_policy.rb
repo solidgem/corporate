@@ -34,7 +34,6 @@ class ProjectPolicy < ApplicationPolicy
 
   def permitted_attributes
     attrs = [:title, :cost, :responsible_user_id, :deadline, :kind]
-    attrs.push  :finish_date, :overdue_kind if user.administrator? || user.manager?
     attrs.push :complaints, :critical_complaints, :letters_of_thanks if user.administrator?
     attrs
   end

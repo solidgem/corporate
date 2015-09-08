@@ -15,6 +15,11 @@ class Project < ActiveRecord::Base
   validates :kind, presence: true
 
   state_machine :status, initial: :active do
+    before_transition any => :active do |project, _transition|
+      project.finish_date = nil
+      project.overdue_kind = nil
+    end
+
     event :activate do
       transition :finished => :active
     end
@@ -22,15 +27,15 @@ class Project < ActiveRecord::Base
     event :finish do
       transition :active => :finished
     end
+
     state :finished do
       validates :finish_date, presence: true
-      validate :validate_dates
+      validates :overdue_kind, presence: true, if: :overdue?
     end
   end
 
-  def validate_dates
-    return if finish_date.blank?
-    errors.add(:overdue_kind, :overdue_type_must_be_set) if finish_date > deadline && overdue_kind.blank?
+  def overdue?
+    finish_date && finish_date > deadline
   end
 
   def to_s
