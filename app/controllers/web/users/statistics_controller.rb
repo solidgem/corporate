@@ -6,5 +6,9 @@ class Web::Users::StatisticsController < Web::Users::ApplicationController
     @statistics = UserStatisticsQuery.perform resource_user,
                                               @filter_form.start_date,
                                               @filter_form.end_date
+    respond_to do |format|
+      format.html
+      format.xlsx{ render layout: false }
+    end
   end
 end

@@ -26,3 +26,4 @@
         %strong.pull-right= t '.total_reward'
       %td
         %strong= @statistics.sum{ |stat| stat[:reward] }.to_s(:currency)
+= link_to 'Скачать в xls', url_for(params.merge(format: :xlsx))
