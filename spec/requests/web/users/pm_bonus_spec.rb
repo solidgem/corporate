@@ -8,8 +8,7 @@ RSpec.describe 'users', type: :request do
   let!(:task) { create :task, project: project }
   let!(:comment) { create 'task/comment', task: task, user: user }
 
-  let!(:adminsitrator) { create :administrator }
-  before(:each){ sign_in_user adminsitrator }
+  before(:each){ sign_in_user manager }
 
   context 'show' do
     it 'render with 200 status' do

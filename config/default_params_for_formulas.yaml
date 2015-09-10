@@ -1,8 +1,8 @@
 ---
 :pm_bonus_coefficients:
   :base_percent: 4
-  :verbal_complaints: -100
-  :written_complaints: -250
+  :complaints: -100
+  :critical_complaints: -250
   :letters_of_thanks: 500
   :deadline_bonus_coefficients:
     :pm_ahead_of_schedule: 1.5
