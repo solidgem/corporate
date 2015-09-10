@@ -1,0 +1,26 @@
+= simple_form_for @filter_form, method: :get, url: {}, html: {class: 'form-inline'} do |f|
+  .form-group
+    = user_statistics_draw_months @filter_form
+  = f.input :start_date, as: :datetime_picker, label: false
+  = f.input :end_date, as: :datetime_picker, label: false
+  = f.button :submit
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= han :task, :id
+      %th= han :task, :title
+      %th= han :project, :complaints
+      %th= han :project, :critical_complaints
+      %th= han :project, :letters_of_thanks
+      %th= t '.project_bonus'
+  %tbody
+    - @bonuses.each do |bonus|
+      %tr
+        - present bonus[:project] do |project_presenter|
+          %td= project_presenter.id
+          %td= project_presenter.title
+          %td= project_presenter.complaints
+          %td= project_presenter.critical_complaints
+          %td= project_presenter.letters_of_thanks
+        %td= bonus[:bonus]

@@ -21,6 +21,11 @@ class UserPolicy < ApplicationPolicy
     record == user
   end
 
+  def pm_bonus_show?
+    return true if user.administrator?
+    false
+  end
+
   def readable_attributes
     attrs = [:name, :email, :profile_image, :profile_image_thumb, :contacts, :position]
     attrs.push :role, :role_text if user.administrator?
