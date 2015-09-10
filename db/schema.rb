@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20150908121542) do
     t.integer  "cost",                default: 0
     t.integer  "responsible_user_id"
     t.string   "status"
+    t.integer  "counterparty_id"
     t.string   "kind"
     t.datetime "deadline"
     t.datetime "finished_at"
@@ -58,7 +59,6 @@ ActiveRecord::Schema.define(version: 20150908121542) do
     t.integer  "critical_complaints"
     t.boolean  "letters_of_thanks"
     t.string   "overdue_kind"
-    t.integer  "counterparty_id"
   end
 
   create_table "task_comments", force: :cascade do |t|
