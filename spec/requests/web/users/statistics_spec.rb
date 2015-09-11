@@ -12,7 +12,7 @@ RSpec.describe 'users', type: :request do
       expect(response).to be_success
     end
 
-    it 'create xlsx document' do
+    it 'get xlsx document' do
       get "/users/#{user.id}/statistics.xlsx"
       expect(response).to be_success
     end
