@@ -34,6 +34,7 @@ gem 'usefull_scopes'
 gem 'squeel'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem 'addressable', require: %w[addressable/uri]
 
 gem 'counter_culture'
 
