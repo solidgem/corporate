@@ -17,7 +17,7 @@ class CounterpartyPresenter < BasePresenter
 
   def site
     return if model.site.blank?
-    h.link_to model.site, Addressable::URI.heuristic_parse(model.site).to_s
+    h.link_to model.site, Addressable::URI.heuristic_parse(model.site).to_s, target: '_blank'
   end
 
   def responsible_user
