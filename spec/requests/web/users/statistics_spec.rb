@@ -12,6 +12,11 @@ RSpec.describe 'users', type: :request do
       expect(response).to be_success
     end
 
+    it 'create xlsx document' do
+      get "/users/#{user.id}/statistics.xlsx"
+      expect(response).to be_success
+    end
+
     context 'with filter' do
       let(:filter) {{ start_date: 1.day.ago, end_date: 1.day.since }}
 

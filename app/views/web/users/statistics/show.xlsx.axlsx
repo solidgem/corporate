@@ -1,25 +1,23 @@
 first_column_width = 5
+grey_color = '95AFBA'
 
-start_date = l @filter_form.start_date, format: :short
-end_date = l @filter_form.end_date, format: :short
-
-margins = {left: 3, right: 3, top: 1.2, bottom: 1.2, header: 0.7, footer: 0.7}
+start_date = l @filter_form.start_date.to_datetime, format: :short
+end_date = l @filter_form.end_date.to_datetime, format: :short
 
 wb = xlsx_package.workbook
-wb.styles do |s|
-  right_align = s.add_style alignment:  { horizontal: :right }
-  header = s.add_style bg_color: '95AFBA', b: true, alignment: { horizontal: :center}
-  header_table = s.add_style b: true, alignment: { horizontal: :center}
-  wb.add_worksheet(name: t(:statistics), page_margins:  margins) do |sheet|
+bold = wb.styles.add_style b: true
+right_align = wb.styles.add_style b: true, alignment:  { horizontal: :right }
+header = wb.styles.add_style bg_color: grey_color, b: true, alignment: { horizontal: :center }
+header_table = wb.styles.add_style b: true, alignment: { horizontal: :center }
 
-    sheet.add_row ["Отчет по сотруднику #{resource_user} с #{start_date} по #{end_date}"], style: header
-    sheet.add_row [han(:task, :id), t('.task_name'), t('.user_elapsed_time'), t('.user_reward')], style: header_table
-    @statistics.each do |stat|
-      sheet.add_row [stat[:task].id, stat[:task], convert_seconds_to_string(stat[:user_elapsed_time]), stat[:reward].to_s(:currency)]
-    end
-    sheet.add_row ["", "", t('.total_reward'), "#{@statistics.sum{ |stat| stat[:reward] }.to_s(:currency)}"], style: [nil, nil, right_align, nil]
+sheet = wb.add_worksheet(name: t(:statistics))
 
-    sheet.column_info.first.width = first_column_width
-    sheet.merge_cells('A1:D1')
-  end
+sheet.add_row [(t :worker_report, worker: resource_user, start_date: start_date, end_date: end_date)], style: header
+sheet.add_row [han(:task, :id), t('.task_name'), t('.user_elapsed_time'), t('.user_reward')], style: header_table
+@statistics.each do |stat|
+  sheet.add_row [stat[:task].id, stat[:task], convert_seconds_to_string(stat[:user_elapsed_time]), stat[:reward].to_s(:currency)]
 end
+sheet.add_row [nil, nil, t('.total_reward'), "#{@statistics.sum{ |stat| stat[:reward] }.to_s(:currency)}"], style: [nil, nil, right_align, bold]
+
+sheet.column_info.first.width = first_column_width
+sheet.merge_cells('A1:D1')

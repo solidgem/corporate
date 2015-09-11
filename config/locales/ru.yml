@@ -21,6 +21,7 @@ ru:
   show_profile: Просмотр профиля
   edit_profile: Редактирование профиля
   new_official: Добавить должностное лицо
+  worker_report: "Отчет по сотруднику %{worker} с %{start_date} по %{end_date}"
 
   web:
     tasks:
@@ -41,6 +42,7 @@ ru:
           task_name: Название задачи
           user_reward: Вознаграждение
           total_reward: 'Итого:'
+          download_xlsx: Скачать в xlsx
     projects:
       index:
         new_project: Добавить проект
