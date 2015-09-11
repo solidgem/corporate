@@ -36,7 +36,7 @@ class Project < ActiveRecord::Base
   end
 
   def overdue?
-    finished_at && finished_at > deadline
+    finished_at && finished_at.beginning_of_day > deadline.beginning_of_day
   end
 
   def to_s

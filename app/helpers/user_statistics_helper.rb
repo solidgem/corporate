@@ -11,7 +11,7 @@ module UserStatisticsHelper
         link_class << 'btn-default'
       end
 
-      link_to url_for(user_statistics_filter_form: {
+      link_to url_for(date_form: {
                           start_date: month_begin,
                           end_date: month_end}),
               class: link_class do

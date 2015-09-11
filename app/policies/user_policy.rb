@@ -15,16 +15,16 @@ class UserPolicy < ApplicationPolicy
   end
 
   def statistics_show?
-    return false if user.guest?
+    return false unless record.worker?
     return true if user.administrator?
     return true if user.manager?
     record == user
   end
 
   def pm_bonus_show?
-    return true if record.manager? && user.administrator?
-    return true if record == user && user.manager?
-    false
+    return false unless record.manager?
+    return true if user.administrator?
+    record == user
   end
 
   def readable_attributes
