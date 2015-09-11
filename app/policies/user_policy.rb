@@ -22,6 +22,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def pm_bonus_show?
+    return true if record.manager? && user.administrator?
     return true if record == user && user.manager?
     false
   end
