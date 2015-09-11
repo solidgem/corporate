@@ -2,12 +2,11 @@ module ProjectsBonusesQuery
   module_function
 
   def perform(user, start_date, end_date)
-    base_percent = configs[:base_percent].to_f
     deadline_bonus_coefficients = configs[:deadline_bonus_coefficients]
     response = ActiveRecord::Base.connection.exec_query <<-SQL
       SELECT projects.id,
              (projects.cost - SUM(COALESCE(task_comments.elapsed_time,0) / 3600.0 * COALESCE(users.external_hour_rate,0))) *
-             (#{base_percent} +
+             (#{configs[:base_percent].to_f} +
               CASE
                 WHEN projects.finished_at < projects.deadline
                   THEN #{deadline_bonus_coefficients[:pm_ahead_of_schedule]}
