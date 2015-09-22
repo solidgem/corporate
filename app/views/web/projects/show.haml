@@ -39,7 +39,7 @@
         - task_cost[:task].tap do |task|
           - present task do |task_presenter|
             %td= task_presenter.id
-            %td= task_presenter.title
+            %td= task_presenter.to_link
             %td= task_presenter.competence_text
             %td= task_presenter.total_elapsed_time
         %td= task_cost[:cost].to_s(:currency)
