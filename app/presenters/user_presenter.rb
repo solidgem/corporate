@@ -10,7 +10,7 @@ class UserPresenter < BasePresenter
 
   def profile_image
     return unless model.profile_image
-    h.attachment_image_tag(model, :profile_image, :fill, 200, 200)
+    h.attachment_image_tag(to_model, :profile_image, :fill, 200, 200)
   end
 
   def profile_image_thumb
@@ -19,7 +19,7 @@ class UserPresenter < BasePresenter
     image_opts.merge! data: {toggle: :tooltip, placement: :top}, title: model.name
 
     h.link_to h.user_path model do
-      h.attachment_image_tag(model.model, :profile_image, :fill, 25, 25, **image_opts)
+      h.attachment_image_tag(to_model, :profile_image, :fill, 25, 25, **image_opts)
     end
   end
 
