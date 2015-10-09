@@ -6,6 +6,10 @@
     position: relative;
 }
 
+.form-group.date_picker{
+    position: relative;
+}
+
 .project-tab-group{
     margin-bottom: 15px;
 }

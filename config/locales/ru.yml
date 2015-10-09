@@ -17,6 +17,8 @@ ru:
   my_statistics: Моя статистика
   projects: Проекты
   officials: Должностные лица
+  contracts: Договора
+  service_kinds: Коды услуг
   counterparties: Контрагенты
   show_profile: Просмотр профиля
   edit_profile: Редактирование профиля
@@ -63,6 +65,12 @@ ru:
       officials:
         show:
           counterparty: Контрагент
+    contracts:
+      index:
+        new_contract: Добавить договор
+    service_kinds:
+      index:
+        new_service_kind: Добавить новый код услуги
   shared:
     attachments_files_form:
       destroy_file: 'удалить файл:'
@@ -108,6 +116,8 @@ ru:
       user: Сотрудник
       official: Должностное лицо
       counterparty: Контрагент
+      contract: Договор
+      service_kind: Код услуги
     attributes:
       task:
         users: Участники
@@ -152,6 +162,20 @@ ru:
         counterparty_id: Контрагент
         position: Должность
         full_name: ФИО
+      contract:
+        order_number: Порядковый номер
+        date: Дата заключения
+        contact_person: Контактное лицо
+        contact_person_id: Контактное лицо
+        have_original: Наличие оригинала
+        service_kind: Код услуги
+        service_kind_id: Код услуги
+        counterparty: Контрагент
+        counterparty_id: Контрагент
+        number: Номер
+      service_kind:
+        code: Код
+        name: Название
   activemodel:
     attributes:
       user/statistics_filter_form:
@@ -258,6 +282,10 @@ ru:
           scope: Контрагенты
         officials:
           scope: Должностные лица
+      contracts:
+        scope: Договора
+      service_kinds:
+          scope: Коды услуг
   datetime:
     distance_in_words:
       x_hours:

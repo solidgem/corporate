@@ -16,3 +16,10 @@ User.create_with(password: '123456',
                  hour_rate: 100,
                  external_hour_rate: 200)
     .find_or_create_by!(email: 'worker@solidgem.ru')
+
+ServiceKind.create_with(name: 'разработка сайта').find_or_create_by!(code: 'DEV')
+ServiceKind.create_with(name: 'сопровождение сайта').find_or_create_by!(code: 'SUP')
+ServiceKind.create_with(name: 'субподрядные работы').find_or_create_by!(code: 'A/DEV')
+ServiceKind.create_with(name: 'контекстная реклама').find_or_create_by!(code: 'CON')
+ServiceKind.create_with(name: 'SMM-продвижение').find_or_create_by!(code: 'SMM')
+ServiceKind.create_with(name: 'SEO-продвижение').find_or_create_by!(code: 'SEO')

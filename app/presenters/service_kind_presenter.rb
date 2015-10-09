@@ -1,0 +1,2 @@
+class ServiceKindPresenter < BasePresenter
+end

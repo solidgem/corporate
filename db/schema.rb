@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908121542) do
+ActiveRecord::Schema.define(version: 20150928102811) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "file_id"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 20150908121542) do
     t.string   "file_content_type"
     t.integer  "entity_id"
     t.string   "entity_type"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "contracts", force: :cascade do |t|
+    t.integer  "order_number"
+    t.string   "service_kind_id"
+    t.date     "date"
+    t.integer  "counterparty_id"
+    t.integer  "contact_person_id"
+    t.boolean  "have_original"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
@@ -51,7 +62,6 @@ ActiveRecord::Schema.define(version: 20150908121542) do
     t.integer  "cost",                default: 0
     t.integer  "responsible_user_id"
     t.string   "status"
-    t.integer  "counterparty_id"
     t.string   "kind"
     t.datetime "deadline"
     t.datetime "finished_at"
@@ -59,6 +69,14 @@ ActiveRecord::Schema.define(version: 20150908121542) do
     t.integer  "critical_complaints"
     t.boolean  "letters_of_thanks"
     t.string   "overdue_kind"
+    t.integer  "counterparty_id"
+  end
+
+  create_table "service_kinds", force: :cascade do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "task_comments", force: :cascade do |t|

@@ -1,0 +1,19 @@
+%h1.page-header= t :service_kinds
+
+= link_to t('.new_service_kind'), new_service_kind_path, class: 'btn btn-default'
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link @q, :id
+      %th= sort_link @q, :code
+      %th= sort_link @q, :name
+      %th= t :operations
+  %tbody
+    - @service_kinds.each do |service_kind|
+      %tr
+        %td= service_kind.id
+        %td= service_kind.code
+        %td= service_kind.name
+        %td
+          - if policy(service_kind).edit?
+            = link_to t(:edit), edit_service_kind_path(service_kind)

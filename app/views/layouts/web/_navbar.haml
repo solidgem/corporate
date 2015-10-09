@@ -20,6 +20,7 @@
               = menu_item :user, :index, t(:list_users), users_path
               = menu_item :invite, :new, t(:invite), new_account_invite_path
         = menu_item :counterparty, :index, t(:counterparties), counterparties_path
+        = menu_item :counterparty, :index, t(:contracts), contracts_path
 
       %ul.nav.navbar-nav.navbar-right
         - unless current_user.guest?
