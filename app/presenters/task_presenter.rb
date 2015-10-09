@@ -40,8 +40,8 @@ class TaskPresenter < BasePresenter
     model.users.map { |user| h.present user }
   end
 
-  def comments
-    model.comments.ordered.map { |comment| h.present comment }
+  def comments_web
+    model.comments.web.map { |comment| h.present comment }
   end
 
   def project

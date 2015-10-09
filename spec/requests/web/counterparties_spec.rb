@@ -3,8 +3,11 @@ require 'rails_helper'
 RSpec.describe 'counterparties', type: :request do
   let(:user) { create :administrator }
   let!(:counterparty) { create :counterparty }
+  let!(:another_counterparty) { create :counterparty }
   let!(:official) { create 'counterparty/official', counterparty: counterparty }
+  let!(:another_official) { create 'counterparty/official', counterparty: counterparty }
   let!(:project) { create :project, counterparty: counterparty }
+  let!(:another_project) { create :project, counterparty: counterparty }
   let(:counterparty_attrs) { attributes_for :counterparty }
 
   before(:each) { sign_in_user user }
