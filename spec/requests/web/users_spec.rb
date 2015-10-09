@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'users', type: :request do
-  let(:user) { create :user }
+  let!(:user) { create :user }
+  let!(:another_user) { create :user }
   before(:each){ sign_in_user user }
 
   context 'index' do

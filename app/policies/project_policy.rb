@@ -1,9 +1,9 @@
 class ProjectPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      return scope.all if user.administrator?
-      return scope.all if user.manager?
-      return scope.for_worker(user) if user.worker?
+      return scope.web if user.administrator?
+      return scope.web if user.manager?
+      return scope.web.for_worker(user) if user.worker?
       scope.none
     end
   end
@@ -35,12 +35,13 @@ class ProjectPolicy < ApplicationPolicy
   def permitted_attributes
     attrs = [:title, :cost, :responsible_user_id, :deadline, :kind]
     attrs.push :complaints, :critical_complaints, :letters_of_thanks if user.administrator?
+    attrs.push :counterparty_id if user.administrator? || user.manager?
     attrs
   end
 
   def readable_attributes
     attrs = [:id, :title, :responsible_user, :status, :updated_at, :created_at, :kind,
-             :complaints, :critical_complaints, :letters_of_thanks, :deadline]
+             :complaints, :critical_complaints, :letters_of_thanks, :deadline, :finished_at, :overdue_kind]
     attrs.push :cost, :counterparty_id if user.administrator? || user.manager?
     attrs
   end

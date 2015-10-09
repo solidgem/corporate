@@ -38,6 +38,14 @@ class ProjectPresenter < BasePresenter
     h.present model.responsible_user
   end
 
+  def finished_at
+    h.formatted_date model.finished_at
+  end
+
+  def overdue_kind
+    model.overdue_kind_text
+  end
+
   def letters_of_thanks
     return unless model.letters_of_thanks
     I18n.translate(model.letters_of_thanks.to_s)

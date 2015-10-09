@@ -11,6 +11,9 @@ Rails.application.routes.draw do
       member do
         patch :status
       end
+      scope module: :projects do
+        resource :finish
+      end
     end
     resources :tasks do
       member do
