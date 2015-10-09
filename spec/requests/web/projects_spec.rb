@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'projects', type: :request do
   let(:user) { create :administrator }
   let!(:project) { create :project }
+  let!(:another_project) { create :project }
   let(:project_attrs) { attributes_for :project }
 
   before(:each) { sign_in_user user }

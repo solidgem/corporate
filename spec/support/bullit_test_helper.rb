@@ -1,13 +1,9 @@
-module BulletTestHelper
+module WithBullet
   extend ActiveSupport::Concern
 
   included do
     if Bullet.enable?
       before(:each) do
-        FactoryGirl
-            .factories
-            .map(&:name)
-            .each{ |factory_name| create factory_name }
         Bullet.start_request
       end
 

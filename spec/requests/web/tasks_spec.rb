@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe 'tasks', type: :request do
   let(:user) { create :user }
   let!(:task) { create :task, creator: user }
+  let!(:another_task) { create :task, creator: user }
   let!(:comment) { create 'task/comment', task: task }
+  let!(:another_comment) { create 'task/comment', task: task }
   let(:task_attrs) { attributes_for :task }
 
   before(:each) { sign_in_user user }

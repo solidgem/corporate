@@ -4,6 +4,7 @@ RSpec.describe 'officials', type: :request do
   let(:user) { create :administrator }
   let!(:counterparty) { create :counterparty }
   let!(:official) { create 'counterparty/official', counterparty: counterparty }
+  let!(:another_official) { create 'counterparty/official', counterparty: counterparty }
   let(:official_attrs) { attributes_for 'counterparty/official' }
 
   before(:each) { sign_in_user user }
