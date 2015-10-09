@@ -48,7 +48,7 @@ gem 'enumerize'
 gem 'state_machines-activerecord'
 gem 'pundit'
 
-gem "refile", require: "refile/rails", github: 'refile/refile', ref: 'f37b5c55' #TODO: update when it released
+gem "refile", require: ['refile/rails', 'refile/simple_form']
 gem "refile-mini_magick"
 gem "refile-s3"
 
@@ -73,6 +73,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails', '~> 3.0.0'
   gem 'awesome_print'
+  gem 'bullet'
 end
 
 group :test do

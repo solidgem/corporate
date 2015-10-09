@@ -69,7 +69,7 @@ module ApplicationHelper
     res = content_tag :li, class: 'list-group-item' do
       [
           content_tag(:strong, han(model.model_name, attribute)),
-          value
+          show_value(value)
       ].join(' ').html_safe
     end
     res.html_safe
@@ -96,20 +96,5 @@ module ApplicationHelper
   def readable_tag(tag, model_name, attribute_name, &block)
     return if policy(model_name).readable_attributes.exclude? attribute_name
     content_tag tag, capture(&block)
-  end
-
-
-  # TODO: https://github.com/refile/refile/issues/334
-  def attachment_image_tag(record, name, *args, fallback: nil, format: nil, host: Refile.host, **options)
-    file = record.send(name)
-    # classes = ["attachment", record.class.model_name.singular, name, *options[:class]]
-    classes = ["attachment", record.model_name.singular, name, *options[:class]]
-
-    if file
-      image_tag(attachment_url(record, name, *args, format: format, host: host), options.merge(class: classes))
-    elsif fallback
-      classes << "fallback"
-      image_tag(fallback, options.merge(class: classes))
-    end
   end
 end
