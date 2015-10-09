@@ -3,6 +3,7 @@ module Task::CommentRepository
   include UsefullScopes
 
   included do
-    scope :ordered, ->{ order(id: :desc) }
+    scope :web, ->{ includes(:user, :attachments).order(id: :desc) }
+
   end
 end
