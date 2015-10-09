@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'service_kinds', type: :request do
-  let(:service_kind) { create :service_kind }
+  let!(:service_kind) { create :service_kind }
+  let!(:another_service_kind) { create :service_kind }
   let(:administrator) { create :administrator }
   before(:each){ sign_in_user administrator }
 
