@@ -29,6 +29,6 @@ class CounterpartyPresenter < BasePresenter
   end
 
   def projects_web
-    model.projects.web.map{ |model| h.present model }
+    model.projects.web.includes(:responsible_user).map{ |model| h.present model }
   end
 end

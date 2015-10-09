@@ -41,7 +41,7 @@ class TaskPresenter < BasePresenter
   end
 
   def comments
-    model.comments.ordered.map { |comment| h.present comment }
+    model.comments.includes(:user, :attachments).ordered.map { |comment| h.present comment }
   end
 
   def project
