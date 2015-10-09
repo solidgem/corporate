@@ -69,7 +69,7 @@ module ApplicationHelper
     res = content_tag :li, class: 'list-group-item' do
       [
           content_tag(:strong, han(model.model_name, attribute)),
-          value
+          show_value(value)
       ].join(' ').html_safe
     end
     res.html_safe
