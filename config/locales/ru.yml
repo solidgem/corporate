@@ -68,6 +68,8 @@ ru:
     contracts:
       index:
         new_contract: Добавить договор
+      show:
+        files: Файлы
     service_kinds:
       index:
         new_service_kind: Добавить новый код услуги

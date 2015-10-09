@@ -2,11 +2,7 @@
     resize:vertical;
 }
 
-.form-group.datetime_picker{
-    position: relative;
-}
-
-.form-group.date_picker{
+.form-group.datetime_picker, .form-group.date_picker{
     position: relative;
 }
 

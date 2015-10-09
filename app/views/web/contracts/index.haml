@@ -18,7 +18,7 @@
       %tr
         - present contract do |contract_presenter|
           %td= contract_presenter.id
-          %td= contract_presenter.number
+          %td= contract_presenter.to_link
           %td= contract_presenter.date
           %td= contract_presenter.service_kind
           %td= contract_presenter.counterparty.to_link

@@ -16,8 +16,6 @@ class ContractPresenter < BasePresenter
   end
 
   def have_original
-    I18n.translate(model.have_original.to_s)
+    h.t model.have_original.to_s
   end
-
-
 end

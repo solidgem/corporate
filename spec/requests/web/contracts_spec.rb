@@ -27,7 +27,6 @@ RSpec.describe 'contracts', type: :request do
   end
 
   context 'create' do
-    let!(:service_kind) { create :service_kind }
     let(:contract_attrs) { attributes_for :contract }
 
     it 'success' do
@@ -52,10 +51,10 @@ RSpec.describe 'contracts', type: :request do
   end
 
   context 'update' do
-    let(:order_number) { generate :integer }
+    let(:contract_attrs) { attributes_for :contract }
 
     it 'success' do
-      patch "/contracts/#{contract.id}", contract: { order_number: order_number }
+      patch "/contracts/#{contract.id}", contract: contract_attrs
       expect(response).to be_redirect
     end
   end

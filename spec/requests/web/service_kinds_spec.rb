@@ -28,6 +28,7 @@ RSpec.describe 'service_kinds', type: :request do
 
   context 'create' do
     let(:service_kind_attrs) { attributes_for :service_kind }
+
     it 'success' do
       post "/service_kinds", service_kind: service_kind_attrs
       expect(ServiceKind).to be_exists(code: service_kind_attrs[:code])
@@ -43,10 +44,10 @@ RSpec.describe 'service_kinds', type: :request do
   end
 
   context 'update' do
-    let(:name) { generate :string }
+    let(:service_kind_attrs) { attributes_for :service_kind }
 
     it 'success' do
-      patch "/service_kinds/#{service_kind.id}", service_kind: { name: name }
+      patch "/service_kinds/#{service_kind.id}", service_kind: service_kind_attrs
       expect(response).to be_redirect
     end
   end
