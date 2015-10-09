@@ -21,7 +21,6 @@
   ],
   "addons": [
     "heroku-postgresql:hobby-dev",
-    "sendgrid:starter",
-    "cloudinary:starter"
+    "sendgrid:starter"
   ]
 }

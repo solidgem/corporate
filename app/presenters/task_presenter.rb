@@ -43,4 +43,8 @@ class TaskPresenter < BasePresenter
   def comments
     model.comments.ordered.map { |comment| h.present comment }
   end
+
+  def project
+    h.present model.project
+  end
 end

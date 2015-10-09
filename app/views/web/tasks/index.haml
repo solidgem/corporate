@@ -21,7 +21,7 @@
         - present task do |task_presenter|
           %td= task_presenter.id
           %td= task_presenter.to_link
-          %td= task_presenter.project
+          %td= task_presenter.project.to_link
           %td
             = task_presenter.responsible_user.profile_image_thumb
             = "->"

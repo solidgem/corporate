@@ -34,6 +34,7 @@ gem 'usefull_scopes'
 gem 'squeel'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem 'addressable', require: %w[addressable/uri]
 
 gem 'counter_culture'
 
@@ -47,7 +48,7 @@ gem 'enumerize'
 gem 'state_machines-activerecord'
 gem 'pundit'
 
-gem "refile", require: "refile/rails", github: 'refile/refile', ref: 'f37b5c55' #TODO: update when it released
+gem "refile", require: ['refile/rails', 'refile/simple_form']
 gem "refile-mini_magick"
 gem "refile-s3"
 
