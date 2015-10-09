@@ -5,8 +5,7 @@ module ProjectRepository
     # Код дублируется из task_repository, т.к. не удалось сделать merge с правильным join. 
     # http://api.rubyonrails.org/classes/ActiveRecord/SpawnMethods.html#method-i-merge
     # https://github.com/activerecord-hackery/squeel
-        scope :for_user, ->(user) { includes(:responsible_user)
-                                .joins{ tasks.task_participations }
+        scope :for_user, ->(user) { joins{ tasks.task_participations }
                                 .where{ (tasks.creator_id == my{user.id}) \
                                       | (tasks.responsible_user_id == my{user.id}) \
                                       | (task_participations.user_id == my{user.id}) }
