@@ -18,7 +18,7 @@ ru:
   projects: Проекты
   officials: Должностные лица
   contracts: Договора
-  service_kinds: Коды услуг
+  service_kinds: Типы услуг
   counterparties: Контрагенты
   show_profile: Просмотр профиля
   edit_profile: Редактирование профиля
@@ -72,7 +72,7 @@ ru:
         files: Файлы
     service_kinds:
       index:
-        new_service_kind: Добавить новый код услуги
+        new_service_kind: Добавить новый тип услуги
   shared:
     attachments_files_form:
       destroy_file: 'удалить файл:'
@@ -119,7 +119,7 @@ ru:
       official: Должностное лицо
       counterparty: Контрагент
       contract: Договор
-      service_kind: Код услуги
+      service_kind: Тип услуги
     attributes:
       task:
         users: Участники
@@ -170,8 +170,8 @@ ru:
         contact_person: Контактное лицо
         contact_person_id: Контактное лицо
         have_original: Наличие оригинала
-        service_kind: Код услуги
-        service_kind_id: Код услуги
+        service_kind: Тип услуги
+        service_kind_id: Тип услуги
         counterparty: Контрагент
         counterparty_id: Контрагент
         number: Номер
@@ -287,7 +287,7 @@ ru:
       contracts:
         scope: Договора
       service_kinds:
-          scope: Коды услуг
+          scope: Типы услуг
   datetime:
     distance_in_words:
       x_hours:
