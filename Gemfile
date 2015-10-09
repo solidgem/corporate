@@ -73,6 +73,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails', '~> 3.0.0'
   gem 'awesome_print'
+  gem 'bullet'
 end
 
 group :test do
