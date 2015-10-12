@@ -18,4 +18,8 @@ class ContractPresenter < BasePresenter
   def have_original
     h.t model.have_original.to_s
   end
+
+  def date
+    h.formatted_date model.date
+  end
 end

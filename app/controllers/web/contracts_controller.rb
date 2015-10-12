@@ -4,7 +4,7 @@ class Web::ContractsController < Web::ApplicationController
   def index
     skip_policy_scope
     authorize :contract
-    @q = Contract.includes(:service_kind, :counterparty, :contact_person).search(params[:q])
+    @q = Contract.web.search(params[:q])
     @contracts = @q.result.page(params[:page])
     respond_with @contracts
   end

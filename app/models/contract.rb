@@ -1,5 +1,6 @@
 class Contract < ActiveRecord::Base
   include WithAttachments
+  include ContractRepository
 
   belongs_to :service_kind
   belongs_to :counterparty

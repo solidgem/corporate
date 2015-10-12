@@ -11,9 +11,10 @@
   %tbody
     - @service_kinds.each do |service_kind|
       %tr
-        %td= service_kind.id
-        %td= service_kind.code
-        %td= service_kind.name
+        - present service_kind do |service_kind_presenter|
+          %td= service_kind_presenter.id
+          %td= service_kind_presenter.code
+          %td= service_kind_presenter.name
         %td
           - if policy(service_kind).edit?
             = link_to t(:edit), edit_service_kind_path(service_kind)
