@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 module TaskRepository
   extend ActiveSupport::Concern
 
@@ -9,6 +10,7 @@ module TaskRepository
                                      | (task_participations.user_id == my{user.id}) } }
     scope :for_manager, ->(manager) { for_user(manager) }
     scope :for_worker, ->(worker) { for_user(worker) }
+    scope :web, -> { preload(:responsible_user, :creator, :users, :project) }
   end
 
   def members
