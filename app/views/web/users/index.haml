@@ -27,6 +27,8 @@
         %td
           - if policy(user).statistics_show?
             = link_to t(:statistics), user_statistics_path(user)
+          - if policy(user).pm_bonus_show?
+            = link_to t(:bonus), user_pm_bonus_path(user)
           - if policy(user).edit?
             = link_to t(:edit), edit_user_path(user)
           - if policy(:session).update?

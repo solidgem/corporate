@@ -15,6 +15,8 @@ ru:
   invite: Пригласить
   statistics: Статистика
   my_statistics: Моя статистика
+  bonus: Премия
+  my_bonus: Моя премия
   projects: Проекты
   officials: Должностные лица
   counterparties: Контрагенты
@@ -44,6 +46,11 @@ ru:
           task_name: Название задачи
           user_reward: Вознаграждение
           total_reward: 'Итого:'
+      pm_bonus:
+        show:
+          project_bonus: Премия за проект
+          rest: Остаток
+          total_bonus: 'Итого:'
     projects:
       index:
         new_project: Добавить проект
@@ -235,6 +242,8 @@ ru:
           scope: Пользователи
         statistics:
           show: Статистика
+        pm_bonus:
+          show: Расчет премии
       tasks:
         scope: Задачи
         application:

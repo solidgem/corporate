@@ -1,6 +1,6 @@
-= simple_form_for @filter_form, method: :get, url: {}, html: {class: 'form-inline'} do |f|
+= simple_form_for @date_form, method: :get, url: {}, html: {class: 'form-inline'} do |f|
   .form-group
-    = user_statistics_draw_months @filter_form
+    = user_statistics_draw_months @date_form
   = f.input :start_date, as: :datetime_picker, label: false
   = f.input :end_date, as: :datetime_picker, label: false
   = f.button :submit
@@ -21,8 +21,7 @@
         %td= convert_seconds_to_string stat[:user_elapsed_time]
         %td= stat[:reward].to_s(:currency)
     %tr
-      %td{ colspan: 2 }
-      %td
+      %td{colspan: 3}
         %strong.pull-right= t '.total_reward'
       %td
         %strong= @statistics.sum{ |stat| stat[:reward] }.to_s(:currency)
