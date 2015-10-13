@@ -16,3 +16,6 @@
     %dd
       - if policy(@contract).edit?
         = link_to t(:edit), edit_contract_path(@contract)
+= link_to t('.new_supplementary_agreement'),new_contract_supplementary_agreement_path(@contract)
+- if @contract.supplementary_agreements.present?
+  = render 'supplementary_agreements', supplementary_agreements: @contract.supplementary_agreements

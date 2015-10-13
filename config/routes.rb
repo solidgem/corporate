@@ -31,7 +31,11 @@ Rails.application.routes.draw do
     namespace :account do
       resources :invites
     end
-    resources :contracts
+    resources :contracts do
+      scope module: :contracts do
+        resources :supplementary_agreements
+      end
+    end
     resources :service_kinds
   end
 

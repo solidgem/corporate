@@ -6,6 +6,8 @@ class Contract < ActiveRecord::Base
   belongs_to :counterparty
   belongs_to :contact_person, class_name: 'User'
 
+  has_many :supplementary_agreements
+
   validates :order_number, presence: true
   validates :service_kind, presence: true
   validates :date, presence: true
@@ -17,5 +19,9 @@ class Contract < ActiveRecord::Base
 
   def to_s
     number
+  end
+
+  def self.use_relative_model_naming?
+    true
   end
 end

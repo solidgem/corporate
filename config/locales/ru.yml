@@ -23,6 +23,7 @@ ru:
   show_profile: Просмотр профиля
   edit_profile: Редактирование профиля
   new_official: Добавить должностное лицо
+  supplementary_agreements: Дополнительные соглашения
 
   time:
     formats:
@@ -66,10 +67,14 @@ ru:
         show:
           counterparty: Контрагент
     contracts:
+      supplementary_agreements:
+        show:
+          files: Сканы
       index:
         new_contract: Добавить договор
       show:
         files: Файлы
+        new_supplementary_agreement: Добавить дополнительное соглашение
     service_kinds:
       index:
         new_service_kind: Добавить новый тип услуги
@@ -178,6 +183,12 @@ ru:
       service_kind:
         code: Код
         name: Название
+      contract/supplementary_agreement:
+        order_number: Порядковый номер
+        date: Дата
+        contact_person: Контактное лицо
+        contact_person_id: Контактное лицо
+        have_original: Наличие оригинала
   activemodel:
     attributes:
       user/statistics_filter_form:
@@ -286,6 +297,10 @@ ru:
           scope: Должностные лица
       contracts:
         scope: Договора
+        application:
+          scope: Договора
+        supplementary_agreements:
+          scope: Дополнительные соглашения
       service_kinds:
           scope: Типы услуг
   datetime:
