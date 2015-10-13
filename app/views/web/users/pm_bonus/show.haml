@@ -12,6 +12,7 @@
       %th= han :task, :title
       %th= han :task, :counterparty
       %th= han :task, :cost
+      %th= t '.rest'
       %th= t '.project_bonus'
   %tbody
     - @bonuses.each do |bonus|
@@ -21,9 +22,10 @@
           %td= project_presenter.to_link
           %td= project_presenter.counterparty.to_link
           %td= project_presenter.cost
+        %td= bonus[:rest].to_s(:currency)
         %td= bonus[:bonus].to_s(:currency)
     %tr
-      %td{colspan: 4}
+      %td{colspan: 5}
         %strong.pull-right= t '.total_bonus'
       %td
         %strong= @bonuses.sum{ |bonus| bonus[:bonus] }.to_s(:currency)

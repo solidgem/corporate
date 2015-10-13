@@ -1,8 +1,7 @@
 module PmBonusCalculator
   module_function
 
-  def perform(project, expenses)
-    rest = project.cost - expenses
+  def perform(project, rest)
     overdue = project.finished_at.beginning_of_day - project.deadline.beginning_of_day
 
     base_coefficient = 0.04

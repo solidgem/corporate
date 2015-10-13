@@ -49,6 +49,7 @@ ru:
       pm_bonus:
         show:
           project_bonus: Премия за проект
+          rest: Остаток
           total_bonus: 'Итого:'
     projects:
       index:

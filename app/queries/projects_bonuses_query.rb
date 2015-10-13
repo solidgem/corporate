@@ -20,11 +20,14 @@ module ProjectsBonusesQuery
 
     finished_projects.map do |project|
       expenses = expenses_by_id.fetch(project.id, 0.0)
+      rest = project.cost - expenses
 
-      bonus = PmBonusCalculator.perform project, expenses
+      bonus = PmBonusCalculator.perform project, rest
       {
           project: project,
-          bonus: bonus
+          bonus: bonus,
+          expenses: expenses,
+          rest: rest,
       }
     end
   end
