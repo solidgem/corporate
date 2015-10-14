@@ -42,8 +42,10 @@ ru:
       statistics:
         show:
           user_elapsed_time: Затраченное время сотрудником
+          user_elapsed_time_xls: Затраченное время сотрудником, ч.
           task_name: Название задачи
           user_reward: Вознаграждение
+          user_reward_xls: Вознаграждение, руб.
           total_reward: 'Итого:'
           download_xlsx: Скачать в xlsx
     projects:
