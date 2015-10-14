@@ -1,5 +1,5 @@
 class Contract::SupplementaryAgreementPolicy < ApplicationPolicy
-  delegate :create?, :show?, :update?, :edit?, to: :contract_policy
+  delegate :create?, :show?, :update?, to: :contract_policy
 
   private
 

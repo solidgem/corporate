@@ -4,6 +4,7 @@ class Web::Contracts::SupplementaryAgreementsController < Web::Contracts::Applic
   def new
     @supplementary_agreement = resource_contract.supplementary_agreements.build
     authorize @supplementary_agreement
+    add_breadcrumb
   end
 
   def show
