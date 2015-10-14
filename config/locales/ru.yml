@@ -24,6 +24,8 @@ ru:
   edit_profile: Редактирование профиля
   new_official: Добавить должностное лицо
   supplementary_agreements: Дополнительные соглашения
+  appendixes: Приложения
+  main_information: Основная информация
 
   time:
     formats:
@@ -70,11 +72,15 @@ ru:
       supplementary_agreements:
         show:
           files: Сканы
+        index:
+          new_supplementary_agreement: Добавить дополнительное соглашение
+      appendixes:
+        index:
+          new_appendix: Добавить приложение
       index:
         new_contract: Добавить договор
       show:
         files: Файлы
-        new_supplementary_agreement: Добавить дополнительное соглашение
     service_kinds:
       index:
         new_service_kind: Добавить новый тип услуги
@@ -189,6 +195,13 @@ ru:
         contact_person: Контактное лицо
         contact_person_id: Контактное лицо
         have_original: Наличие оригинала
+      contract/appendix:
+        order_number: Порядковый номер
+        date: Дата
+        contact_person: Контактное лицо
+        contact_person_id: Контактное лицо
+        have_original: Наличие оригинала
+        attachments: Файлы
   activemodel:
     attributes:
       user/statistics_filter_form:
@@ -301,6 +314,8 @@ ru:
           scope: Договора
         supplementary_agreements:
           scope: Дополнительные соглашения
+        appendixes:
+          scope: Приложения
       service_kinds:
           scope: Типы услуг
   datetime:

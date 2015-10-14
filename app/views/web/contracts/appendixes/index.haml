@@ -1,0 +1,27 @@
+= render 'shared/contract_navbar', contract: resource_contract
+%h2= t(:appendixes)
+= link_to t('.new_appendix'), new_contract_appendix_path(resource_contract)
+%table.table.table-striped
+  %thead
+    %tr
+      %th= han 'contract/appendix', :id
+      %th= han 'contract/appendix', :order_number
+      %th= han 'contract/appendix', :date
+      %th= han 'contract/appendix', :contact_person_id
+      %th= han 'contract/appendix', :have_original
+      %th= han 'contract/appendix', :attachments
+      %th= t :operations
+  %tbody
+    - @appendixes.web.each do |appendix|
+      %tr
+        - present appendix do |appendix_presenter|
+          %td= appendix_presenter.id
+          %td= appendix_presenter.order_number
+          %td= appendix_presenter.date
+          %td= appendix_presenter.contact_person.to_link
+          %td= appendix_presenter.have_original
+          %td
+            = render 'shared/files_list', attachments: appendix_presenter.attachments
+        %td
+          - if policy(appendix).edit?
+            = link_to t(:edit), edit_contract_appendix_path(resource_contract, appendix)

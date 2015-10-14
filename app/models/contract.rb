@@ -7,6 +7,7 @@ class Contract < ActiveRecord::Base
   belongs_to :contact_person, class_name: 'User'
 
   has_many :supplementary_agreements
+  has_many :appendixes
 
   validates :order_number, presence: true
   validates :service_kind, presence: true

@@ -1,5 +1,13 @@
 class Web::Contracts::SupplementaryAgreementsController < Web::Contracts::ApplicationController
-  add_breadcrumb
+  add_breadcrumb {{ url: contract_supplementary_agreements_path(resource_contract) }}
+
+  def index
+    skip_policy_scope
+    authorize :'contract/supplementary_agreement'
+    @q = resource_contract.supplementary_agreements.web.search(params[:q])
+    @supplementary_agreements = @q.result.page(params[:page])
+    respond_with @supplementary_agreements
+  end
 
   def new
     @supplementary_agreement = resource_contract.supplementary_agreements.build

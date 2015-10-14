@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'contracts', type: :request do
   let!(:contract) { create :contract }
-  let!(:supplementary_agreement) { create 'contract/supplementary_agreement', contract: contract }
-  let!(:another_supplementary_agreement) { create 'contract/supplementary_agreement', contract: contract }
   let!(:another_contract) { create :contract }
   let(:administrator) { create :administrator }
   before(:each){ sign_in_user administrator }

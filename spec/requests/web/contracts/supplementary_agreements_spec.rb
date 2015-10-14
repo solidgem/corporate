@@ -4,8 +4,16 @@ RSpec.describe 'supplementary_agreements', type: :request do
   let(:user) { create :administrator }
   let!(:contract) { create :contract }
   let!(:supplementary_agreement) { create 'contract/supplementary_agreement', contract: contract }
+  let!(:another_supplementary_agreement) { create 'contract/supplementary_agreement', contract: contract }
 
   before(:each) { sign_in_user user }
+
+  context 'index' do
+    it 'render with 200 status' do
+      get "/contracts/#{contract.id}/supplementary_agreements/"
+      expect(response).to be_success
+    end
+  end
 
   context 'new' do
     it 'render with 200 status' do

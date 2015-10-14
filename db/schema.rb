@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013065510) do
+ActiveRecord::Schema.define(version: 20151014080245) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "file_id"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 20151013065510) do
     t.string   "entity_type"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "contract_appendixes", force: :cascade do |t|
+    t.integer "order_number"
+    t.integer "contract_id"
+    t.date    "date"
+    t.integer "contact_person_id"
+    t.boolean "have_original"
   end
 
   create_table "contract_supplementary_agreements", force: :cascade do |t|

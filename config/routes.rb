@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     resources :contracts do
       scope module: :contracts do
         resources :supplementary_agreements
+        resources :appendixes
       end
     end
     resources :service_kinds
