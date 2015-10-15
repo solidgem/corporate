@@ -6,7 +6,7 @@ class Web::TasksController < Web::ApplicationController
     filter = { status_in: 'active' }.merge(params.fetch(:q, {}))
     @q = policy_scope(Task).search(filter)
     @q.sorts = 'id desc' if @q.sorts.empty?
-    @tasks = @q.result(distinct: true).preload(:responsible_user, :creator, :users, :project).page(params[:page])
+    @tasks = @q.result(distinct: true).page(params[:page])
     respond_with @tasks
   end
 

@@ -1,0 +1,31 @@
+= simple_form_for @date_form, method: :get, url: {}, html: {class: 'form-inline'} do |f|
+  .form-group
+    = user_statistics_draw_months @date_form
+  = f.input :start_date, as: :datetime_picker, label: false
+  = f.input :end_date, as: :datetime_picker, label: false
+  = f.button :submit
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= han :task, :id
+      %th= han :task, :title
+      %th= han :task, :counterparty
+      %th= han :task, :cost
+      %th= t '.rest'
+      %th= t '.project_bonus'
+  %tbody
+    - @bonuses.each do |bonus|
+      %tr
+        - present bonus[:project] do |project_presenter|
+          %td= project_presenter.id
+          %td= project_presenter.to_link
+          %td= project_presenter.counterparty.to_link
+          %td= project_presenter.cost
+        %td= bonus[:rest].to_s(:currency)
+        %td= bonus[:bonus].to_s(:currency)
+    %tr
+      %td{colspan: 5}
+        %strong.pull-right= t '.total_bonus'
+      %td
+        %strong= @bonuses.sum{ |bonus| bonus[:bonus] }.to_s(:currency)

@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151014080245) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "attachments", force: :cascade do |t|
     t.string   "file_id"
     t.string   "file_filename"
@@ -145,6 +148,6 @@ ActiveRecord::Schema.define(version: 20151014080245) do
     t.string   "profile_image_content_type"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end

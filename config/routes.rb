@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users do
       scope module: :users do
         resource :statistics
+        resource :pm_bonus
       end
     end
     resources :projects do
