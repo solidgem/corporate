@@ -1,0 +1,27 @@
+= render 'shared/contract_navbar', contract: resource_contract
+%h2= t(:supplementary_agreements)
+= link_to t('.new_supplementary_agreement'), [:new, resource_contract, :supplementary_agreement], class: 'btn btn-default'
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link @q, :id
+      %th= sort_link @q, :order_number
+      %th= sort_link @q, :date
+      %th= sort_link @q, :contact_person_id
+      %th= sort_link @q, :have_original
+      %th= han 'contract/supplementary_agreement', :attachments
+      %th= t :operations
+  %tbody
+    - @supplementary_agreements.web.each do |supplementary_agreement|
+      %tr
+        - present supplementary_agreement do |supplementary_agreement_presenter|
+          %td= supplementary_agreement_presenter.id
+          %td= supplementary_agreement_presenter.order_number
+          %td= supplementary_agreement_presenter.date
+          %td= supplementary_agreement_presenter.contact_person.to_link
+          %td= supplementary_agreement_presenter.have_original
+          %td
+            = render 'shared/files_list', attachments: supplementary_agreement_presenter.attachments
+        %td
+          - if policy(supplementary_agreement).edit?
+            = link_to t(:edit), [:edit, resource_contract, supplementary_agreement]

@@ -1,0 +1,9 @@
+= simple_form_for contract do |f|
+  = f.input :order_number
+  = f.association :service_kind
+  = f.input :date, as: :date_picker
+  = f.association :counterparty
+  = f.association :contact_person
+  = f.input :have_original
+  = render 'shared/attachments_files_form', f: f
+  = f.button :submit

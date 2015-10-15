@@ -19,11 +19,16 @@ ru:
   my_bonus: Моя премия
   projects: Проекты
   officials: Должностные лица
+  contracts: Договора
+  service_kinds: Типы услуг
   counterparties: Контрагенты
   show_profile: Просмотр профиля
   edit_profile: Редактирование профиля
   new_official: Добавить должностное лицо
   worker_report: "Отчет по сотруднику %{worker} с %{start_date} по %{end_date}"
+  supplementary_agreements: Дополнительные соглашения
+  appendixes: Приложения
+  main_information: Основная информация
 
   time:
     formats:
@@ -74,6 +79,22 @@ ru:
       officials:
         show:
           counterparty: Контрагент
+    contracts:
+      supplementary_agreements:
+        show:
+          files: Сканы
+        index:
+          new_supplementary_agreement: Добавить дополнительное соглашение
+      appendixes:
+        index:
+          new_appendix: Добавить приложение
+      index:
+        new_contract: Добавить договор
+      show:
+        files: Файлы
+    service_kinds:
+      index:
+        new_service_kind: Добавить новый тип услуги
   shared:
     attachments_files_form:
       destroy_file: 'удалить файл:'
@@ -119,6 +140,8 @@ ru:
       user: Сотрудник
       official: Должностное лицо
       counterparty: Контрагент
+      contract: Договор
+      service_kind: Тип услуги
     attributes:
       task:
         users: Участники
@@ -163,6 +186,34 @@ ru:
         counterparty_id: Контрагент
         position: Должность
         full_name: ФИО
+      contract:
+        order_number: Порядковый номер
+        date: Дата заключения
+        contact_person: Контактное лицо
+        contact_person_id: Контактное лицо
+        have_original: Наличие оригинала
+        service_kind: Тип услуги
+        service_kind_id: Тип услуги
+        counterparty: Контрагент
+        counterparty_id: Контрагент
+        number: Номер
+      service_kind:
+        code: Код
+        name: Название
+      contract/supplementary_agreement:
+        order_number: Порядковый номер
+        date: Дата
+        contact_person: Контактное лицо
+        contact_person_id: Контактное лицо
+        have_original: Наличие оригинала
+        attachments: Сканы
+      contract/appendix:
+        order_number: Порядковый номер
+        date: Дата
+        contact_person: Контактное лицо
+        contact_person_id: Контактное лицо
+        have_original: Наличие оригинала
+        attachments: Файлы
   activemodel:
     attributes:
       user/statistics_filter_form:
@@ -271,6 +322,16 @@ ru:
           scope: Контрагенты
         officials:
           scope: Должностные лица
+      contracts:
+        scope: Договора
+        application:
+          scope: Договора
+        supplementary_agreements:
+          scope: Дополнительные соглашения
+        appendixes:
+          scope: Приложения
+      service_kinds:
+          scope: Типы услуг
   datetime:
     distance_in_words:
       x_hours:
