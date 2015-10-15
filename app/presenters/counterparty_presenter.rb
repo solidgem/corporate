@@ -28,7 +28,7 @@ class CounterpartyPresenter < BasePresenter
     model.officials.web.map{ |model| h.present model }
   end
 
-  def projects_web
-    model.projects.web.map{ |model| h.present model }
+  def projects_web_list
+    model.projects.web_list.map{ |model| h.present model }
   end
 end

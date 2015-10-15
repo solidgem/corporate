@@ -11,6 +11,7 @@ module ProjectRepository
                                       | (task_participations.user_id == my{user.id}) }
                                 .uniq }
     scope :for_worker, ->(worker) { for_user(worker) }
-    scope :web, -> { includes(:responsible_user).order(:title) }
+    scope :web, -> { order(:title) }
+    scope :web_list, -> { includes(:responsible_user) }
   end
 end

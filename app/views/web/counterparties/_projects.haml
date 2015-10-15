@@ -15,7 +15,7 @@
         = han :project, :cost
       %th= t :operations
   %tbody
-    - counterparty_presenter.projects_web.each do |project_presenter|
+    - counterparty_presenter.projects_web_list.each do |project_presenter|
       %tr
         = readable_tag :td, :project, :id do
           = project_presenter.id

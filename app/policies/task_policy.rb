@@ -1,10 +1,9 @@
 class TaskPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      default_scope = scope.web
-      return default_scope if user.administrator?
-      return default_scope.for_manager(user) if user.manager?
-      return default_scope.for_worker(user) if user.worker?
+      return scope.web if user.administrator?
+      return scope.web.for_manager(user) if user.manager?
+      return scope.web.for_worker(user) if user.worker?
       default_scope.none
     end
   end

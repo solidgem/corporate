@@ -7,10 +7,12 @@ module TaskRepository
     scope :for_user, ->(user) { joins{ task_participations.outer }
                                .where{ (tasks.creator_id == my{user.id}) \
                                      | (tasks.responsible_user_id == my{user.id}) \
-                                     | (task_participations.user_id == my{user.id}) } }
+                                     | (task_participations.user_id == my{user.id}) }
+                               .preload(:creator)
+                               }
     scope :for_manager, ->(manager) { for_user(manager) }
     scope :for_worker, ->(worker) { for_user(worker) }
-    scope :web, -> { preload(:responsible_user, :creator, :users, :project) }
+    scope :web, -> { preload(:responsible_user, :users, :project) }
   end
 
   def members
