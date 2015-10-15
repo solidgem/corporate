@@ -32,6 +32,13 @@ Rails.application.routes.draw do
     namespace :account do
       resources :invites
     end
+    resources :contracts do
+      scope module: :contracts do
+        resources :supplementary_agreements
+        resources :appendixes
+      end
+    end
+    resources :service_kinds
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

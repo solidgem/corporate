@@ -1,0 +1,29 @@
+%h1.page-header= t :contracts
+
+= link_to t('.new_contract'), new_contract_path, class: 'btn btn-default'
+= link_to t(:service_kinds), service_kinds_path, class: 'btn btn-default'
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link @q, :id
+      %th= sort_link @q, :number
+      %th= sort_link @q, :date
+      %th= sort_link @q, :service_kind_id
+      %th= sort_link @q, :counterparty_id
+      %th= sort_link @q, :contact_person_id
+      %th= sort_link @q, :have_original
+      %th= t :operations
+  %tbody
+    - @contracts.each do |contract|
+      %tr
+        - present contract do |contract_presenter|
+          %td= contract_presenter.id
+          %td= contract_presenter.to_link
+          %td= contract_presenter.date
+          %td= contract_presenter.service_kind
+          %td= contract_presenter.counterparty.to_link
+          %td= contract_presenter.contact_person.to_link
+          %td= contract_presenter.have_original
+        %td
+          - if policy(contract).edit?
+            = link_to t(:edit), edit_contract_path(contract)

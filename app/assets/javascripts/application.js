@@ -26,4 +26,8 @@ $(function () {
         showClear: true,
         extraFormats: [ 'YYYY-MM-DD hh:mm:ss ZZ' ]
     });
+    $('input.date_picker').datetimepicker({
+        showClear: true,
+        format: 'YYYY-MM-DD'
+    });
 });

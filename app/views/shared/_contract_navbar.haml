@@ -1,0 +1,7 @@
+%ul.nav.nav-tabs.project-tab-group{role: 'tablist'}
+  %li{role: 'presentation', class: ('active' if controller_name == 'contracts')}
+    = link_to t(:main_information), contract_path(contract)
+  %li{role: 'presentation', class: ('active' if controller_name == 'supplementary_agreements')}
+    = link_to t(:supplementary_agreements), contract_supplementary_agreements_path(contract)
+  %li{role: 'presentation', class: ('active' if controller_name == 'appendixes')}
+    = link_to t(:appendixes), contract_appendixes_path(contract)

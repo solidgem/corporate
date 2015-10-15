@@ -7,21 +7,38 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 administrator =
-    User.create_with(password: '123456', name: "Администратор", role: :administrator)
+    User
+        .create_with(
+            password: '123456',
+            name: "Администратор",
+            role: :administrator)
         .find_or_create_by!(email: 'admin@solidgem.ru')
 
 manager =
-    User.create_with(password: '123456', name: "Пользователь Менеджер", role: :manager)
+    User
+        .create_with(
+            password: '123456',
+            name: "Другой пользователь Менеджер",
+            role: :manager)
         .find_or_create_by!(email: 'another_manager@solidgem.ru')
 
 another_manager =
-    User.create_with(password: '123456', name: "Другой пользователь менеджер", role: :manager)
+    User
+        .create_with(
+            password: '123456',
+            name: "Пользователь менеджер",
+            role: :manager)
         .find_or_create_by!(email: 'manager@solidgem.ru')
 
 worker =
-    User.create_with(password: '123456', name: "Пользователь исполнитель", role: :worker,
-                     hour_rate: 100, external_hour_rate: 200)
-         .find_or_create_by!(email: 'worker@solidgem.ru')
+    User
+        .create_with(
+            password: '123456',
+            name: "Пользователь исполнитель",
+            role: :worker,
+            hour_rate: 100,
+            external_hour_rate: 200)
+        .find_or_create_by!(email: 'worker@solidgem.ru')
 
 counterparty =
     Counterparty
@@ -133,3 +150,85 @@ another_task
     .comments
     .create_with(elapsed_time: 44.minutes, user: manager)
     .find_or_create_by!(content: 'Второй комментарий к задаче 2')
+
+ServiceKind
+    .create_with(name: 'разработка сайта')
+    .find_or_create_by!(code: 'DEV')
+
+ServiceKind
+    .create_with(name: 'сопровождение сайта')
+    .find_or_create_by!(code: 'SUP')
+
+ServiceKind
+    .create_with(name: 'субподрядные работы')
+    .find_or_create_by!(code: 'A/DEV')
+
+ServiceKind
+    .create_with(name: 'контекстная реклама')
+    .find_or_create_by!(code: 'CON')
+
+smm_service_kind =
+    ServiceKind
+        .create_with(name: 'SMM-продвижение')
+        .find_or_create_by!(code: 'SMM')
+
+seo_service_kind =
+    ServiceKind
+        .create_with(name: 'SEO-продвижение')
+        .find_or_create_by!(code: 'SEO')
+
+contract =
+    Contract
+        .create_with(
+            service_kind: smm_service_kind,
+            date: 30.day.ago,
+            counterparty: counterparty,
+            contact_person: manager,
+            have_original: true)
+        .find_or_create_by!(order_number: 1)
+
+another_contract =
+    Contract
+        .create_with(
+            service_kind: seo_service_kind,
+            date: 55.day.ago,
+            counterparty: another_counterparty,
+            contact_person: another_manager,
+            have_original: false)
+        .find_or_create_by!(order_number: 2)
+
+contact_appendix =
+    Contract::Appendix
+        .create_with(
+            date: 15.day.ago,
+            contract: contract,
+            contact_person: manager,
+            have_original: true)
+        .find_or_create_by!(order_number: 1)
+
+another_contact_appendix =
+    Contract::Appendix
+        .create_with(
+            date: 5.day.ago,
+            contract: contract,
+            contact_person: another_manager,
+            have_original: false)
+        .find_or_create_by!(order_number: 2)
+
+contact_supplementary_agreement =
+    Contract::SupplementaryAgreement
+        .create_with(
+            date: 5.day.ago,
+            contract: contract,
+            contact_person: manager,
+            have_original: false)
+        .find_or_create_by!(order_number: 1)
+
+another_contact_supplementary_agreement =
+    Contract::SupplementaryAgreement
+        .create_with(
+            date: 1.day.ago,
+            contract: contract,
+            contact_person: another_manager,
+            have_original: true)
+        .find_or_create_by!(order_number: 2)

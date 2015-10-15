@@ -1,0 +1,4 @@
+- attachments.each do |attachment|
+  %div
+    = link_to attachment.file_filename, attachment_url(attachment, :file)
+    = attachment.file_size.to_s(:human_size)

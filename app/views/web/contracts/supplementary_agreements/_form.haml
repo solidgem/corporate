@@ -1,0 +1,7 @@
+= simple_form_for [contract, supplementary_agreement] do |f|
+  = f.input :order_number
+  = f.input :date, as: :date_picker
+  = f.association :contact_person
+  = f.input :have_original
+  = render 'shared/attachments_files_form', f: f
+  = f.button :submit
