@@ -13,6 +13,7 @@ class Web::Contracts::SupplementaryAgreementsController < Web::Contracts::Applic
     @supplementary_agreement = resource_contract.supplementary_agreements.build
     authorize @supplementary_agreement
     add_breadcrumb
+    respond_with @supplementary_agreement
   end
 
   def create
@@ -20,7 +21,7 @@ class Web::Contracts::SupplementaryAgreementsController < Web::Contracts::Applic
     authorize resource_contract
     add_breadcrumb
     @supplementary_agreement.update supplementary_params
-    respond_with @supplementary_agreement, location: resource_contract
+    respond_with @supplementary_agreement, location: [resource_contract, :supplementary_agreements]
   end
 
   def edit
@@ -35,7 +36,7 @@ class Web::Contracts::SupplementaryAgreementsController < Web::Contracts::Applic
     authorize resource_contract
     add_breadcrumb model: @supplementary_agreement
     @supplementary_agreement.update supplementary_params
-    respond_with resource_contract, @supplementary_agreement
+    respond_with @supplementary_agreement, location: [resource_contract, :supplementary_agreements]
   end
 
   private

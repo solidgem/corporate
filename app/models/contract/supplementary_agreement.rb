@@ -2,7 +2,7 @@ class Contract::SupplementaryAgreement < ActiveRecord::Base
   include SupplementaryAgreementRepository
   include WithAttachments
 
-  belongs_to :contract
+  belongs_to :contract, inverse_of: :supplementary_agreements
   belongs_to :contact_person, class_name: 'User'
 
   validates :order_number, presence: true

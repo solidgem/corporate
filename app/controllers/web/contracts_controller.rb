@@ -13,6 +13,7 @@ class Web::ContractsController < Web::ApplicationController
     @contract = Contract.find(params[:id])
     authorize @contract
     add_breadcrumb model: @contract
+    respond_with @contract
   end
 
   def edit
@@ -42,7 +43,7 @@ class Web::ContractsController < Web::ApplicationController
     authorize @contract
     add_breadcrumb model: @contract
     @contract.update contract_params
-    redirect_to contracts_path
+    respond_with @contract
   end
 
   private

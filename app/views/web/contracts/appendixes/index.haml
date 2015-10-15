@@ -4,11 +4,11 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= han 'contract/appendix', :id
-      %th= han 'contract/appendix', :order_number
-      %th= han 'contract/appendix', :date
-      %th= han 'contract/appendix', :contact_person_id
-      %th= han 'contract/appendix', :have_original
+      %th= sort_link @q, :id
+      %th= sort_link @q, :order_number
+      %th= sort_link @q, :date
+      %th= sort_link @q, :contact_person_id
+      %th= sort_link @q, :have_original
       %th= han 'contract/appendix', :attachments
       %th= t :operations
   %tbody
