@@ -15,12 +15,6 @@ class Web::Contracts::SupplementaryAgreementsController < Web::Contracts::Applic
     add_breadcrumb
   end
 
-  def show
-    @supplementary_agreement = resource_contract.supplementary_agreements.find(params[:id])
-    authorize resource_contract
-    add_breadcrumb model: @supplementary_agreement
-  end
-
   def create
     @supplementary_agreement = resource_contract.supplementary_agreements.build
     authorize resource_contract

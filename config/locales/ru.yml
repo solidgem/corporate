@@ -195,6 +195,7 @@ ru:
         contact_person: Контактное лицо
         contact_person_id: Контактное лицо
         have_original: Наличие оригинала
+        attachments: Сканы
       contract/appendix:
         order_number: Порядковый номер
         date: Дата

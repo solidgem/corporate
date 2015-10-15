@@ -1,5 +1,5 @@
 class Contract::SupplementaryAgreementPolicy < ApplicationPolicy
-  delegate :create?, :show?, :update?, to: :contract_policy
+  delegate :create?, :update?, to: :contract_policy
 
   def index?
     return true if user.administrator?

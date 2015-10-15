@@ -8,7 +8,6 @@ class Contract::SupplementaryAgreement < ActiveRecord::Base
   validates :order_number, presence: true
   validates :date, presence: true
 
-
   def to_s
     order_number.to_s
   end

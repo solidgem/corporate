@@ -32,13 +32,6 @@ RSpec.describe 'supplementary_agreements', type: :request do
     end
   end
 
-  context 'show' do
-    it 'render with 200 status' do
-      get "/contracts/#{contract.id}/supplementary_agreements/#{supplementary_agreement.id}"
-      expect(response).to be_success
-    end
-  end
-
   context 'edit' do
     it 'render with 200 status' do
       get "/contracts/#{contract.id}/supplementary_agreements/#{supplementary_agreement.id}/edit"

@@ -1,6 +1,6 @@
 = render 'shared/contract_navbar', contract: resource_contract
 %h2= t(:appendixes)
-= link_to t('.new_appendix'), new_contract_appendix_path(resource_contract)
+= link_to t('.new_appendix'), [:new, resource_contract, :appendix], class: 'btn btn-default'
 %table.table.table-striped
   %thead
     %tr
@@ -24,4 +24,4 @@
             = render 'shared/files_list', attachments: appendix_presenter.attachments
         %td
           - if policy(appendix).edit?
-            = link_to t(:edit), edit_contract_appendix_path(resource_contract, appendix)
+            = link_to t(:edit), [:edit, resource_contract, appendix]

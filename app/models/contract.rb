@@ -14,15 +14,15 @@ class Contract < ActiveRecord::Base
   validates :date, presence: true
   validates :counterparty, presence: true
 
+  def self.use_relative_model_naming?
+    true
+  end
+
   def number
     "#{order_number}_#{service_kind.code}/#{date.year}"
   end
 
   def to_s
     number
-  end
-
-  def self.use_relative_model_naming?
-    true
   end
 end

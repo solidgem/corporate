@@ -19,7 +19,7 @@ class Web::Contracts::AppendixesController < Web::Contracts::ApplicationControll
     @appendix = resource_contract.appendixes.build
     authorize resource_contract
     add_breadcrumb
-    @appendix.update supplementary_params
+    @appendix.update appendix_params
     respond_with @appendix, location: resource_contract
   end
 
@@ -34,15 +34,15 @@ class Web::Contracts::AppendixesController < Web::Contracts::ApplicationControll
     @appendix = resource_contract.appendixes.find(params[:id])
     authorize resource_contract
     add_breadcrumb model: @appendix
-    @appendix.update supplementary_params
+    @appendix.update appendix_params
     respond_with @appendix, location: resource_contract
   end
 
   private
 
-  def supplementary_params
+  def appendix_params
     params.require(:appendix).permit(:order_number, :date,
-                                                    :contact_person_id, :have_original,
-                                                    attachments_files: [], attachments_attributes: [:id, :_destroy])
+                                     :contact_person_id, :have_original,
+                                     attachments_files: [], attachments_attributes: [:id, :_destroy])
   end
 end
