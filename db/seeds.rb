@@ -96,7 +96,8 @@ counterparty.officials.create_with(position: 'Уборщица', contacts: 'Те
 
 project =
     Project.create_with(cost: '10000', responsible_user: manager,
-                        counterparty: counterparty, deadline: 1.day.since)
+                        counterparty: counterparty, deadline: 1.day.since,
+                        status_event: 'finish', finished_at: DateTime.current)
            .find_or_create_by!(title: 'CRM')
 
 another_project =
