@@ -6,6 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Dir.glob(Rails.root + '/app/models/**/*.rb').each { |file| require file }
+ActiveRecord::Base.subclasses.each { |model| model.reset_column_information }
+
 administrator =
     User
         .create_with(
