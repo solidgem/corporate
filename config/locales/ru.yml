@@ -25,7 +25,7 @@ ru:
   show_profile: Просмотр профиля
   edit_profile: Редактирование профиля
   new_official: Добавить должностное лицо
-  worker_report: "Отчет по сотруднику %{worker} с %{start_date} по %{end_date}"
+  worker_report: "Отчет по сотруднику %{worker} %{date_range}"
   supplementary_agreements: Дополнительные соглашения
   appendixes: Приложения
   main_information: Основная информация
@@ -339,3 +339,12 @@ ru:
         few: "%{count} часа"
         many: "%{count} часов"
         other: "%{count} часа"
+  date_range:
+      default:
+        month: "%B"
+        year: "%Y"
+        same_hours: "%{day} %{month} %{year}"
+        same_days: "%{day} %{month} %{year}"
+        same_months: "с %{from_day} по %{until_day} %{month} %{year}"
+        same_years: "с %{from_day} %{from_month} по %{until_day} %{until_month} %{year}"
+        different_components: "с %{from_day} %{from_month} %{from_year} по %{until_day} %{until_month} %{until_year}"

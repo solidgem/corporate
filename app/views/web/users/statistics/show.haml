@@ -20,4 +20,4 @@
       %td
         %strong= @statistics.sum{ |stat| stat[:reward] }.to_s(:currency)
 - if @statistics.present?
-  = link_to t('.download_xlsx'), url_for(params.merge(format: :xlsx))
+  = link_to t('.download_xlsx'), url_for(params.merge(format: :xlsx)), class: 'btn btn-default'

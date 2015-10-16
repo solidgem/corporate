@@ -59,6 +59,7 @@ gem 'github-markdown'
 gem 'newrelic_rpm'
 gem 'rollbar'
 gem 'unicorn'
+gem 'date_range_formatter'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
