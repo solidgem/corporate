@@ -340,7 +340,7 @@ ru:
         many: "%{count} часов"
         other: "%{count} часа"
   date_range:
-    xlsx:
+    range_in_sentence:
       month: "%B"
       year: "%Y"
       same_hours: "%{day} %{month} %{year}"
