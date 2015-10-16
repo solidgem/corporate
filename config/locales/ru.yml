@@ -340,11 +340,11 @@ ru:
         many: "%{count} часов"
         other: "%{count} часа"
   date_range:
-      default:
-        month: "%B"
-        year: "%Y"
-        same_hours: "%{day} %{month} %{year}"
-        same_days: "%{day} %{month} %{year}"
-        same_months: "с %{from_day} по %{until_day} %{month} %{year}"
-        same_years: "с %{from_day} %{from_month} по %{until_day} %{until_month} %{year}"
-        different_components: "с %{from_day} %{from_month} %{from_year} по %{until_day} %{until_month} %{until_year}"
+    xlsx:
+      month: "%B"
+      year: "%Y"
+      same_hours: "%{day} %{month} %{year}"
+      same_days: "%{day} %{month} %{year}"
+      same_months: "с %{from_day} по %{until_day} %{month} %{year}"
+      same_years: "с %{from_day} %{from_month} по %{until_day} %{until_month} %{year}"
+      different_components: "с %{from_day} %{from_month} %{from_year} по %{until_day} %{until_month} %{until_year}"

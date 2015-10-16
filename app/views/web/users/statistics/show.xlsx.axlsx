@@ -1,7 +1,7 @@
 first_column_width = 5
 grey_color = '95AFBA'
 
-date_range = DateRangeFormatter.format(@date_form.start_date, @date_form.end_date)
+date_range = DateRangeFormatter.format(@date_form.start_date, @date_form.end_date, :xlsx)
 
 wb = xlsx_package.workbook
 bold = wb.styles.add_style b: true
