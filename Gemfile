@@ -34,7 +34,9 @@ gem 'usefull_scopes'
 gem 'squeel'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem 'axlsx_rails'
 gem 'addressable', require: %w[addressable/uri]
+
 
 gem 'counter_culture'
 
@@ -57,6 +59,7 @@ gem 'github-markdown'
 gem 'newrelic_rpm'
 gem 'rollbar'
 gem 'unicorn'
+gem 'date_range_formatter'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

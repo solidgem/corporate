@@ -1,0 +1,23 @@
+first_column_width = 5
+grey_color = '95AFBA'
+
+date_range = DateRangeFormatter.format(@date_form.start_date, @date_form.end_date, :in_sentence)
+
+wb = xlsx_package.workbook
+bold = wb.styles.add_style b: true
+right_align = wb.styles.add_style b: true, alignment:  { horizontal: :right }
+header = wb.styles.add_style bg_color: grey_color, b: true, alignment: { horizontal: :center }
+header_table = wb.styles.add_style b: true, alignment: { horizontal: :center }
+
+sheet = wb.add_worksheet(name: t(:statistics))
+
+sheet.add_row [(t :worker_report, worker: resource_user, date_range: date_range)], style: header
+sheet.add_row [han(:task, :id), t('.task_name'), t('.user_elapsed_time_xls'), t('.user_reward_xls')], style: header_table
+@statistics.each do |stat|
+  sheet.add_row [stat[:task].id, stat[:task], (stat[:user_elapsed_time] / 3600.0).round(2), stat[:reward].round(2)]
+end
+last_row_number = 2 + @statistics.size
+sheet.add_row [nil, nil, t('.total_reward'), "=SUM(D3:D#{last_row_number})"], style: [nil, nil, right_align, bold]
+
+sheet.column_info.first.width = first_column_width
+sheet.merge_cells('A1:D1')
