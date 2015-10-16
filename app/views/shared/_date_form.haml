@@ -1,0 +1,6 @@
+= simple_form_for @date_form, method: :get, url: {}, html: {class: 'form-inline'} do |f|
+  .form-group
+    = user_statistics_draw_months @date_form
+  = f.input :start_date, as: :date_picker, label: false
+  = f.input :end_date, as: :date_picker, label: false
+  = f.button :submit
