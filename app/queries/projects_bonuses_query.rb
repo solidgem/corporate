@@ -16,7 +16,7 @@ module ProjectsBonusesQuery
     SQL
 
     expenses_by_id = response.rows.map{ |id, expenses| [id.to_i, expenses.to_f] }.to_h
-    finished_projects = Project.where(id: expenses_by_id.keys)
+    finished_projects = Project.where(id: expenses_by_id.keys).includes(:counterparty)
 
     finished_projects.map do |project|
       expenses = expenses_by_id.fetch(project.id, 0.0)

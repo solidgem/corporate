@@ -2,10 +2,10 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= han :task, :id
-      %th= han :task, :title
-      %th= han :task, :counterparty
-      %th= han :task, :cost
+      %th= han :project, :id
+      %th= han :project, :title
+      %th= han :project, :counterparty
+      %th= han :project, :cost
       %th= t '.rest'
       %th= t '.project_bonus'
   %tbody
@@ -23,3 +23,5 @@
         %strong.pull-right= t '.total_bonus'
       %td
         %strong= @bonuses.sum{ |bonus| bonus[:bonus] }.to_s(:currency)
+- if @bonuses.present?
+  = link_to t('.download_xlsx'), url_for(params.merge(format: :xlsx)), class: 'btn btn-default'

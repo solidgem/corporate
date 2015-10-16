@@ -1,0 +1,23 @@
+first_column_width = 5
+grey_color = '95AFBA'
+
+date_range = DateRangeFormatter.format(@date_form.start_date, @date_form.end_date, :in_sentence)
+
+wb = xlsx_package.workbook
+bold = wb.styles.add_style b: true
+right_align = wb.styles.add_style b: true, alignment:  { horizontal: :right }
+header = wb.styles.add_style bg_color: grey_color, b: true, alignment: { horizontal: :center }
+header_table = wb.styles.add_style b: true, alignment: { horizontal: :center }
+
+sheet = wb.add_worksheet(name: t(:bonus))
+
+sheet.add_row [(t :manager_report, worker: resource_user, date_range: date_range)], style: header
+sheet.add_row [han(:project, :id), han(:project, :title), han(:project, :counterparty), t('.cost_xls'), t('.rest_xls'), t('.project_bonus_xls')], style: header_table
+@bonuses.each do |bonus|
+  sheet.add_row [bonus[:project].id, bonus[:project], bonus[:project].counterparty, bonus[:project].cost.round(2), bonus[:rest].round(2), bonus[:bonus].round(2)]
+end
+last_row_number = 2 + @bonuses.size
+sheet.add_row [nil, nil, nil, nil, t('.total_bonus'), "=SUM(F3:F#{last_row_number})"], style: [nil, nil, nil, nil, right_align, bold]
+
+sheet.column_info.first.width = first_column_width
+sheet.merge_cells('A1:F1')

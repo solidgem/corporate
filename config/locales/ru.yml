@@ -26,6 +26,7 @@ ru:
   edit_profile: Редактирование профиля
   new_official: Добавить должностное лицо
   worker_report: "Отчет по сотруднику %{worker} %{date_range}"
+  manager_report: "Отчет по менеджеру %{worker} %{date_range}"
   supplementary_agreements: Дополнительные соглашения
   appendixes: Приложения
   main_information: Основная информация
@@ -58,8 +59,12 @@ ru:
       pm_bonus:
         show:
           project_bonus: Премия за проект
+          project_bonus_xls: Премия за проект, руб.
           rest: Остаток
+          rest_xls: Остаток, руб.
+          cost_xls: Стоимость, руб.
           total_bonus: 'Итого:'
+          download_xlsx: Скачать в xlsx
     projects:
       index:
         new_project: Добавить проект
