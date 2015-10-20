@@ -29,6 +29,7 @@ ru:
   supplementary_agreements: Дополнительные соглашения
   appendixes: Приложения
   main_information: Основная информация
+  acts: Акты
 
   time:
     formats:
@@ -95,6 +96,9 @@ ru:
     service_kinds:
       index:
         new_service_kind: Добавить новый тип услуги
+    acts:
+      index:
+        new_act: Добавить акт
   shared:
     attachments_files_form:
       destroy_file: 'удалить файл:'
@@ -142,6 +146,7 @@ ru:
       counterparty: Контрагент
       contract: Договор
       service_kind: Тип услуги
+      act: Акт
     attributes:
       task:
         users: Участники
@@ -213,6 +218,14 @@ ru:
         contact_person: Контактное лицо
         contact_person_id: Контактное лицо
         have_original: Наличие оригинала
+        attachments: Файлы
+      contract/act:
+        order_number: Порядковый номер
+        date: Дата
+        formulation: Формулировка
+        sum: Сумма
+        project: Проект
+        project_id: Проект
         attachments: Файлы
   activemodel:
     attributes:
@@ -332,6 +345,8 @@ ru:
           scope: Приложения
       service_kinds:
           scope: Типы услуг
+      acts:
+        index: Акты
   datetime:
     distance_in_words:
       x_hours:

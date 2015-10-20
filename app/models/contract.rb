@@ -8,6 +8,7 @@ class Contract < ActiveRecord::Base
 
   has_many :supplementary_agreements
   has_many :appendixes
+  has_many :acts, as: :document
 
   validates :order_number, presence: true
   validates :service_kind, presence: true

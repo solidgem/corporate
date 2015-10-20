@@ -5,3 +5,5 @@
     = link_to t(:supplementary_agreements), contract_supplementary_agreements_path(contract)
   %li{role: 'presentation', class: ('active' if controller_name == 'appendixes')}
     = link_to t(:appendixes), contract_appendixes_path(contract)
+  %li{role: 'presentation', class: ('active' if controller_name == 'acts')}
+    = link_to t(:acts), contract_acts_path(contract)

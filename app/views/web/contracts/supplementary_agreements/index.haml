@@ -9,6 +9,7 @@
       %th= sort_link @q, :date
       %th= sort_link @q, :contact_person_id
       %th= sort_link @q, :have_original
+      %th= t(:acts)
       %th= han 'contract/supplementary_agreement', :attachments
       %th= t :operations
   %tbody
@@ -20,6 +21,7 @@
           %td= supplementary_agreement_presenter.date
           %td= supplementary_agreement_presenter.contact_person.to_link
           %td= supplementary_agreement_presenter.have_original
+          %td= link_to t(:acts), supplementary_agreement_acts_path(supplementary_agreement)
           %td
             = render 'shared/files_list', attachments: supplementary_agreement_presenter.attachments
         %td

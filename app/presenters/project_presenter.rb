@@ -64,4 +64,8 @@ class ProjectPresenter < BasePresenter
   def counterparty
     h.present model.counterparty
   end
+
+  def contract_act
+    h.present model.contract_act
+  end
 end
