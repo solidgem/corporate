@@ -4,7 +4,6 @@ FactoryGirl.define do
     document_id { create(:contract).id }
     date
     formulation { generate :string }
-    # project_id { create(:project).id}
     sum { generate :int }
   end
 end
