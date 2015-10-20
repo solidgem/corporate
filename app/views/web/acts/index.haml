@@ -9,7 +9,7 @@
       %th= sort_link @q, :order_number
       %th= sort_link @q, :date
       %th= sort_link @q, :formulation
-      %th= sort_link @q, :project_id
+      %th= sort_link @q, :project_name, Project.model_name.human
       %th= han 'contract/act', :attachments
       %th= t :operations
   %tbody

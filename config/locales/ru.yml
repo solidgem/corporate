@@ -170,6 +170,7 @@ ru:
         critical_complaints: Критические жалобы
         letters_of_thanks: Благодарственные письма
         overdue_kind: Тип просрочки
+        contract_act: Акт
       user:
         name: Имя
         position: Должность
