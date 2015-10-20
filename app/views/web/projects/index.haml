@@ -10,8 +10,8 @@
         = sort_link @q, :id
       = readable_tag :th, :project, :title do
         = sort_link @q, :title
-      = readable_tag :th, :project, :responsible_user do
-        = sort_link @q, :responsible_user
+      = readable_tag :th, :project, :responsible_user_id do
+        = sort_link @q, :responsible_user_id
       = readable_tag :th, :project, :status do
         = sort_link @q, :status
       = readable_tag :th, :project, :deadline do
@@ -29,7 +29,7 @@
             = project_presenter.id
           = readable_tag :td, :project, :title do
             = project_presenter.to_link
-          = readable_tag :td, :project, :responsible_user do
+          = readable_tag :td, :project, :responsible_user_id do
             = project_presenter.responsible_user.profile_image_thumb
           = readable_tag :td, :project, :status do
             = project_presenter.human_status_name
