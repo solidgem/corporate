@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
   include ProjectRepository
 
   has_many :tasks
+  belongs_to :contract_act, class_name: "Contract::Act"
   belongs_to :responsible_user, class_name: 'User'
   belongs_to :counterparty
 
@@ -18,6 +19,7 @@ class Project < ActiveRecord::Base
     before_transition any => :active do |project, _transition|
       project.finished_at = nil
       project.overdue_kind = nil
+      project.contract_act = nil
     end
 
     event :activate do

@@ -38,7 +38,7 @@ module ApplicationHelper
         if url
           link_to title, url
         else
-          title
+          title.to_s
         end
       end
     end

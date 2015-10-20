@@ -1,0 +1,28 @@
+- if resource_document.is_a? Contract
+  = render 'shared/contract_navbar', contract: resource_document
+%h2= t(:acts)
+= link_to t('.new_act'), [:new, resource_document, :act], class: 'btn btn-default'
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link @q, :id
+      %th= sort_link @q, :order_number
+      %th= sort_link @q, :date
+      %th= sort_link @q, :formulation
+      %th= sort_link @q, :project_name, Project.model_name.human
+      %th= han 'contract/act', :attachments
+      %th= t :operations
+  %tbody
+    - @acts.each do |act|
+      %tr
+        - present act do |act_presenter|
+          %td= act_presenter.id
+          %td= act_presenter.order_number
+          %td= act_presenter.date
+          %td= act_presenter.formulation
+          %td= act_presenter.project.to_link
+          %td
+            = render 'shared/files_list', attachments: act_presenter.attachments
+        %td
+          - if policy(act).edit?
+            = link_to t(:edit), [:edit, resource_document, act]

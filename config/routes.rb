@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   scope module: :web do
+    concern :with_acts do |options|
+      resources :acts, options
+    end
+
     root to: 'welcome#index'
     resource :session
     resources :users do
@@ -33,10 +37,14 @@ Rails.application.routes.draw do
       resources :invites
     end
     resources :contracts do
+      concerns :with_acts, document_type: 'Contract', document_id_key: :contract_id
       scope module: :contracts do
         resources :supplementary_agreements
         resources :appendixes
       end
+    end
+    resources :supplementary_agreements do
+      concerns :with_acts, document_type: 'Contract::SupplementaryAgreement', document_id_key: :supplementary_agreement_id
     end
     resources :service_kinds
   end
