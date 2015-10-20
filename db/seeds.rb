@@ -236,3 +236,19 @@ another_contact_supplementary_agreement =
             contact_person: another_manager,
             have_original: true)
         .find_or_create_by!(order_number: 2)
+
+contract
+    .acts
+    .create_with(
+        date: 33.days.ago,
+        formulation: 'Акт — это документ, составляемый группой лиц',
+        sum: 12345)
+    .find_or_create_by!(order_number: 1)
+
+contact_supplementary_agreement
+    .acts
+    .create_with(
+        date: 10.days.ago,
+        formulation: 'Акт — это документ, составляемый группой лиц',
+        sum: 10045)
+    .find_or_create_by!(order_number: 1)
