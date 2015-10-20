@@ -226,7 +226,6 @@ ru:
         formulation: Формулировка
         sum: Сумма
         project: Проект
-        project_id: Проект
         attachments: Файлы
   activemodel:
     attributes:

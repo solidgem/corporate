@@ -1,12 +1,10 @@
 class Web::ActsController < Web::ApplicationController
   helper_method :resource_document
 
-  before_action do
-    setup_breadcrumbs
-  end
+  before_action :setup_breadcrumbs
 
   def index
-    authorize resource_document.acts
+    authorize :'contract/act'
     skip_policy_scope
     add_breadcrumb
     @q = resource_document.acts.web.search(params[:q])
@@ -44,7 +42,7 @@ class Web::ActsController < Web::ApplicationController
     respond_with @act, location: [resource_document, :acts]
   end
 
-private
+  private
 
   def setup_breadcrumbs
     breadcrumbs_for_add = send("#{resource_document.model_name.singular_route_key}_breadcrumbs")
@@ -68,7 +66,7 @@ private
   end
 
   def act_params
-    params.require(:act).permit(:order_number, :date, :project_id, :sum, :formulation,
+    params.require(:act).permit(:order_number, :date, :sum, :formulation,
                                 attachments_files: [], attachments_attributes: [:id, :_destroy])
   end
 
