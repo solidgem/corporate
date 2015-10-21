@@ -176,6 +176,7 @@ ru:
         letters_of_thanks: Благодарственные письма
         overdue_kind: Тип просрочки
         contract_act: Акт
+        responsible_user_id: Ответственный
       user:
         name: Имя
         position: Должность
