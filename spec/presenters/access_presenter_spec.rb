@@ -34,21 +34,38 @@ class FakeProjectPolicyWithId
 end
 
 RSpec.describe 'AccessPresenter', type: :presenter do
-  context 'readable attributes' do
-    let(:project) { create :project }
-    let(:current_user) { create :administrator }
+  let(:project) { create :project }
+  let(:current_user) { create :administrator }
 
-    it 'should return values if association attribute without id' do
+  context 'readable attributes' do
+    it 'should return values if association attribute without id readable' do
       context = FakeContext.new(FakeProjectPolicy.new)
       presenter = FakePresenter.new(project, context)
       expect(presenter.responsible_user_id).to be_present
       expect(presenter.responsible_user).to be_present
     end
-    it 'should return values if association attribute with id' do
+
+    it 'should return values if association attribute with id readable' do
       context = FakeContext.new(FakeProjectPolicyWithId.new)
       presenter = FakePresenter.new(project, context)
       expect(presenter.responsible_user_id).to be_present
       expect(presenter.responsible_user).to be_present
+    end
+  end
+
+  context 'not readable attributes' do
+    it 'should return nil if association attribute without id not readable' do
+      context = FakeContext.new(FakeProjectPolicy.new)
+      presenter = FakePresenter.new(project, context)
+      expect(presenter.counterparty_id).to be_nil
+      expect(presenter.counterparty).to be_nil
+    end
+
+    it 'should return nil if association attribute with id not readable' do
+      context = FakeContext.new(FakeProjectPolicyWithId.new)
+      presenter = FakePresenter.new(project, context)
+      expect(presenter.counterparty_id).to be_nil
+      expect(presenter.counterparty).to be_nil
     end
   end
 end
