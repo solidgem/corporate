@@ -1,38 +1,34 @@
 require 'rails_helper'
 
-module PunditViewPolicy
-  extend ActiveSupport::Concern
-
-  included do
-    before do
-      controller.singleton_class.class_eval do
-        def policy(instance)
-          Class.new do
-            def readable_attributes
-              %i[responsible_user]
-            end
-          end.new
-        end
-        helper_method :policy
+RSpec.describe ApplicationHelper do
+  before do
+    controller.singleton_class.class_eval do
+      def policy(instance)
+        Class.new do
+          def readable_attributes
+            %i[responsible_user]
+          end
+        end.new
       end
+      helper_method :policy
     end
   end
-end
-
-RSpec.describe ApplicationHelper do
-  include PunditViewPolicy
 
   describe '#readable_tag' do
-    it 'nil if not readable and attribute' do
-      expect(helper.readable_tag(:td, :project, :counterparty) { '1' }).to be_nil
+    let(:not_readable_tag) { helper.readable_tag(:td, :project, :counterparty) { :some_content } }
+    let(:readable_tag_with_id) { helper.readable_tag(:td, :project, :responsible_user_id) { :some_content } }
+    let(:readable_tag_without_id) { helper.readable_tag(:td, :project, :responsible_user) { :some_content } }
+
+    it 'nil if not readable' do
+      expect(not_readable_tag).to be_nil
     end
 
     it 'nil if not readable and attribute with id' do
-      expect(helper.readable_tag(:td, :project, :responsible_user_id) { '1' }).to be_present
+      expect(readable_tag_with_id).to be_present
     end
 
-    it 'content_tag if readable' do
-      expect(helper.readable_tag(:td, :project, :responsible_user) { '1' }).to be_present
+    it 'content_tag if readable and attribute without id' do
+      expect(readable_tag_without_id).to be_present
     end
   end
 end
