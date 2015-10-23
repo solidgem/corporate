@@ -94,16 +94,9 @@ module ApplicationHelper
   end
 
   def readable_tag(tag, model_name, attribute_name, &block)
-    readable_attributes =
-        policy(model_name)
-            .readable_attributes
-            .each_with_object([]) do |attr, obj|
-              obj << attr.to_s
-              association_match = attr.to_s.match(/(?<association>.*)_id/)
-              obj << association_match[:association] if association_match
-            end
-
-    return if readable_attributes.exclude? attribute_name.to_s
+    readable_attributes = policy(model_name).readable_attributes.map(&:to_s)
+    attr_without_id = attribute_name.to_s.sub(/_id$/, '')
+    return if readable_attributes.exclude?(attr_without_id) && readable_attributes.exclude?("#{attr_without_id}_id")
     content_tag tag, capture(&block)
   end
 end
