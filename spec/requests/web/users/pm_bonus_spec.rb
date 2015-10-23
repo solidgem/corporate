@@ -15,4 +15,9 @@ RSpec.describe 'users', type: :request do
       expect(response).to be_success
     end
   end
+
+  it 'get xlsx document' do
+    get "/users/#{manager.id}/pm_bonus.xlsx"
+    expect(response).to be_success
+  end
 end
