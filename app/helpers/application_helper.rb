@@ -94,9 +94,7 @@ module ApplicationHelper
   end
 
   def readable_tag(tag, model_name, attribute_name, &block)
-    readable_attributes = policy(model_name).readable_attributes.map(&:to_s)
-    attr_without_id = attribute_name.to_s.sub(/_id$/, '')
-    return if readable_attributes.exclude?(attr_without_id) && readable_attributes.exclude?("#{attr_without_id}_id")
+    return if policy(model_name).all_readable_attributes.exclude? attribute_name
     content_tag tag, capture(&block)
   end
 end

@@ -38,6 +38,13 @@ class ApplicationPolicy
     Pundit.policy_scope!(user, record.class)
   end
 
+  def all_readable_attributes
+    readable_attributes.each_with_object([]) do |item, obj|
+      obj << item.to_s.sub(/_id$/,'').to_sym
+      obj << "#{item.to_s.sub(/_id$/,'')}_id".to_sym
+    end
+  end
+
   class Scope
     attr_reader :user, :scope
 

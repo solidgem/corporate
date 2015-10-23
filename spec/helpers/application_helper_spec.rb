@@ -4,11 +4,11 @@ RSpec.describe ApplicationHelper do
   before do
     controller.singleton_class.class_eval do
       def policy(instance)
-        Class.new do
+        Class.new(ApplicationPolicy) do
           def readable_attributes
             %i[responsible_user]
           end
-        end.new
+        end.new('','')
       end
       helper_method :policy
     end
