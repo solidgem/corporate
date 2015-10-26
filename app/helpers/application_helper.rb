@@ -94,7 +94,8 @@ module ApplicationHelper
   end
 
   def readable_tag(tag, model_name, attribute_name, &block)
-    return if policy(model_name).all_readable_attributes.exclude? attribute_name
+    readable_set = ReadableAttributesSet.new(policy(model_name))
+    return unless readable_set.readable?(attribute_name.to_s)
     content_tag tag, capture(&block)
   end
 end
