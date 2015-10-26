@@ -1,13 +1,20 @@
 class AddTimestampsToContractSupplementaryAgreements < ActiveRecord::Migration
-  class Contract::SupplementaryAgreement < ActiveRecord::Base
+  class ContractSupplementaryAgreement < ActiveRecord::Base
   end
 
   def up
-    add_timestamps(:contract_supplementary_agreements)
-    Contract::SupplementaryAgreement.update_all(created_at: DateTime.current, updated_at: DateTime.current)
+    add_column :contract_supplementary_agreements, :created_at, :integer
+    add_column :contract_supplementary_agreements, :updated_at, :integer
+
+    ContractSupplementaryAgreement.update_all(created_at: DateTime.current, updated_at: DateTime.current)
+
+    change_column_null :contract_supplementary_agreements, :created_at, false
+    change_column_null :contract_supplementary_agreements, :updated_at, false
   end
 
   def down
-    remove_timestamps(:contract_supplementary_agreements)
+    remove_column :contract_supplementary_agreements, :created_at, :integer
+    remove_column :contract_supplementary_agreements, :updated_at, :integer
+
   end
 end

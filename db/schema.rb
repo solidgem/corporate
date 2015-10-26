@@ -39,23 +39,23 @@ ActiveRecord::Schema.define(version: 20151023111558) do
   end
 
   create_table "contract_appendixes", force: :cascade do |t|
-    t.integer  "order_number"
-    t.integer  "contract_id"
-    t.date     "date"
-    t.integer  "contact_person_id"
-    t.boolean  "have_original"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "order_number"
+    t.integer "contract_id"
+    t.date    "date"
+    t.integer "contact_person_id"
+    t.boolean "have_original"
+    t.integer "created_at",        null: false
+    t.integer "updated_at",        null: false
   end
 
   create_table "contract_supplementary_agreements", force: :cascade do |t|
-    t.integer  "order_number"
-    t.integer  "contract_id"
-    t.date     "date"
-    t.integer  "contact_person_id"
-    t.boolean  "have_original"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "order_number"
+    t.integer "contract_id"
+    t.date    "date"
+    t.integer "contact_person_id"
+    t.boolean "have_original"
+    t.integer "created_at",        null: false
+    t.integer "updated_at",        null: false
   end
 
   create_table "contracts", force: :cascade do |t|
