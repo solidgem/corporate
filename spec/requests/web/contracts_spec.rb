@@ -13,13 +13,6 @@ RSpec.describe 'contracts', type: :request do
     end
   end
 
-  context 'edit' do
-    it 'render with 200 status' do
-      get "/contracts/#{contract.id}/edit"
-      expect(response).to be_success
-    end
-  end
-
   context 'new' do
     it 'render with 200 status' do
       get "/contracts/new"
