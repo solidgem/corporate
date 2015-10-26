@@ -32,7 +32,7 @@ class UserPolicy < ApplicationPolicy
     attrs.push :role, :role_text if user.administrator?
     attrs.push :hour_rate, :requisites, :external_hour_rate if user.manager? || user.administrator?
     attrs.push :hour_rate, :requisites if record == user
-    attrs
+    ReadableAttributesSet.new attrs
   end
 
   def permitted_attributes

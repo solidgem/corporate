@@ -29,7 +29,7 @@ RSpec.describe 'AccessPresenter', type: :presenter do
   let(:fake_project_policy) do
     Class.new(ApplicationPolicy) do
       def readable_attributes
-        %i[responsible_user]
+        ReadableAttributesSet.new [:responsible_user]
       end
     end
   end
@@ -37,7 +37,7 @@ RSpec.describe 'AccessPresenter', type: :presenter do
   let(:fake_project_policy_with_id) do
     Class.new(ApplicationPolicy) do
       def readable_attributes
-        %i[responsible_user_id]
+        ReadableAttributesSet.new [:responsible_user_id]
       end
     end
   end

@@ -10,7 +10,7 @@ RSpec.describe ApplicationHelper do
           end
 
           def readable_attributes
-            %i[responsible_user]
+            ReadableAttributesSet.new [:responsible_user]
           end
         end.new
       end

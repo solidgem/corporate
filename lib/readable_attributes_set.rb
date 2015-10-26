@@ -1,10 +1,10 @@
 class ReadableAttributesSet
-  def initialize(policy)
-    @readable_attributes = policy.readable_attributes
+  def initialize(attrs)
+    @attrs_set = Set.new attrs
   end
 
   def readable?(attribute)
-    attr_name = attribute.sub(/_id\z/, '')
-    @readable_attributes.include?(attr_name.to_sym) || @readable_attributes.include?("#{attr_name}_id".to_sym)
+    attr_name = attribute.to_s.sub(/_id\z/, '')
+    @attrs_set.include?(attr_name.to_sym) || @attrs_set.include?("#{attr_name}_id".to_sym)
   end
 end

@@ -1,15 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ReadableAttributesSet do
-  let(:policy) do
-    Class.new do
-      def readable_attributes
-        %i[responsible_user]
-      end
-    end
-  end
-
-  let(:readable_attribute_set) { ReadableAttributesSet.new(policy.new) }
+  let(:readable_attributes) { [:responsible_user] }
+  let(:readable_attribute_set) { ReadableAttributesSet.new readable_attributes }
 
   context '#readable?' do
     it 'return true if readable' do
