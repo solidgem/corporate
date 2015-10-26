@@ -15,6 +15,5 @@ class AddTimestampsToContractSupplementaryAgreements < ActiveRecord::Migration
   def down
     remove_column :contract_supplementary_agreements, :created_at, :datetime
     remove_column :contract_supplementary_agreements, :updated_at, :datetime
-
   end
 end
