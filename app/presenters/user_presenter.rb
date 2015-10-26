@@ -1,9 +1,4 @@
 class UserPresenter < BasePresenter
-  def initialize(model, view_context)
-    access_presenter = AccessPresenter.new model, view_context
-    super access_presenter, view_context
-  end
-
   def to_link
     h.link_to model.to_s, model
   end

@@ -57,6 +57,11 @@ module ApplicationHelper
     ].join.html_safe
   end
 
+  def show_readable_attribute(model, attribute)
+    return unless policy(model).readable_attributes.readable? attribute
+    show_attribute(model, attribute)
+  end
+
   def show_value(value)
     return value.to_link if value.respond_to?(:to_link)
     return value.to_s if value.respond_to?(:to_s)
