@@ -3,8 +3,8 @@ class AddTimestampsToContractAppendixes < ActiveRecord::Migration
   end
 
   def up
-    add_column :contract_appendixes, :created_at, :integer
-    add_column :contract_appendixes, :updated_at, :integer
+    add_column :contract_appendixes, :created_at, :datetime
+    add_column :contract_appendixes, :updated_at, :datetime
 
     ContractAppendix.update_all(created_at: DateTime.current, updated_at: DateTime.current)
 
@@ -13,7 +13,7 @@ class AddTimestampsToContractAppendixes < ActiveRecord::Migration
   end
 
   def down
-    remove_column :contract_appendixes, :created_at, :integer
-    remove_column :contract_appendixes, :updated_at, :integer
+    remove_column :contract_appendixes, :created_at, :datetime
+    remove_column :contract_appendixes, :updated_at, :datetime
   end
 end
