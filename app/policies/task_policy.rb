@@ -4,7 +4,7 @@ class TaskPolicy < ApplicationPolicy
       return scope.web if user.administrator?
       return scope.web.for_manager(user) if user.manager?
       return scope.web.for_worker(user) if user.worker?
-      default_scope.none
+      scope.none
     end
   end
 
