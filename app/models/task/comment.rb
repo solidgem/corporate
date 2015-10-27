@@ -3,7 +3,7 @@ class Task::Comment < ActiveRecord::Base
   include CommentRepository
 
   belongs_to :user
-  belongs_to :task
+  belongs_to :task, touch: true
 
   counter_culture :task, column_name: 'total_elapsed_time', delta_column: 'elapsed_time'
 
