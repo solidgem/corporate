@@ -20,6 +20,10 @@ class ProjectPresenter < BasePresenter
     model.kind_text
   end
 
+  def access_data
+    h.markdown model.access_data
+  end
+
   def total_balance(total_expenses)
     return unless model.cost
     (model.cost - total_expenses).to_s(:currency)

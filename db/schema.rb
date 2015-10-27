@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023111558) do
+ActiveRecord::Schema.define(version: 20151027081526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 20151023111558) do
     t.boolean  "letters_of_thanks"
     t.string   "overdue_kind"
     t.integer  "contract_act_id"
+    t.text     "access_data"
   end
 
   create_table "service_kinds", force: :cascade do |t|
