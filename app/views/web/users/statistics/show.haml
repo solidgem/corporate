@@ -15,8 +15,10 @@
         %td= convert_seconds_to_string stat[:user_elapsed_time]
         %td= stat[:reward].to_s(:currency)
     %tr
-      %td{colspan: 3}
+      %td{colspan: 2}
         %strong.pull-right= t '.total_reward'
+      %td
+        %strong= convert_seconds_to_string @statistics.sum{ |stat| stat[:user_elapsed_time] }
       %td
         %strong= @statistics.sum{ |stat| stat[:reward] }.to_s(:currency)
 - if @statistics.present?
