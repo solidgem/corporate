@@ -13,7 +13,7 @@ RSpec.describe 'users', type: :request do
     end
 
     context 'with filter' do
-      let(:filter) {{ start_date: 1.day.ago, end_date: 1.day.since }}
+      let(:filter) {{ user_date_form: { start_date: 1.day.ago, end_date: 1.day.since } }}
 
       it 'render with 200 status' do
         get "/users/#{user.id}/statistics", filter
