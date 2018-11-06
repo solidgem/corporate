@@ -16,3 +16,12 @@ User.create_with(password: '123456',
                  hour_rate: 100,
                  external_hour_rate: 200)
     .find_or_create_by!(email: 'worker@solidgem.ru')
+
+100.times do |i|
+  User.create_with(password: '123456',
+                 name: "Пользователь исполнитель #{i}",
+                 role: :worker,
+                 hour_rate: 100,
+                 external_hour_rate: 200)
+    .find_or_create_by!(email: "worker-#{i}@solidgem.ru")
+end
