@@ -1,12 +1,13 @@
 {
   "name": "corporate",
-  "scripts": {},
+  "scripts": {
+    "postdeploy": "bundle exec rake db:seed"
+  },
   "env": {
     "RACK_ENV": { "required": true },
     "RAILS_ENV": { "required": true },
     "RAILS_SERVE_STATIC_FILES": { "required": true },
     "SECRET_KEY_BASE": { "required": true },
-    "DEPLOY_TASKS": { "required": true },
     "ROOT_URL":  { "required": true },
     "SITE_NAME":  { "required": true },
 
@@ -16,9 +17,6 @@
     "AWS_S3_BUCKET": { "required": true },
     "MAIL_SENDER_ADDRESS": { "required": true }
   },
-  "buildpacks": [
-    { "url": "https://github.com/ddollar/heroku-buildpack-multi" }
-  ],
   "addons": [
     "heroku-postgresql:hobby-dev",
     "sendgrid:starter"
