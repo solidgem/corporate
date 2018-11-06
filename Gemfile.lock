@@ -54,13 +54,6 @@ GEM
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
-    axlsx (2.0.1)
-      htmlentities (~> 4.3.1)
-      nokogiri (>= 1.4.1)
-      rubyzip (~> 1.0.0)
-    axlsx_rails (0.5.2)
-      actionpack (>= 3.1)
-      axlsx (>= 2.0.1)
     bcrypt (3.1.12)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -257,7 +250,6 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
-    rubyzip (1.0.0)
     sass (3.6.0)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -340,7 +332,6 @@ PLATFORMS
 DEPENDENCIES
   addressable
   awesome_print
-  axlsx_rails
   bcrypt
   bootstrap-kaminari-views
   bootstrap-sass
