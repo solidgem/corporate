@@ -2,11 +2,11 @@ source 'https://rubygems.org'
 ruby '2.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.2'
+gem 'rails', '~> 4.2.2'
 # Use sqlite3 as the database for Active Record
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -44,7 +44,7 @@ gem 'counter_culture'
 gem 'jquery-rails'
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 
 gem 'enumerize'
 gem 'state_machines-activerecord'
@@ -61,21 +61,21 @@ gem 'rollbar'
 gem 'unicorn'
 gem 'date_range_formatter'
 
+gem 'pg'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
   gem 'font_assets'
 end
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'pry-rails'
   gem 'pry-byebug'
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails'
   gem 'awesome_print'
   gem 'bullet'
 end
