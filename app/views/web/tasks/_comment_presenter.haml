@@ -7,6 +7,9 @@
     %li.list-group-item
       %strong= han 'task/comment', :created_at
       = comment_presenter.created_at
+    %li.list-group-item
+      %strong= han 'task/comment', :date
+      = comment_presenter.date
     - if comment_presenter.elapsed_time
       %li.list-group-item
         %strong= han 'task/comment', :elapsed_time

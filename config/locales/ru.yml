@@ -150,6 +150,7 @@ ru:
         elapsed_time: Затраченное время
         elapsed_time_hours: Часы
         elapsed_time_minutes: Минуты
+        date: Дата
       counterparty:
         site: Сайт
         comment: Комментарий
