@@ -10,6 +10,9 @@ class Task::Comment < ActiveRecord::Base
   validates :task, presence: true
   validates :user, presence: true
   validates :content, presence: true
+  validates :date, presence: true
+
+  after_initialize :set_default_date, if: :new_record?
 
   def elapsed_time_hours
     TimeConverter.convert_to_time(elapsed_time.to_i)[:hours]
@@ -31,5 +34,9 @@ class Task::Comment < ActiveRecord::Base
 
   def update_elapsed_time(hours, minutes)
     self.elapsed_time = TimeConverter.convert_to_seconds(hours: hours, minutes: minutes)
+  end
+
+  def set_default_date
+    self.date = Date.current
   end
 end
