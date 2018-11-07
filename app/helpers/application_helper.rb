@@ -19,13 +19,6 @@ module ApplicationHelper
     end
   end
 
-  def last_months(n)
-    current_month = DateTime.current.beginning_of_month
-    n.times.reverse_each.map do |i|
-      current_month.months_ago(i)
-    end
-  end
-
   def render_breadcrumbs
     return if breadcrumbs.blank? || breadcrumbs.one?
     items = breadcrumbs.map do |breadcrumb|
