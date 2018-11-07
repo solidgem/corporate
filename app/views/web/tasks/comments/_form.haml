@@ -15,4 +15,5 @@
             = f.input :elapsed_time_minutes, collection:  0.step(by: 5, to: 60), include_blank: false
 
       = render 'shared/attachments_files_form', f: f
+      = f.input :date_correction, include_blank: false
       = f.button :submit

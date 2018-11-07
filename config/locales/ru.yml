@@ -151,6 +151,9 @@ ru:
         elapsed_time_hours: Часы
         elapsed_time_minutes: Минуты
         date: Дата
+
+        # task/comment_type
+        date_correction: Коррекция даты
       counterparty:
         site: Сайт
         comment: Комментарий
@@ -207,6 +210,12 @@ ru:
         programming: Программирование
         content: Контент
         design: Дизайн
+    task/comment:
+      # task/comment_type
+      date_correction:
+        "0": Cегодня
+        "1": Вчера
+        "2": Позавчера
     project:
       kind:
         support: Сопровождение
