@@ -7,6 +7,10 @@ class Task::CommentPresenter < BasePresenter
     h.formatted_date model.created_at
   end
 
+  def date
+    h.formatted_date model.date
+  end
+
   def updated_at
     h.formatted_date model.updated_at
   end

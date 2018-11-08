@@ -2,13 +2,13 @@ class Web::Tasks::CommentsController < Web::Tasks::ApplicationController
   add_breadcrumb
 
   def new
-    @comment = resource_task.comments.build
+    @comment = resource_task.comments.build.becomes(Task::CommentType)
     authorize @comment
     add_breadcrumb
   end
 
   def create
-    @comment = resource_task.comments.build
+    @comment = resource_task.comments.build.becomes(Task::CommentType)
     authorize @comment
     add_breadcrumb
     attrs = comment_params.merge(user: current_user)
@@ -21,7 +21,8 @@ class Web::Tasks::CommentsController < Web::Tasks::ApplicationController
 
   def comment_params
     params.require(:comment)
-        .permit(:content, :elapsed_time, :elapsed_time_hours, :elapsed_time_minutes,
-                attachments_files: [], attachments_attributes: [:id, :_destroy])
+      .permit(:content, :elapsed_time, :elapsed_time_hours, :elapsed_time_minutes,
+              :date_correction,
+              attachments_files: [], attachments_attributes: [:id, :_destroy])
   end
 end

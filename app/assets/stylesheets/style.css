@@ -1,12 +1,13 @@
-.big_textarea textarea{
+.big_textarea textarea {
     resize:vertical;
 }
 
-.form-group.datetime_picker{
+.form-group.datetime_picker,
+.form-group.date_picker {
     position: relative;
 }
 
-.project-tab-group{
+.project-tab-group {
     margin-bottom: 15px;
 }
 
