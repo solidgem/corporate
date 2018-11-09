@@ -27,4 +27,46 @@ module UserStatisticsHelper
     end
     links.join('&nbsp').html_safe
   end
+
+  def user_working_out(data)
+    return if data.empty?
+
+    chart_data = {
+      labels: @working_out.map(&:first).map { |d| formatted_date d },
+      datasets: [
+        {
+          label: "Часы",
+          data: @working_out.map(&:last).map { |v| v.to_f / 1.hour },
+          borderColor: "#337ab7",
+          backgroundColor: "#f5f5f5",
+          stepped_line: true,
+        }
+      ]
+    }
+
+    options = {
+      title: {
+        display: true,
+        text: "Выработка по дням"
+      },
+
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              suggestedMin: 0,
+              suggestedMax: 12
+            }
+          }
+        ]
+      },
+      animation: {
+        duration: 0,
+      },
+      height: "", # hack
+      width: "",  # hack
+    }
+
+    line_chart chart_data, options
+  end
 end

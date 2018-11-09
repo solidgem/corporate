@@ -7,5 +7,9 @@ class Web::Users::StatisticsController < Web::Users::ApplicationController
     @statistics = UserStatisticsQuery.perform resource_user,
                                               @date_form.start_date,
                                               @date_form.end_date
+
+    @working_out = UserWorkingOutQuery.perform resource_user,
+                                                @date_form.start_date,
+                                                @date_form.end_date
   end
 end

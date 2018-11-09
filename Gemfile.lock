@@ -70,6 +70,8 @@ GEM
       uniform_notifier (~> 1.9.0)
     byebug (4.0.5)
       columnize (= 0.9.0)
+    chartjs-ror (3.6.2)
+      rails (>= 3.1)
     coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -329,6 +331,7 @@ DEPENDENCIES
   bootstrap-select-rails
   bootstrap3-datetimepicker-rails
   bullet
+  chartjs-ror
   coffee-rails (~> 4.1.0)
   counter_culture
   database_cleaner

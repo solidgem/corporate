@@ -17,6 +17,7 @@
 //= require moment
 //= require moment/ru
 //= require bootstrap-datetimepicker
+//= require Chart.min
 
 //= require_tree .
 

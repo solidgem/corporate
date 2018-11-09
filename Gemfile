@@ -20,6 +20,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap-select-rails'
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
+gem 'chartjs-ror'
 
 gem 'validates'
 

@@ -27,3 +27,6 @@
         %strong= convert_seconds_to_string @statistics.sum{ |stat| stat[:user_elapsed_time] }
       %td
         %strong= @statistics.sum{ |stat| stat[:reward] }.to_s(:currency)
+
+
+= user_working_out @working_out
